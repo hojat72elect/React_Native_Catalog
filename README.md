@@ -19,4 +19,6 @@ I'm not using these icons as an NPM dependency, I'm just copy pasting them from 
 <li><a href="https://github.com/oblador/react-native-progress">react-native-progress</a></li>
 <li><a href="https://github.com/software-mansion/react-native-svg">react-native-svg</a></li>
 There are lots of other UI libraries (including heroicons) that depend on this library for their native implementation. If you do not install this library, you might have runtime crashes on some platforms.
+<li><a href="https://github.com/tailwindlabs/tailwindcss">TailwindCSS</a></li>
+I am using this library in combination with NativeWind.
 </ul>
