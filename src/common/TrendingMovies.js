@@ -11,9 +11,10 @@ const MovieCard = ({item, handleClick}) => {
                 source={require('../../assets/images/moviePoster1.png')}
                 style={{
                     width: width * 0.6,
-                    height: height * 0.4
+                    height: height * 0.4,
+                    resizeMode: 'contain',
+                    borderRadius: 24
                 }}
-                className="rounded-3xl"
             />
         </TouchableWithoutFeedback>
     );
