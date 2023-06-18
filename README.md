@@ -21,4 +21,6 @@ I'm not using these icons as an NPM dependency, I'm just copy pasting them from 
 There are lots of other UI libraries (including heroicons) that depend on this library for their native implementation. If you do not install this library, you might have runtime crashes on some platforms.
 <li><a href="https://github.com/tailwindlabs/tailwindcss">TailwindCSS</a></li>
 I am using this library in combination with NativeWind.
+<li><a href="https://reactnavigation.org/">react-navigation/native</a></li>
+I'm not going to navigate to any screens, just added this so I can do some experiments with navigation in RN. 
 </ul>
