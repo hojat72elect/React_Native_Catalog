@@ -4,12 +4,16 @@ import {StatusBar} from "expo-status-bar";
 import {Bars3CenterLeftIcon, MagnifyingGlassIcon} from "react-native-heroicons/outline";
 import {styles} from "../../common/themes/Theme";
 import {TrendingMovies} from "../../common/TrendingMovies";
+import {MovieList} from "../../common/MovieList";
 
 const isIos = Platform.OS === 'ios';
 
 export default function HomeScreen() {
 
-    const [trending, setTrending] = useState([2, 3, 4, 7, 6, 5, 2, 3, 7, 4, 6, 5]);
+    const [trending, setTrending] = useState([2, 3, 4]);
+    const [upcoming, setUpcoming] = useState([3, 4, 7, 6, 5, 3, 4, 5]);
+    const [topRated, setTopRated] = useState([2, 6, 8, 3, 7, 4, 5, 2]);
+
 
     return (
         <View className="flex-1 bg-neutral-800">
@@ -31,8 +35,11 @@ export default function HomeScreen() {
                 showsVerticalScrollIndicator={true}
                 contentContainerStyle={{paddingBottom: 10}}
             >
-                {/*movies carousel*/}
+                {/*movies carousel.*/}
                 <TrendingMovies data={trending}/>
+
+                {/*A list of upcoming movies.*/}
+                <MovieList title="upcoming" data={upcoming}/>
             </ScrollView>
         </View>
     )
