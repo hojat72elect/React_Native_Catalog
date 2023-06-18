@@ -1,8 +1,12 @@
 import React, {useEffect} from 'react'
-import {SafeAreaView, ScrollView, TouchableOpacity, View} from "react-native";
+import {Dimensions, Platform, SafeAreaView, ScrollView, TouchableOpacity, View} from "react-native";
 import {useRoute} from "@react-navigation/native";
-import {ChevronLeftIcon} from "react-native-heroicons/outline";
+import {ChevronLeftIcon, HeartIcon} from "react-native-heroicons/outline";
 import {styles} from "../../common/themes/Theme";
+
+let {width, height} = Dimensions.get('window');
+const isIos = Platform.OS === 'ios';
+const topMargin = isIos ? '' : ' mt-7';
 
 export const MovieScreen = () => {
 
@@ -13,20 +17,24 @@ export const MovieScreen = () => {
 
 
     return (
-        <ScrollView
-            contentContainerStyle={{paddingBottom: 20}}
-            className="flex-1 bg-neutral-900"
-        >
+        <View className="flex-1 bg-neutral-900">
+            <SafeAreaView
+                className={`absolute z-20 w-full flex-row justify-between items-center px-4 ${topMargin}`}>
+                <TouchableOpacity style={styles.background} className="rounded-xl p-1">
+                    <ChevronLeftIcon size="28" strokeWidth={2.5} color="white"/>
+                </TouchableOpacity>
+                <TouchableOpacity>
+                    <HeartIcon size="35" color="white"/>
+                </TouchableOpacity>
+            </SafeAreaView>
+            <ScrollView
+                contentContainerStyle={{paddingBottom: 20}}
+                className="w-full"
+            >
 
-            {/*Back button and the movie poster*/}
-            <View className="w-full">
-                <SafeAreaView className="absolute z-20 w-full flex-row justify-between items-center px-4">
-                    <TouchableOpacity style={styles.background} className="rounded-xl p-1">
-                        <ChevronLeftIcon size="28" strokeWidth={2.5} color="white"/>
-                    </TouchableOpacity>
-                </SafeAreaView>
-            </View>
-        </ScrollView>
+
+            </ScrollView>
+        </View>
     )
 }
 
