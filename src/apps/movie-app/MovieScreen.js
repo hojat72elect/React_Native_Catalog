@@ -56,11 +56,17 @@ export const MovieScreen = () => {
                 <View style={{marginTop: -(height * 0.09)}} className="space-y-3">
                     {/*title*/}
                     <Text className="text-white text-center text-3xl font-bold tracking-wider">
-Harry Potter and the Prisoner of Azkaban
+                        Ant-Man and the Wasp: Quantumania
                     </Text>
-                    <Text className="">
-                        release date
+                    <Text className="text-neutral-400 font-semibold text-base text-center">
+                        Released . 2020 . 170 min
                     </Text>
+                    <View className="flex-row justify-center mx-4 space-x-2">
+                        <Text className="text-neutral-400 font-semibold text-base text-center">
+                            Action . Thrill . Comedy
+                        </Text>
+                    </View>
+                    <Text></Text>
                 </View>
             </ScrollView>
         </View>
