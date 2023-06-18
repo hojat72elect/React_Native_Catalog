@@ -24,3 +24,10 @@ I am using this library in combination with NativeWind.
 <li><a href="https://reactnavigation.org/">react-navigation</a></li>
 I'm not going to navigate to any screens, just added this so I can do some experiments with navigation in RN. I'm currently just using the <i>native</i> and <i>native-stack</i> modules of this library.
 </ul>
+
+
+
+https://www.youtube.com/watch?v=Q1xQuCpYIFE&t=200s
+
+
+7:41
