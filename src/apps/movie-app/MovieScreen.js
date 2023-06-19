@@ -15,7 +15,9 @@ const topMargin = isIos ? '' : ' mt-7';
 export const MovieScreen = () => {
 
     const {params: item} = useRoute();
-
+    const likeButtonCallback = () => {
+        console.log("User has clicked on the like button.");
+    }
 
     const [cast] = useState([2, 6, 7, 3, 4, 5]);
     const [similarMovies] = useState([2, 2, 3, 4, 3, 5, 6, 7, 3, 4, 5]);
@@ -33,7 +35,7 @@ export const MovieScreen = () => {
                                   className="rounded-xl p-1">
                     <ChevronLeftIcon size="28" strokeWidth={2.5} color="white"/>
                 </TouchableOpacity>
-                <ToggleButton isToggled={false}/>
+                <ToggleButton isToggled={false} onToggled={likeButtonCallback}/>
             </SafeAreaView>
             <ScrollView
                 contentContainerStyle={{paddingBottom: 20}}

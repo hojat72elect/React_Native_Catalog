@@ -1,6 +1,6 @@
 import {TouchableOpacity} from "react-native";
-import {HeartIcon} from "react-native-heroicons/solid";
 import {useState} from "react";
+import {HeartIcon} from "react-native-heroicons/solid";
 
 /**
  *
@@ -8,15 +8,21 @@ import {useState} from "react";
  * like button and thumbs up button.
  *
  * @param isToggled {boolean} use it to determine if the button is toggled by default or not.
+ * @param onToggled {()=>{}}
  */
-export const ToggleButton = ({isToggled}) => {
+export const ToggleButton = ({
+     isToggled = false, onToggled = () => {}
+      }) => {
 
     // If toggled, true. Otherwise, false.
     const [buttonState, setButtonState] = useState(isToggled);
 
     return (
         <TouchableOpacity
-            onPress={() => setButtonState(!buttonState)}
+            onPress={() => {
+                setButtonState(!buttonState)
+                onToggled();
+            }}
         >
             <HeartIcon size="35" color={buttonState ? "red" : "white"}/>
         </TouchableOpacity>
