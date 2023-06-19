@@ -11,8 +11,10 @@ import {HeartIcon} from "react-native-heroicons/solid";
  * @param onToggled {()=>{}}
  */
 export const ToggleButton = ({
-     isToggled = false, onToggled = () => {}
-      }) => {
+                                 isToggled = false,
+                                 onToggled = () => {},
+
+                             }) => {
 
     // If toggled, true. Otherwise, false.
     const [buttonState, setButtonState] = useState(isToggled);
@@ -24,7 +26,7 @@ export const ToggleButton = ({
                 onToggled();
             }}
         >
-            <HeartIcon size="35" color={buttonState ? "red" : "white"}/>
+            <HeartIcon size={40} color={buttonState ? "red" : "white"}/>
         </TouchableOpacity>
     )
 }
