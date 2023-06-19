@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import {Dimensions, Image, Platform, SafeAreaView, ScrollView, Text, TouchableOpacity, View} from "react-native";
-import {useNavigation, useRoute} from "@react-navigation/native";
+import {useRoute} from "@react-navigation/native";
 import {ChevronLeftIcon} from "react-native-heroicons/outline";
 import {HeartIcon} from "react-native-heroicons/solid";
 import {styles} from "../../common/themes/Theme";
@@ -16,9 +16,9 @@ export const MovieScreen = () => {
 
     const {params: item} = useRoute();
     const [isFavorite, toggleFavorite] = useState(false);
-    const navigation = useNavigation();
-    const [cast, setCast] = useState([2, 6, 7, 3, 4, 5]);
-    const [similarMovies, setSimilarMoVies] = useState([2, 2, 3, 4, 3, 5, 6, 7, 3, 4, 5]);
+
+    const [cast] = useState([2, 6, 7, 3, 4, 5]);
+    const [similarMovies] = useState([2, 2, 3, 4, 3, 5, 6, 7, 3, 4, 5]);
     useEffect(() => {
         // Get the info about this specific movie
     }, [item]);
@@ -28,7 +28,7 @@ export const MovieScreen = () => {
         <View className="flex-1 bg-neutral-900">
             <SafeAreaView
                 className={`absolute z-20 w-full flex-row justify-between items-center px-4 ${topMargin}`}>
-                <TouchableOpacity onPress={() => navigation.goBack()} style={styles.background}
+                <TouchableOpacity onPress={() => console.log("user clicked on the back button")} style={styles.background}
                                   className="rounded-xl p-1">
                     <ChevronLeftIcon size="28" strokeWidth={2.5} color="white"/>
                 </TouchableOpacity>
@@ -76,10 +76,10 @@ export const MovieScreen = () => {
                 </View>
 
                 {/*cast members of the movie*/}
-                <Cast navigation={navigation} cast={cast}/>
+                <Cast  cast={cast}/>
 
                 {/*Similar movies*/}
-                <MovieList title="Similar Movies" data={similarMovies}/>
+                <MovieList title="Similar Movies" data={similarMovies} hideSeeAll={true}/>
 
             </ScrollView>
         </View>

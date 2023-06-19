@@ -1,7 +1,6 @@
 import React from 'react'
 import {Dimensions, Image, Text, TouchableWithoutFeedback, View} from "react-native";
 import Carousel from "react-native-snap-carousel";
-import {useNavigation} from "@react-navigation/native";
 
 let {width, height} = Dimensions.get('window');
 
@@ -22,10 +21,9 @@ const MovieCard = ({item, handleClick}) => {
 }
 
 export const TrendingMovies = ({data}) => {
-    const navigation = useNavigation();
+
     const handleClick = (item) => {
         console.log(`user clicked on item ${item} in carousel`);
-        navigation.navigate('Movie', item);
     };
 
 

@@ -10,9 +10,9 @@ const isIos = Platform.OS === 'ios';
 
 export default function HomeScreen() {
 
-    const [trending, setTrending] = useState([2, 3, 4]);
-    const [upcoming, setUpcoming] = useState([3, 4, 7, 6, 5, 3, 4, 5]);
-    const [topRated, setTopRated] = useState([2, 6, 8, 3, 7, 4, 5, 2]);
+    const [trending] = useState([3, 8, 4, 7, 5, 6, 3, 4, 8, 7, 5]);
+    const [upcoming] = useState([3, 4, 7, 6, 5, 3, 4, 5]);
+    const [topRated] = useState([2, 6, 8, 3, 7, 4, 5, 2]);
 
 
     return (
