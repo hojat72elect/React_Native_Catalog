@@ -26,6 +26,6 @@ I'm not going to navigate to any screens, just added this so I can do some exper
 </ul>
 
 
-https://youtu.be/Q1xQuCpYIFE
+Apps implemented:
+1. <a href="https://youtu.be/Q1xQuCpYIFE">Movie App</a> (totally implemented).
 
-43:16
