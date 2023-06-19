@@ -2,8 +2,6 @@ import React from 'react'
 import {NavigationContainer} from "@react-navigation/native";
 import {createNativeStackNavigator} from "@react-navigation/native-stack";
 import {LogBox} from "react-native";
-import HomeScreen from "./movie-app/HomeScreen";
-import {MovieScreen} from "./movie-app/MovieScreen";
 import {PersonScreen} from "./movie-app/PersonScreen";
 
 
