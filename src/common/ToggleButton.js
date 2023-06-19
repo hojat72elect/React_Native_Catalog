@@ -9,11 +9,13 @@ import {HeartIcon} from "react-native-heroicons/solid";
  *
  * @param isToggled {boolean} use it to determine if the button is toggled by default or not.
  * @param onToggled {()=>{}}
+ * @param buttonSize {number}
  */
 export const ToggleButton = ({
                                  isToggled = false,
-                                 onToggled = () => {},
-
+                                 onToggled = () => {
+                                 },
+                                 buttonSize = 35
                              }) => {
 
     // If toggled, true. Otherwise, false.
@@ -26,7 +28,7 @@ export const ToggleButton = ({
                 onToggled();
             }}
         >
-            <HeartIcon size={40} color={buttonState ? "red" : "white"}/>
+            <HeartIcon size={buttonSize} color={buttonState ? "red" : "white"}/>
         </TouchableOpacity>
     )
 }

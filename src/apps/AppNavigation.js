@@ -4,8 +4,6 @@ import {createNativeStackNavigator} from "@react-navigation/native-stack";
 import {LogBox} from "react-native";
 import {PersonScreen} from "./movie-app/PersonScreen";
 
-
-
 const Stack = createNativeStackNavigator();
 
 LogBox.ignoreLogs([
