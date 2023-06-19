@@ -2,8 +2,8 @@ import React, {useState} from 'react'
 import {Dimensions, Image, Platform, SafeAreaView, ScrollView, Text, TouchableOpacity, View} from "react-native";
 import {styles} from "../../common/themes/Theme";
 import {ChevronLeftIcon} from "react-native-heroicons/outline";
-import {HeartIcon} from "react-native-heroicons/solid";
 import {MovieList} from "../../common/MovieList";
+import {ToggleButton} from "../../common/ToggleButton";
 
 let {width, height} = Dimensions.get('window');
 const isIos = Platform.OS === 'ios';
@@ -11,7 +11,6 @@ const verticalMargin = isIos ? '' : ' my-10';
 
 export const PersonScreen = () => {
 
-    const [isFavorite, toggleFavorite] = useState(false);
     const [personMovies] = useState([3, 4, 8, 7, 5, 6, 3, 4, 5]);
 
     return (
@@ -24,11 +23,8 @@ export const PersonScreen = () => {
                                   className="rounded-xl p-1">
                     <ChevronLeftIcon size="28" strokeWidth={2.5} color="white"/>
                 </TouchableOpacity>
-                <TouchableOpacity
-                    onPress={() => toggleFavorite(!isFavorite)}
-                >
-                    <HeartIcon size="35" color={isFavorite ? "red" : "white"}/>
-                </TouchableOpacity>
+
+                <ToggleButton isToggled={false}/>
             </SafeAreaView>
 
             {/*Personal details*/}

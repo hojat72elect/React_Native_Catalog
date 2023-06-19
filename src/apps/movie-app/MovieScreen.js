@@ -2,11 +2,11 @@ import React, {useEffect, useState} from 'react'
 import {Dimensions, Image, Platform, SafeAreaView, ScrollView, Text, TouchableOpacity, View} from "react-native";
 import {useRoute} from "@react-navigation/native";
 import {ChevronLeftIcon} from "react-native-heroicons/outline";
-import {HeartIcon} from "react-native-heroicons/solid";
 import {styles} from "../../common/themes/Theme";
 import {LinearGradient} from "expo-linear-gradient";
 import {Cast} from "../../common/Cast";
 import {MovieList} from "../../common/MovieList";
+import {ToggleButton} from "../../common/ToggleButton";
 
 let {width, height} = Dimensions.get('window');
 const isIos = Platform.OS === 'ios';
@@ -15,7 +15,7 @@ const topMargin = isIos ? '' : ' mt-7';
 export const MovieScreen = () => {
 
     const {params: item} = useRoute();
-    const [isFavorite, toggleFavorite] = useState(false);
+
 
     const [cast] = useState([2, 6, 7, 3, 4, 5]);
     const [similarMovies] = useState([2, 2, 3, 4, 3, 5, 6, 7, 3, 4, 5]);
@@ -28,15 +28,12 @@ export const MovieScreen = () => {
         <View className="flex-1 bg-neutral-900">
             <SafeAreaView
                 className={`absolute z-20 w-full flex-row justify-between items-center px-4 ${topMargin}`}>
-                <TouchableOpacity onPress={() => console.log("user clicked on the back button")} style={styles.background}
+                <TouchableOpacity onPress={() => console.log("user clicked on the back button")}
+                                  style={styles.background}
                                   className="rounded-xl p-1">
                     <ChevronLeftIcon size="28" strokeWidth={2.5} color="white"/>
                 </TouchableOpacity>
-                <TouchableOpacity
-                    onPress={() => toggleFavorite(!isFavorite)}
-                >
-                    <HeartIcon size="35" color={isFavorite ? "red" : "white"}/>
-                </TouchableOpacity>
+                <ToggleButton isToggled={false}/>
             </SafeAreaView>
             <ScrollView
                 contentContainerStyle={{paddingBottom: 20}}
@@ -76,7 +73,7 @@ export const MovieScreen = () => {
                 </View>
 
                 {/*cast members of the movie*/}
-                <Cast  cast={cast}/>
+                <Cast cast={cast}/>
 
                 {/*Similar movies*/}
                 <MovieList title="Similar Movies" data={similarMovies} hideSeeAll={true}/>
