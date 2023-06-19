@@ -2,12 +2,11 @@ import React, {useEffect, useState} from 'react'
 import {Dimensions, Image, Platform, SafeAreaView, ScrollView, Text, TouchableOpacity, View} from "react-native";
 import {useRoute} from "@react-navigation/native";
 import {ChevronLeftIcon} from "react-native-heroicons/outline";
-import {styles} from "../../common/themes/Theme";
 import {LinearGradient} from "expo-linear-gradient";
-import {Cast} from "../../common/Cast";
-import {MovieList} from "../../common/MovieList";
 import {ToggleButton} from "../../common/ToggleButton";
 import {HeartIcon} from "react-native-heroicons/solid";
+import {MovieList} from "./MovieList";
+import {Cast} from "./Cast";
 
 let {width, height} = Dimensions.get('window');
 const isIos = Platform.OS === 'ios';

@@ -1,10 +1,10 @@
 import React, {useState} from 'react'
 import {Dimensions, Image, Platform, SafeAreaView, ScrollView, Text, TouchableOpacity, View} from "react-native";
-import {styles} from "../../common/themes/Theme";
 import {ChevronLeftIcon} from "react-native-heroicons/outline";
-import {MovieList} from "../../common/MovieList";
 import {ToggleButton} from "../../common/ToggleButton";
 import {HeartIcon} from "react-native-heroicons/solid";
+import {MovieList} from "./MovieList";
+import {styles} from "../../common/Theme";
 
 let {width, height} = Dimensions.get('window');
 const isIos = Platform.OS === 'ios';
