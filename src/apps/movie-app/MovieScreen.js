@@ -5,6 +5,8 @@ import {ChevronLeftIcon} from "react-native-heroicons/outline";
 import {HeartIcon} from "react-native-heroicons/solid";
 import {styles} from "../../common/themes/Theme";
 import {LinearGradient} from "expo-linear-gradient";
+import {Cast} from "../../common/Cast";
+import {MovieList} from "../../common/MovieList";
 
 let {width, height} = Dimensions.get('window');
 const isIos = Platform.OS === 'ios';
@@ -15,6 +17,8 @@ export const MovieScreen = () => {
     const {params: item} = useRoute();
     const [isFavorite, toggleFavorite] = useState(false);
     const navigation = useNavigation();
+    const [cast, setCast] = useState([2, 6, 7, 3, 4, 5]);
+    const [similarMovies, setSimilarMoVies] = useState([2, 2, 3, 4, 3, 5, 6, 7, 3, 4, 5]);
     useEffect(() => {
         // Get the info about this specific movie
     }, [item]);
@@ -66,8 +70,17 @@ export const MovieScreen = () => {
                             Action . Thrill . Comedy
                         </Text>
                     </View>
-                    <Text></Text>
+                    <Text className="text-neutral-400 mx-4 tracking-wide">
+                        Imagine a very long and pompous description that will go here.
+                    </Text>
                 </View>
+
+                {/*cast members of the movie*/}
+                <Cast navigation={navigation} cast={cast}/>
+
+                {/*Similar movies*/}
+                <MovieList title="Similar Movies" data={similarMovies}/>
+
             </ScrollView>
         </View>
     )
