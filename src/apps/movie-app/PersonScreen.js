@@ -4,6 +4,7 @@ import {styles} from "../../common/themes/Theme";
 import {ChevronLeftIcon} from "react-native-heroicons/outline";
 import {MovieList} from "../../common/MovieList";
 import {ToggleButton} from "../../common/ToggleButton";
+import {HeartIcon} from "react-native-heroicons/solid";
 
 let {width, height} = Dimensions.get('window');
 const isIos = Platform.OS === 'ios';
@@ -24,7 +25,7 @@ export const PersonScreen = () => {
                     <ChevronLeftIcon size="28" strokeWidth={2.5} color="white"/>
                 </TouchableOpacity>
 
-                <ToggleButton isToggled={false}/>
+                <ToggleButton isToggled={false} Icon={HeartIcon}/>
             </SafeAreaView>
 
             {/*Personal details*/}

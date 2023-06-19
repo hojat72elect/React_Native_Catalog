@@ -7,6 +7,7 @@ import {LinearGradient} from "expo-linear-gradient";
 import {Cast} from "../../common/Cast";
 import {MovieList} from "../../common/MovieList";
 import {ToggleButton} from "../../common/ToggleButton";
+import {HeartIcon} from "react-native-heroicons/solid";
 
 let {width, height} = Dimensions.get('window');
 const isIos = Platform.OS === 'ios';
@@ -35,7 +36,7 @@ export const MovieScreen = () => {
                                   className="rounded-xl p-1">
                     <ChevronLeftIcon size="28" strokeWidth={2.5} color="white"/>
                 </TouchableOpacity>
-                <ToggleButton isToggled={false} onToggled={likeButtonCallback}/>
+                <ToggleButton isToggled={false} onToggled={likeButtonCallback} Icon={HeartIcon}/>
             </SafeAreaView>
             <ScrollView
                 contentContainerStyle={{paddingBottom: 20}}
