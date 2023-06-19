@@ -3,6 +3,7 @@ import {Dimensions, Image, Platform, SafeAreaView, ScrollView, Text, TouchableOp
 import {styles} from "../../common/themes/Theme";
 import {ChevronLeftIcon} from "react-native-heroicons/outline";
 import {HeartIcon} from "react-native-heroicons/solid";
+import {MovieList} from "../../common/MovieList";
 
 let {width, height} = Dimensions.get('window');
 const isIos = Platform.OS === 'ios';
@@ -11,6 +12,7 @@ const verticalMargin = isIos ? '' : ' my-10';
 export const PersonScreen = () => {
 
     const [isFavorite, toggleFavorite] = useState(false);
+    const [personMovies] = useState([3, 4, 8, 7, 5, 6, 3, 4, 5]);
 
     return (
         <ScrollView className="flex-1 bg-neutral-900" contentContainerStyle={{paddingBottom: 20}}>
@@ -75,7 +77,13 @@ export const PersonScreen = () => {
                 </View>
                 <View className="my-6 mx-4 space-y-2">
                     <Text className="text-white text-lg">Biography</Text>
+                    <Text className="text-neutral-400 tracking-wide">Hojat Ghasemi is an amazing person and one of the
+                        best programmers in the world of JavaScript. He loves game programming and is currently living
+                        in Canada.</Text>
                 </View>
+
+                {/*movies of this person*/}
+                <MovieList title="Movies" hideSeeAll={true} data={personMovies}/>
             </View>
         </ScrollView>
     )
