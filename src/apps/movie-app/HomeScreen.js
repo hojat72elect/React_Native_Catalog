@@ -2,13 +2,13 @@ import React, {useState} from 'react'
 import {Platform, SafeAreaView, ScrollView, Text, TouchableOpacity, View} from "react-native";
 import {StatusBar} from "expo-status-bar";
 import {Bars3CenterLeftIcon, MagnifyingGlassIcon} from "react-native-heroicons/outline";
-import {styles} from "../../common/themes/Theme";
-import {TrendingMovies} from "../../common/TrendingMovies";
-import {MovieList} from "../../common/MovieList";
+import {TrendingMovies} from "./TrendingMovies";
+import {MovieList} from "./MovieList";
+import {styles} from "../../common/Theme";
 
 const isIos = Platform.OS === 'ios';
 
-export default function HomeScreen() {
+export const HomeScreen = () => {
 
     const [trending] = useState([3, 8, 4, 7, 5, 6, 3, 4, 8, 7, 5]);
     const [upcoming] = useState([3, 4, 7, 6, 5, 3, 4, 5]);

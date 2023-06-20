@@ -1,5 +1,7 @@
 import React from 'react'
 import {Dimensions, Image, ScrollView, Text, TouchableOpacity, TouchableWithoutFeedback, View} from "react-native";
+import {styles} from "../../common/Theme";
+
 
 let {width, height} = Dimensions.get('window');
 
