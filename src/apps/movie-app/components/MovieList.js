@@ -1,6 +1,6 @@
 import React from 'react'
 import {Dimensions, Image, ScrollView, Text, TouchableOpacity, TouchableWithoutFeedback, View} from "react-native";
-import {styles} from "../../common/Theme";
+import {styles} from "../../../common/Theme";
 
 
 let {width, height} = Dimensions.get('window');
@@ -38,7 +38,7 @@ export const MovieList = ({title, data, hideSeeAll}) => {
                             >
                                 <View className="space-y-1 mr-4">
                                     <Image
-                                        source={require('../../../assets/images/moviePoster2.png')}
+                                        source={require('../../../../assets/images/moviePoster2.png')}
                                         style={{
                                             width: width * 0.33,
                                             height: height * 0.22,

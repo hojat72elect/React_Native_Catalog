@@ -3,10 +3,11 @@ import {Dimensions, Image, Platform, SafeAreaView, ScrollView, Text, TouchableOp
 import {useRoute} from "@react-navigation/native";
 import {ChevronLeftIcon} from "react-native-heroicons/outline";
 import {LinearGradient} from "expo-linear-gradient";
-import {ToggleButton} from "../../common/ToggleButton";
 import {HeartIcon} from "react-native-heroicons/solid";
-import {MovieList} from "./MovieList";
-import {Cast} from "./Cast";
+import {ToggleButton} from "../../../common/ToggleButton";
+import {MovieList} from "../components/MovieList";
+import {Cast} from "../components/Cast";
+
 
 let {width, height} = Dimensions.get('window');
 const isIos = Platform.OS === 'ios';
@@ -43,7 +44,7 @@ export const MovieScreen = () => {
             >
                 <View>
                     <Image
-                        source={require('../../../assets/images/moviePoster2.png')}
+                        source={require('../../../../assets/images/moviePoster2.png')}
                         style={{width: width, height: height * 0.55}}
                     />
                     <LinearGradient

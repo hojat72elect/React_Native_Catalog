@@ -1,10 +1,10 @@
 import React, {useState} from 'react'
 import {Dimensions, Image, Platform, SafeAreaView, ScrollView, Text, TouchableOpacity, View} from "react-native";
 import {ChevronLeftIcon} from "react-native-heroicons/outline";
-import {ToggleButton} from "../../common/ToggleButton";
 import {HeartIcon} from "react-native-heroicons/solid";
-import {MovieList} from "./MovieList";
-import {styles} from "../../common/Theme";
+import {styles} from "../../../common/Theme";
+import {MovieList} from "../components/MovieList";
+import {ToggleButton} from "../../../common/ToggleButton";
 
 let {width, height} = Dimensions.get('window');
 const isIos = Platform.OS === 'ios';
@@ -42,7 +42,7 @@ export const PersonScreen = () => {
                 >
                     <View className="items-center rounded-full overflow-hidden h-72 w-72 border-2 border-neutral-500">
                         <Image
-                            source={require('../../../assets/images/castImage2.png')}
+                            source={require('../../../../assets/images/castImage2.png')}
                             style={{height: height * 0.43, width: width * 0.74}}
                         />
                     </View>

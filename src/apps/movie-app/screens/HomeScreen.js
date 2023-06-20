@@ -2,9 +2,9 @@ import React, {useState} from 'react'
 import {Platform, SafeAreaView, ScrollView, Text, TouchableOpacity, View} from "react-native";
 import {StatusBar} from "expo-status-bar";
 import {Bars3CenterLeftIcon, MagnifyingGlassIcon} from "react-native-heroicons/outline";
-import {TrendingMovies} from "./TrendingMovies";
-import {MovieList} from "./MovieList";
-import {styles} from "../../common/Theme";
+import {TrendingMovies} from "../components/TrendingMovies";
+import {MovieList} from "../components/MovieList";
+import {styles} from "../../../common/Theme";
 
 const isIos = Platform.OS === 'ios';
 
