@@ -36,7 +36,7 @@ export const TrendingMovies = ({data}) => {
         <View className="mb-8">
             <Text className="text-white text-xl mx-4 mb-5">Trending</Text>
             <Carousel
-                layout={'default'}
+                layout={'stack'}
                 layoutCardOffset={18}
                 data={data}
                 renderItem={({item}) => <MovieCard item={item} handleClick={() => {

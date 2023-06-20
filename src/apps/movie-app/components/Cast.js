@@ -1,10 +1,12 @@
 import React from 'react'
 import {Image, ScrollView, Text, TouchableOpacity, View} from "react-native";
+import {useNavigation} from "@react-navigation/native";
 
 export const Cast = ({cast}) => {
 
     const personName = "Hojat Ghasemi"
     const characterName = "Kaveh Ahangar"
+    const navigation = useNavigation();
 
     return (
         <View className="my-6">
@@ -21,6 +23,7 @@ export const Cast = ({cast}) => {
                             className="mr-4 items-center"
                             onPress={() => {
                                 console.log("user clicked on an actor's pic");
+                                navigation.navigate('Person');
                             }}
                         >
                             <View

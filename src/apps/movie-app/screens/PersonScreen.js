@@ -5,6 +5,7 @@ import {HeartIcon} from "react-native-heroicons/solid";
 import {styles} from "../../../common/Theme";
 import {MovieList} from "../components/MovieList";
 import {ToggleButton} from "../../../common/ToggleButton";
+import {useNavigation} from "@react-navigation/native";
 
 let {width, height} = Dimensions.get('window');
 const isIos = Platform.OS === 'ios';
@@ -13,13 +14,17 @@ const verticalMargin = isIos ? '' : ' my-10';
 export const PersonScreen = () => {
 
     const [personMovies] = useState([3, 4, 8, 7, 5, 6, 3, 4, 5]);
+    const navigation = useNavigation();
 
     return (
         <ScrollView className="flex-1 bg-neutral-900" contentContainerStyle={{paddingBottom: 20}}>
 
             <SafeAreaView
                 className={`z-20 w-full flex-row justify-between items-center px-4 ${verticalMargin}`}>
-                <TouchableOpacity onPress={() => console.log("user clicked on the back button")}
+                <TouchableOpacity onPress={() => {
+                    console.log("user clicked on the back button");
+                    navigation.goBack();
+                }}
                                   style={styles.background}
                                   className="rounded-xl p-1">
                     <ChevronLeftIcon size="28" strokeWidth={2.5} color="white"/>

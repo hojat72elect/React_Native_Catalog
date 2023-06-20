@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import {Dimensions, Image, Platform, SafeAreaView, ScrollView, Text, TouchableOpacity, View} from "react-native";
-import {useRoute} from "@react-navigation/native";
+import {useNavigation, useRoute} from "@react-navigation/native";
 import {ChevronLeftIcon} from "react-native-heroicons/outline";
 import {LinearGradient} from "expo-linear-gradient";
 import {HeartIcon} from "react-native-heroicons/solid";
@@ -19,7 +19,7 @@ export const MovieScreen = () => {
     const likeButtonCallback = () => {
         console.log("User has clicked on the like button.");
     }
-
+    const navigation = useNavigation();
     const [cast] = useState([2, 6, 7, 3, 4, 5]);
     const [similarMovies] = useState([2, 2, 3, 4, 3, 5, 6, 7, 3, 4, 5]);
     useEffect(() => {
@@ -31,7 +31,10 @@ export const MovieScreen = () => {
         <View className="flex-1 bg-neutral-900">
             <SafeAreaView
                 className={`absolute z-20 w-full flex-row justify-between items-center px-4 ${topMargin}`}>
-                <TouchableOpacity onPress={() => console.log("user clicked on the back button")}
+                <TouchableOpacity onPress={() => {
+                    console.log("user clicked on the back button");
+                    navigation.goBack();
+                }}
                                   style={styles.background}
                                   className="rounded-xl p-1">
                     <ChevronLeftIcon size="28" strokeWidth={2.5} color="white"/>
