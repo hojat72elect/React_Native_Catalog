@@ -7,7 +7,7 @@ import {HeartIcon} from "react-native-heroicons/solid";
 import {ToggleButton} from "../../../common/ToggleButton";
 import {MovieList} from "../components/MovieList";
 import {Cast} from "../components/Cast";
-
+import {styles} from "../../../common/Theme";
 
 let {width, height} = Dimensions.get('window');
 const isIos = Platform.OS === 'ios';

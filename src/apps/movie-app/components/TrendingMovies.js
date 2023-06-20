@@ -1,10 +1,12 @@
 import React from 'react'
 import {Dimensions, Image, Text, TouchableWithoutFeedback, View} from "react-native";
 import Carousel from "react-native-snap-carousel";
+import {useNavigation} from "@react-navigation/native";
 
 let {width, height} = Dimensions.get('window');
 
 const MovieCard = ({item, handleClick}) => {
+
     return (
         <TouchableWithoutFeedback onPress={() => handleClick(item)}>
             <Image
@@ -22,8 +24,11 @@ const MovieCard = ({item, handleClick}) => {
 
 export const TrendingMovies = ({data}) => {
 
+    const navigation = useNavigation();
+
     const handleClick = (item) => {
         console.log(`user clicked on item ${item} in carousel`);
+        navigation.navigate('Movie', item);
     };
 
 
@@ -31,14 +36,14 @@ export const TrendingMovies = ({data}) => {
         <View className="mb-8">
             <Text className="text-white text-xl mx-4 mb-5">Trending</Text>
             <Carousel
-                layout={'stack'}
+                layout={'default'}
                 layoutCardOffset={18}
                 data={data}
                 renderItem={({item}) => <MovieCard item={item} handleClick={() => {
                     handleClick(item)
                 }}/>}
                 firstItem={2}
-                inactiveSlideOpacity={0.10}
+                inactiveSlideOpacity={0.60}
                 sliderWidth={width}
                 itemWidth={width * 0.62}
                 slideStyle={{display: 'flex', alignItems: 'center'}}
