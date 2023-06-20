@@ -31,16 +31,18 @@ export const TrendingMovies = ({data}) => {
         <View className="mb-8">
             <Text className="text-white text-xl mx-4 mb-5">Trending</Text>
             <Carousel
+                layout={'stack'}
+                layoutCardOffset={18}
                 data={data}
                 renderItem={({item}) => <MovieCard item={item} handleClick={() => {
                     handleClick(item)
                 }}/>}
-                firstItem={1}
-                inactiveSlideOpacity={0.60}
+                firstItem={2}
+                inactiveSlideOpacity={0.10}
                 sliderWidth={width}
                 itemWidth={width * 0.62}
                 slideStyle={{display: 'flex', alignItems: 'center'}}
-
+                autoplay={false}
             />
         </View>
     )

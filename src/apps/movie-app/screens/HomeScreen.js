@@ -16,7 +16,7 @@ export const HomeScreen = () => {
 
 
     return (
-        <View className="flex-1 bg-neutral-800">
+        <View className="flex-1 bg-white">
             {/*Search bar and logo*/}
             <SafeAreaView className={isIos ? "-mb-2" : "mb-3"}>
                 <StatusBar style="light"/>
