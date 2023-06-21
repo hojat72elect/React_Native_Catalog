@@ -1,15 +1,14 @@
-import {Dimensions, Image, Platform, Text, TouchableOpacity, View} from 'react-native'
+import {Dimensions, Image, Text, TouchableOpacity, View} from 'react-native'
 import React from 'react'
-import {useNavigation} from '@react-navigation/native'
 import {StarIcon} from 'react-native-heroicons/solid';
 import {PlusIcon} from 'react-native-heroicons/outline';
 import {themeColors} from "../../common/CoffeeTheme";
 
-
 const {width, height} = Dimensions.get('window');
-const ios = Platform.OS === 'ios';
+
 export const CoffeeCard = ({item}) => {
-    const navigation = useNavigation();
+
+
     return (
 
         <View
@@ -34,7 +33,7 @@ export const CoffeeCard = ({item}) => {
                     className="h-40 w-40"
                 />
             </View>
-            <View className={`px-5 flex-1 justify-between ${ios ? 'mt-5' : ''}`}>
+            <View className={`px-5 flex-1 justify-between`}>
                 <View className="space-y-3 mt-3">
                     <Text className="text-3xl text-white font-semibold">
                         {item.name}
@@ -62,7 +61,9 @@ export const CoffeeCard = ({item}) => {
                 }} className="flex-row justify-between items-center">
                     <Text className="text-white font-bold text-lg">$ {item.price}</Text>
                     <TouchableOpacity
-                        onPress={() => {console.log("user bought a coffee")}}
+                        onPress={() => {
+                            console.log("user bought a coffee")
+                        }}
                         style={{
                             shadowColor: 'black',
                             shadowRadius: 40,
