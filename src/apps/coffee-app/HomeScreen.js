@@ -31,7 +31,7 @@ export const HomeScreen = () => {
                 className="w-full absolute -top-5 opacity-10"/>
 
             {/* avatar, address, and bell icon */}
-            <View className="mx-12 flex-row justify-between items-center">
+            <View className="my-8 mx-4 flex-row justify-between items-center">
                 <Image source={require('../../../assets/images/avatar.png')}
                        className="h-9 w-9 rounded-full"/>
 
