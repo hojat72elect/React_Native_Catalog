@@ -44,7 +44,7 @@ export const HomeScreen = () => {
                 <BellIcon size="27" color="black"/>
             </View>
 
-            <ScrollView>
+            <ScrollView className="mb-16">
             {/* search bar */}
             <View className="mx-5 shadow" style={{marginTop: height * 0.06}}>
                 <View className="flex-row items-center rounded-full p-1 bg-[#e6e6e6]">
