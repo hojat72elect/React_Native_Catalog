@@ -3,10 +3,13 @@ import React from 'react'
 import {StarIcon} from 'react-native-heroicons/solid';
 import {PlusIcon} from 'react-native-heroicons/outline';
 import {themeColors} from "../../common/CoffeeTheme";
+import {useNavigation} from "@react-navigation/native";
 
 const {width, height} = Dimensions.get('window');
 
 export const CoffeeCard = ({item}) => {
+
+    const navigation = useNavigation();
 
     return (
         <View style={{
@@ -61,6 +64,7 @@ export const CoffeeCard = ({item}) => {
                     <TouchableOpacity
                         onPress={() => {
                             console.log("user bought a coffee")
+                            navigation.navigate('Product', {...item})
                         }}
                         style={{
                             shadowColor: 'black',

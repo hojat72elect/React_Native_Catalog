@@ -15,6 +15,7 @@ import {
     HeartIcon as HeartSolid,
     ShoppingBagIcon as ShoppingBagSolid
 } from "react-native-heroicons/solid";
+import {ProductScreen} from "./ProductScreen";
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -81,6 +82,7 @@ export const CoffeeAppNavigation = () => {
                 contentStyle: {backgroundColor: 'white'}
             }}>
                 <Stack.Screen name="Home" options={{headerShown: false}} component={HomeTabs}/>
+                <Stack.Screen name="Product" options={{headerShown: false}} component={ProductScreen}/>
             </Stack.Navigator>
         </NavigationContainer>
     );
