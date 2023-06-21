@@ -18,7 +18,7 @@ export const ProductScreen = () => {
             />
             <View className="space-y-4">
                 <View className="mx-4 flex-row justify-between items-center">
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={()=>navigation.goBack()}>
                         <ArrowLeftCircleIcon size={50} strokeWidth={1.2} color="white"/>
                     </TouchableOpacity>
                 </View>
