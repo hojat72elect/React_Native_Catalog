@@ -64,7 +64,8 @@ export const CoffeeAppNavigation = () => {
                         marginVertical: 5,
                         borderRadius: 50,
                         backgroundColor: themeColors.bgLight,
-                        marginHorizontal: 10
+                        marginHorizontal: 10,
+                        position:'absolute'
                     }
                 })}
             >
