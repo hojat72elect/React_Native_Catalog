@@ -8,14 +8,12 @@ const {width, height} = Dimensions.get('window');
 
 export const CoffeeCard = ({item}) => {
 
-
     return (
-
         <View
             style={{
                 borderRadius: 40,
                 backgroundColor: themeColors.bgDark,
-                height: height * 0.50,
+                height: height * 0.57,
                 width: width * 0.65,
             }}
         >
