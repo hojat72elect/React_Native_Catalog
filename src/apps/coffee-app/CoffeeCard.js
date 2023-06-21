@@ -56,7 +56,7 @@ export const CoffeeCard = ({item}) => {
                     shadowRadius: 25,
                     shadowOffset: {width: 0, height: 40},
                     shadowOpacity: 0.8,
-                }} className="flex-row justify-between items-center">
+                }} className="flex-row justify-between items-center mb-2">
                     <Text className="text-white font-bold text-lg">$ {item.price}</Text>
                     <TouchableOpacity
                         onPress={() => {
