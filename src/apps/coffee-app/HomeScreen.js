@@ -31,7 +31,8 @@ export const HomeScreen = () => {
                 source={require('../../../assets/images/beansBackground1.png')}
                 style={{height: height * 0.2}}
                 className="w-full absolute -top-5 opacity-10"/>
-            <SafeAreaView className="mt-8">
+
+            <View className="mt-8">
                 {/* avatar and bell icon */}
                 <View className="mx-4 flex-row justify-between items-center">
                     <Image source={require('../../../assets/images/avatar.png')}
@@ -79,10 +80,10 @@ export const HomeScreen = () => {
                     />
                 </View>
 
-            </SafeAreaView>
+            </View>
 
             {/* coffee cards */}
-            <View className={`overflow-visible flex justify-center flex-1 ${ios ? 'mt-10' : ''}`}>
+            <View className={`overflow-visible flex justify-center flex-1`}>
                 <View>
                     <Carousel
                         containerCustomStyle={{overflow: 'visible'}}

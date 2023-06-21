@@ -16,7 +16,7 @@ export const CoffeeCard = ({item}) => {
             style={{
                 borderRadius: 40,
                 backgroundColor: themeColors.bgDark,
-                height: ios ? height * 0.4 : height * 0.50,
+                height: height * 0.50,
                 width: width * 0.65,
             }}
         >
@@ -26,7 +26,7 @@ export const CoffeeCard = ({item}) => {
                     shadowRadius: 30,
                     shadowOffset: {width: 0, height: 40},
                     shadowOpacity: 0.8,
-                    marginTop: ios ? -(height * 0.08) : 15,
+                    marginTop: 15,
                 }}
                 className="flex-row justify-center">
                 <Image
@@ -36,7 +36,7 @@ export const CoffeeCard = ({item}) => {
             </View>
             <View className={`px-5 flex-1 justify-between ${ios ? 'mt-5' : ''}`}>
                 <View className="space-y-3 mt-3">
-                    <Text className="text-3xl text-white font-semibold z-10">
+                    <Text className="text-3xl text-white font-semibold">
                         {item.name}
                     </Text>
                     <View style={{backgroundColor: 'rgba(255,255,255,0.2)'}}
@@ -44,7 +44,7 @@ export const CoffeeCard = ({item}) => {
                         <StarIcon size="15" color="white"/>
                         <Text className="text-base font-semibold text-white">{item.stars}</Text>
                     </View>
-                    <View className="flex-row space-x-1 z-10 mb-6">
+                    <View className="flex-row space-x-1">
                         <Text className="text-base text-white font-semibold opacity-60">
                             Volume
                         </Text>
@@ -54,22 +54,22 @@ export const CoffeeCard = ({item}) => {
 
 
                 <View style={{
-                    backgroundColor: ios ? themeColors.bgDark : 'transparent',
+                    backgroundColor: 'transparent',
                     shadowColor: themeColors.bgDark,
                     shadowRadius: 25,
                     shadowOffset: {width: 0, height: 40},
                     shadowOpacity: 0.8,
-                }} className="flex-row justify-between items-center mb-5">
+                }} className="flex-row justify-between items-center">
                     <Text className="text-white font-bold text-lg">$ {item.price}</Text>
                     <TouchableOpacity
-                        onPress={() => navigation.navigate('Product', {...item})}
+                        onPress={() => {console.log("user bought a coffee")}}
                         style={{
                             shadowColor: 'black',
                             shadowRadius: 40,
                             shadowOffset: {width: -20, height: -10},
                             shadowOpacity: 1,
                         }}
-                        className="p-4 bg-white rounded-full"
+                        className="p-4 bg-neutral-100 rounded-full"
                     >
                         <PlusIcon size="25" strokeWidth={2} color={themeColors.bgDark}/>
                     </TouchableOpacity>
