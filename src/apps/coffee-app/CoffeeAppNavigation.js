@@ -61,11 +61,10 @@ export const CoffeeAppNavigation = () => {
                     tabBarIcon: ({focused}) => menuIcons(route, focused),
                     tabBarStyle: {
                         height: 60,
-                        marginBottom: 10,
+                        marginVertical: 5,
                         borderRadius: 50,
                         backgroundColor: themeColors.bgLight,
-                        marginHorizontal: 20,
-                        position: 'absolute'
+                        marginHorizontal: 10
                     }
                 })}
             >

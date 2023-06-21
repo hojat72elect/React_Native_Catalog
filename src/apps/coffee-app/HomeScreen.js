@@ -1,7 +1,7 @@
 import {
     Dimensions,
     FlatList,
-    Image,
+    Image, ScrollView,
     Text,
     TextInput,
     TouchableOpacity,
@@ -43,6 +43,8 @@ export const HomeScreen = () => {
                 </View>
                 <BellIcon size="27" color="black"/>
             </View>
+
+            <ScrollView>
             {/* search bar */}
             <View className="mx-5 shadow" style={{marginTop: height * 0.06}}>
                 <View className="flex-row items-center rounded-full p-1 bg-[#e6e6e6]">
@@ -92,7 +94,7 @@ export const HomeScreen = () => {
                 />
             </View>
 
-
+            </ScrollView>
         </View>
     )
 }
