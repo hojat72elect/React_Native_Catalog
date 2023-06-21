@@ -9,14 +9,12 @@ const {width, height} = Dimensions.get('window');
 export const CoffeeCard = ({item}) => {
 
     return (
-        <View
-            style={{
-                borderRadius: 40,
-                backgroundColor: themeColors.bgDark,
-                height: height * 0.57,
-                width: width * 0.65,
-            }}
-        >
+        <View style={{
+            borderRadius: 40,
+            backgroundColor: themeColors.bgDark,
+            height: height * 0.57,
+            width: width * 0.65,
+        }}>
             <View
                 style={{
                     shadowColor: 'black',
@@ -25,12 +23,14 @@ export const CoffeeCard = ({item}) => {
                     shadowOpacity: 0.8,
                     marginTop: 15,
                 }}
-                className="flex-row justify-center">
+                className="flex-row justify-center"
+            >
                 <Image
                     source={item.image}
                     className="h-40 w-40"
                 />
             </View>
+
             <View className={`px-5 flex-1 justify-between`}>
                 <View className="space-y-3 mt-3">
                     <Text className="text-3xl text-white font-semibold">
@@ -76,8 +76,6 @@ export const CoffeeCard = ({item}) => {
 
 
             </View>
-
         </View>
-
     )
 }
