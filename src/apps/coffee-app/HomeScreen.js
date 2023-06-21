@@ -31,7 +31,7 @@ export const HomeScreen = () => {
                 className="w-full absolute -top-5 opacity-10"/>
 
             <View className="mt-8">
-                {/* avatar and bell icon */}
+                {/* avatar, address, and bell icon */}
                 <View className="mx-4 flex-row justify-between items-center">
                     <Image source={require('../../../assets/images/avatar.png')}
                            className="h-9 w-9 rounded-full"/>
@@ -55,7 +55,7 @@ export const HomeScreen = () => {
                         </TouchableOpacity>
                     </View>
                 </View>
-                {/* categories */}
+                {/* A chips view, showing categories of coffee served*/}
                 <View className="px-5 mt-6">
                     <FlatList
                         horizontal
@@ -79,8 +79,7 @@ export const HomeScreen = () => {
                 </View>
 
             </View>
-
-            {/* coffee cards */}
+            {/* A horizontal carousel showing coffee cards */}
             <View className={`overflow-visible flex justify-center flex-1 mt-4`}>
                     <Carousel
                         containerCustomStyle={{overflow: 'visible'}}
