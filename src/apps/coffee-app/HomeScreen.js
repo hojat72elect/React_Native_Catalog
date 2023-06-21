@@ -8,12 +8,12 @@ import {
     TextInput,
     TouchableOpacity,
     View
-} from 'react-native'
-import React, {useState} from 'react'
+} from 'react-native';
+import React, {useState} from 'react';
 import {StatusBar} from 'expo-status-bar';
 import Carousel from 'react-native-snap-carousel';
-import {BellIcon, MagnifyingGlassIcon} from 'react-native-heroicons/outline'
-import {MapPinIcon} from 'react-native-heroicons/solid'
+import {BellIcon, MagnifyingGlassIcon} from 'react-native-heroicons/outline';
+import {MapPinIcon} from 'react-native-heroicons/solid';
 import {themeColors} from "../../common/CoffeeTheme";
 import {categories, coffeeItems} from "./Constants";
 import {CoffeeCard} from "./CoffeeCard";
@@ -31,7 +31,7 @@ export const HomeScreen = () => {
                 source={require('../../../assets/images/beansBackground1.png')}
                 style={{height: height * 0.2}}
                 className="w-full absolute -top-5 opacity-10"/>
-            <SafeAreaView className={ios ? '-mb-8' : ''}>
+            <SafeAreaView className="mt-8">
                 {/* avatar and bell icon */}
                 <View className="mx-4 flex-row justify-between items-center">
                     <Image source={require('../../../assets/images/avatar.png')}

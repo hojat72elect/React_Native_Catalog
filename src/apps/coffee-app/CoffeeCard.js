@@ -68,7 +68,9 @@ export const CoffeeCard = ({item}) => {
                             shadowRadius: 40,
                             shadowOffset: {width: -20, height: -10},
                             shadowOpacity: 1,
-                        }} className="p-4 bg-white rounded-full">
+                        }}
+                        className="p-4 bg-white rounded-full"
+                    >
                         <PlusIcon size="25" strokeWidth={2} color={themeColors.bgDark}/>
                     </TouchableOpacity>
                 </View>
