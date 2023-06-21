@@ -2,8 +2,6 @@ import {
     Dimensions,
     FlatList,
     Image,
-    Platform,
-    SafeAreaView,
     Text,
     TextInput,
     TouchableOpacity,
@@ -19,7 +17,7 @@ import {categories, coffeeItems} from "./Constants";
 import {CoffeeCard} from "./CoffeeCard";
 
 const {width, height} = Dimensions.get('window');
-const ios = Platform.OS === 'ios';
+
 export const HomeScreen = () => {
     const [activeCategory, setActiveCategory] = useState(1);
 
@@ -83,8 +81,7 @@ export const HomeScreen = () => {
             </View>
 
             {/* coffee cards */}
-            <View className={`overflow-visible flex justify-center flex-1`}>
-                <View>
+            <View className={`overflow-visible flex justify-center flex-1 mt-4`}>
                     <Carousel
                         containerCustomStyle={{overflow: 'visible'}}
                         data={coffeeItems}
@@ -96,8 +93,6 @@ export const HomeScreen = () => {
                         itemWidth={width * 0.63}
                         slideStyle={{display: 'flex', alignItems: 'center'}}
                     />
-                </View>
-
             </View>
 
 
