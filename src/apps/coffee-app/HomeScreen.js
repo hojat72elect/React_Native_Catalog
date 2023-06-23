@@ -1,13 +1,13 @@
 import {
     Dimensions,
-    FlatList,
-    Image, ScrollView,
+    Image,
+    ScrollView,
     Text,
     TextInput,
     TouchableOpacity,
     View
 } from 'react-native';
-import React, {useState} from 'react';
+import React from 'react';
 import {StatusBar} from 'expo-status-bar';
 import Carousel from 'react-native-snap-carousel';
 import {BellIcon, MagnifyingGlassIcon} from 'react-native-heroicons/outline';
@@ -15,11 +15,12 @@ import {MapPinIcon} from 'react-native-heroicons/solid';
 import {themeColors} from "../../common/CoffeeTheme";
 import {mockedCoffeeCategories, mockedCoffeeItems} from "./FakeData";
 import {CoffeeCard} from "./CoffeeCard";
+import {HorizontalChipsView} from "../../common/HorizontalChipsView";
 
 const {width, height} = Dimensions.get('window');
 
 export const HomeScreen = () => {
-    const [activeCategory, setActiveCategory] = useState(1);
+
 
     return (
         <View className="flex-1 relative bg-white">
@@ -45,54 +46,34 @@ export const HomeScreen = () => {
             </View>
 
             <ScrollView className="mb-16">
-            {/* search bar */}
-            <View className="mx-5 shadow" style={{marginTop: height * 0.06}}>
-                <View className="flex-row items-center rounded-full p-1 bg-[#e6e6e6]">
-                    <TextInput placeholder='Search' className="p-4 flex-1 font-semibold text-gray-700"/>
-                    <TouchableOpacity
-                        className="rounded-full p-2"
-                        style={{backgroundColor: themeColors.bgLight}}>
-                        <MagnifyingGlassIcon size="25" strokeWidth={2} color="white"/>
-                    </TouchableOpacity>
+                {/* search bar */}
+                <View className="mx-5 shadow" style={{marginTop: height * 0.06}}>
+                    <View className="flex-row items-center rounded-full p-1 bg-[#e6e6e6]">
+                        <TextInput placeholder='Search' className="p-4 flex-1 font-semibold text-gray-700"/>
+                        <TouchableOpacity
+                            className="rounded-full p-2"
+                            style={{backgroundColor: themeColors.bgLight}}>
+                            <MagnifyingGlassIcon size="25" strokeWidth={2} color="white"/>
+                        </TouchableOpacity>
+                    </View>
                 </View>
-            </View>
-            {/* A chips view, showing categories of coffee served*/}
-            <View className="px-5 mt-6">
-                <FlatList
-                    horizontal
-                    showsHorizontalScrollIndicator={false}
-                    data={mockedCoffeeCategories}
-                    keyExtractor={item => item.id}
-                    className="overflow-visible"
-                    renderItem={({item}) => {
-                        let isActive = item.id === activeCategory;
-                        let activeTextClass = isActive ? 'text-white' : 'text-gray-700';
-                        return (
-                            <TouchableOpacity
-                                onPress={() => setActiveCategory(item.id)}
-                                style={{backgroundColor: isActive ? themeColors.bgLight : 'rgba(0,0,0,0.07)'}}
-                                className="p-4 px-5 mr-2 rounded-full shadow">
-                                <Text className={"font-semibold " + activeTextClass}>{item.title}</Text>
-                            </TouchableOpacity>
-                        )
-                    }}
-                />
-            </View>
+                {/* A chips view, showing categories of coffee served in this shop.*/}
+                <HorizontalChipsView data={mockedCoffeeCategories}/>
 
-            {/* A horizontal carousel showing coffee cards */}
-            <View className={`overflow-visible flex justify-center flex-1 mt-4`}>
-                <Carousel
-                    containerCustomStyle={{overflow: 'visible'}}
-                    data={mockedCoffeeItems}
-                    renderItem={({item}) => <CoffeeCard item={item}/>}
-                    firstItem={1}
-                    inactiveSlideScale={0.75}
-                    inactiveSlideOpacity={0.75}
-                    sliderWidth={width}
-                    itemWidth={width * 0.63}
-                    slideStyle={{display: 'flex', alignItems: 'center'}}
-                />
-            </View>
+                {/* A horizontal carousel showing coffee cards */}
+                <View className={`overflow-visible flex justify-center flex-1 mt-4`}>
+                    <Carousel
+                        containerCustomStyle={{overflow: 'visible'}}
+                        data={mockedCoffeeItems}
+                        renderItem={({item}) => <CoffeeCard item={item}/>}
+                        firstItem={1}
+                        inactiveSlideScale={0.75}
+                        inactiveSlideOpacity={0.75}
+                        sliderWidth={width}
+                        itemWidth={width * 0.63}
+                        slideStyle={{display: 'flex', alignItems: 'center'}}
+                    />
+                </View>
 
             </ScrollView>
         </View>
