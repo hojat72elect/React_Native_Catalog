@@ -2,7 +2,7 @@ import {View, Text, Image, TouchableOpacity} from 'react-native'
 import React, {useState} from 'react'
 import {useNavigation} from "@react-navigation/native";
 import {StatusBar} from "expo-status-bar";
-import {ArrowLeftCircleIcon} from "react-native-heroicons/outline";
+import {ArrowLeftCircleIcon, PlusIcon, MinusIcon} from "react-native-heroicons/outline";
 import {HeartIcon, StarIcon} from "react-native-heroicons/solid";
 import {themeColors} from "../../common/CoffeeTheme";
 
@@ -17,10 +17,10 @@ export const ProductScreen = (props) => {
             <StatusBar style="light"/>
             <Image
                 source={require('../../../assets/images/beansBackground2.png')}
-                style={{height: 300, borderBottomLeftRadius: 50, borderBottomRightRadius: 50}}
+                style={{height: 100, borderBottomLeftRadius: 50, borderBottomRightRadius: 50}}
                 className="w-full absolute"
             />
-            <View className="space-y-4 mt-6">
+            <View className="space-y-4 ">
                 <View className="mx-4 flex-row justify-between items-center">
                     <TouchableOpacity onPress={() => navigation.goBack()}>
                         <ArrowLeftCircleIcon size={50} strokeWidth={1.2} color="white"/>
@@ -39,7 +39,7 @@ export const ProductScreen = (props) => {
                         shadowOpacity: 0.9
                     }}
                 >
-                    <Image source={item.image} className="h-60 w-60"/>
+                    <Image source={item.image} className="-mt-9 h-28 w-28"/>
                 </View>
                 <View style={{backgroundColor: themeColors.bgLight}}
                       className="flex-row mx-4 items-center rounded-3xl p-1 px-2 space-x-1 w-16 opacity-90">
@@ -80,6 +80,31 @@ export const ProductScreen = (props) => {
                         </TouchableOpacity>
                     </View>
 
+                </View>
+                <View className="mx-4 space-y-2 h-28">
+                    <Text style={{color: themeColors.text}} className="text-lg font-bold">
+                        About
+                    </Text>
+                    <Text className="text-gray-600">
+                        {item.desc}
+                    </Text>
+                </View>
+                <View className="flex-row justify-between items-center mx-4 mb-2">
+                    <View className="flex-row items-center space-x-1">
+                        <Text className="text-base text-gray-700 font-semibold opacity-60">Volume</Text>
+                        <Text className="text-base text-black font-semibold">
+                            {item.volume}
+                        </Text>
+                    </View>
+                    <View className="flex-row items-center space-x-4 border border-gray-500 rounded-full py-1 px-4">
+                        <TouchableOpacity>
+                            <MinusIcon size={20} color={themeColors.text} strokeWidth={3}/>
+                        </TouchableOpacity>
+                        <Text style={{color:themeColors.text}} className="font-extrabold text-lg">2</Text>
+                        <TouchableOpacity>
+                            <PlusIcon size={20} color={themeColors.text} strokeWidth={3}/>
+                        </TouchableOpacity>
+                    </View>
                 </View>
             </View>
         </View>
