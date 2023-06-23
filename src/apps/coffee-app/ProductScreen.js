@@ -2,7 +2,7 @@ import {View, Text, Image, TouchableOpacity} from 'react-native'
 import React, {useState} from 'react'
 import {useNavigation} from "@react-navigation/native";
 import {StatusBar} from "expo-status-bar";
-import {ArrowLeftCircleIcon, PlusIcon, MinusIcon} from "react-native-heroicons/outline";
+import {ArrowLeftCircleIcon, PlusIcon, MinusIcon, ShoppingBagIcon} from "react-native-heroicons/outline";
 import {HeartIcon, StarIcon} from "react-native-heroicons/solid";
 import {themeColors} from "../../common/CoffeeTheme";
 
@@ -100,11 +100,23 @@ export const ProductScreen = (props) => {
                         <TouchableOpacity>
                             <MinusIcon size={20} color={themeColors.text} strokeWidth={3}/>
                         </TouchableOpacity>
-                        <Text style={{color:themeColors.text}} className="font-extrabold text-lg">2</Text>
+                        <Text style={{color: themeColors.text}} className="font-extrabold text-lg">2</Text>
                         <TouchableOpacity>
                             <PlusIcon size={20} color={themeColors.text} strokeWidth={3}/>
                         </TouchableOpacity>
                     </View>
+                </View>
+                {/*Buy button*/}
+                <View className="flex-row justify-between items-center mx-4">
+                    <TouchableOpacity className="p-4 rounded-full border border-gray-400 ">
+                        <ShoppingBagIcon size={30} color="gray"/>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={{backgroundColor: themeColors.bgLight}}
+                                      className="p-5 rounded-full flex-1 ml-3">
+                        <Text className="text-center text-base font-semibold text-white">
+                            Buy now
+                        </Text>
+                    </TouchableOpacity>
                 </View>
             </View>
         </View>
