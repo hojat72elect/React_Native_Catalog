@@ -1,4 +1,4 @@
-export const categories = [
+export const mockedCoffeeCategories = [
     {
         id: 1,
         title: "Cappuccino",
@@ -21,7 +21,7 @@ export const categories = [
     },
 ]
 
-export const coffeeItems = [
+export const mockedCoffeeItems = [
     {
         id: 1,
         name: 'Black Coffee',

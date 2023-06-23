@@ -13,7 +13,7 @@ import Carousel from 'react-native-snap-carousel';
 import {BellIcon, MagnifyingGlassIcon} from 'react-native-heroicons/outline';
 import {MapPinIcon} from 'react-native-heroicons/solid';
 import {themeColors} from "../../common/CoffeeTheme";
-import {categories, coffeeItems} from "./Constants";
+import {mockedCoffeeCategories, mockedCoffeeItems} from "./FakeData";
 import {CoffeeCard} from "./CoffeeCard";
 
 const {width, height} = Dimensions.get('window');
@@ -61,7 +61,7 @@ export const HomeScreen = () => {
                 <FlatList
                     horizontal
                     showsHorizontalScrollIndicator={false}
-                    data={categories}
+                    data={mockedCoffeeCategories}
                     keyExtractor={item => item.id}
                     className="overflow-visible"
                     renderItem={({item}) => {
@@ -83,7 +83,7 @@ export const HomeScreen = () => {
             <View className={`overflow-visible flex justify-center flex-1 mt-4`}>
                 <Carousel
                     containerCustomStyle={{overflow: 'visible'}}
-                    data={coffeeItems}
+                    data={mockedCoffeeItems}
                     renderItem={({item}) => <CoffeeCard item={item}/>}
                     firstItem={1}
                     inactiveSlideScale={0.75}
