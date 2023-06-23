@@ -1,6 +1,7 @@
 import {View, Text, FlatList, TouchableOpacity} from 'react-native'
 import React, {useState} from 'react'
-import {themeColors} from "./CoffeeTheme";
+import {themeColors} from "../apps/coffee-app/CoffeeTheme";
+
 
 /**
  *

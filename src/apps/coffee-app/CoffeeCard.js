@@ -2,8 +2,8 @@ import {Dimensions, Image, Text, TouchableOpacity, View} from 'react-native'
 import React from 'react'
 import {StarIcon} from 'react-native-heroicons/solid';
 import {PlusIcon} from 'react-native-heroicons/outline';
-import {themeColors} from "../../common/CoffeeTheme";
 import {useNavigation} from "@react-navigation/native";
+import {themeColors} from "./CoffeeTheme";
 
 const {width, height} = Dimensions.get('window');
 

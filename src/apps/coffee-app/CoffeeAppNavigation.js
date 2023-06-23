@@ -4,7 +4,6 @@ import {createNativeStackNavigator} from "@react-navigation/native-stack";
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {LogBox, View} from "react-native";
 import {HomeScreen} from "./HomeScreen";
-import {themeColors} from "../../common/CoffeeTheme";
 import {
     HomeIcon as HomeOutline,
     HeartIcon as HeartOutline,
@@ -16,6 +15,7 @@ import {
     ShoppingBagIcon as ShoppingBagSolid
 } from "react-native-heroicons/solid";
 import {ProductScreen} from "./ProductScreen";
+import {themeColors} from "./CoffeeTheme";
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();

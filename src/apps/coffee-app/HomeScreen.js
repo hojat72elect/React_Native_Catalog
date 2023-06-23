@@ -12,10 +12,10 @@ import {StatusBar} from 'expo-status-bar';
 import Carousel from 'react-native-snap-carousel';
 import {BellIcon, MagnifyingGlassIcon} from 'react-native-heroicons/outline';
 import {MapPinIcon} from 'react-native-heroicons/solid';
-import {themeColors} from "../../common/CoffeeTheme";
 import {mockedCoffeeCategories, mockedCoffeeItems} from "./FakeData";
 import {CoffeeCard} from "./CoffeeCard";
 import {HorizontalChipsView} from "../../common/HorizontalChipsView";
+import {themeColors} from "./CoffeeTheme";
 
 const {width, height} = Dimensions.get('window');
 
