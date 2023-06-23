@@ -17,10 +17,10 @@ export const ProductScreen = (props) => {
             <StatusBar style="light"/>
             <Image
                 source={require('../../../assets/images/beansBackground2.png')}
-                style={{height: 100, borderBottomLeftRadius: 50, borderBottomRightRadius: 50}}
+                style={{height:120 , borderBottomLeftRadius: 50, borderBottomRightRadius: 50}}
                 className="w-full absolute"
             />
-            <View className="space-y-4 ">
+            <View className="space-y-4 mt-6">
                 <View className="mx-4 flex-row justify-between items-center">
                     <TouchableOpacity onPress={() => navigation.goBack()}>
                         <ArrowLeftCircleIcon size={50} strokeWidth={1.2} color="white"/>
