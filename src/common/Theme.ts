@@ -1,4 +1,4 @@
-export const theme = {
+const theme = {
     background: '#eab308',
     text: '#eab308'
 }
