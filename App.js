@@ -1,7 +1,7 @@
-import StepCounterAppNavigation from "./src/apps/step-counter-app/StepCounterAppNavigation";
+import MovieAppNavigation from "./src/apps/movie-app/MovieAppNavigation";
 
 export default function App() {
     return (
-        <StepCounterAppNavigation/>
+        <MovieAppNavigation/>
     );
 }
