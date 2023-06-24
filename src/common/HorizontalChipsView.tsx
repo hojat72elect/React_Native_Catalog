@@ -2,13 +2,19 @@ import {View, Text, FlatList, TouchableOpacity} from 'react-native'
 import React, {useState} from 'react'
 import {themeColors} from "../apps/coffee-app/CoffeeTheme";
 
+type FakeDataItem = {
+    id: number;
+    title: string;
+};
+
+type Props = {
+    data: FakeDataItem[];
+};
 
 /**
- *
- * @param data is what you are going to show in this chips view. it's just a JS object and "id" field of that object
- *
+ * @param data is what you are going to show in this chips view. it's just a JS object and "id" field of that object.
  */
-export const HorizontalChipsView = ({data}) => {
+export const HorizontalChipsView = ({data}: Props) => {
 
     const [activeCategory, setActiveCategory] = useState(1);
 
@@ -18,7 +24,7 @@ export const HorizontalChipsView = ({data}) => {
                 horizontal
                 showsHorizontalScrollIndicator={false}
                 data={data}
-                keyExtractor={item => item.id}
+                keyExtractor={item => item.id.toString()}
                 className="overflow-visible"
                 renderItem={({item}) => {
                     let isActive = item.id === activeCategory;
