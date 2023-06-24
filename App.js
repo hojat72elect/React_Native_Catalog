@@ -1,7 +1,7 @@
-import StepCounterAppNavigation from "./src/apps/step-counter-app/StepCounterAppNavigation";
+import {CoffeeAppNavigation} from "./src/apps/coffee-app/CoffeeAppNavigation";
 
 export default function App() {
     return (
-        <StepCounterAppNavigation/>
+        <CoffeeAppNavigation/>
     );
 }
