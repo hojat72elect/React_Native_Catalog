@@ -8,9 +8,9 @@ import {useState} from "react";
  * like button and thumbs up button.
  *
  * @param isToggled {boolean} use it to determine if the button is toggled by default or not.
- * @param onToggled {()=>{}}
+ * @param onToggled {()=>{void}}
  * @param buttonSize {number}
- * @param Icon
+ * @param Icon {JSX.Element}
  */
 export const ToggleButton = ({
                                  isToggled = false,
