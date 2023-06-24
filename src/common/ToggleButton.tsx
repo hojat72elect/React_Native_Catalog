@@ -1,5 +1,12 @@
 import {TouchableOpacity} from "react-native";
-import {useState} from "react";
+import React, {useState} from "react";
+
+type ToggleButtonProps = {
+    isToggled: boolean;
+    onToggled?: () => void;
+    buttonSize?: number;
+    Icon: React.ElementType;
+};
 
 
 /**
@@ -7,10 +14,7 @@ import {useState} from "react";
  * Any kind of button that can have 2 different states. Good examples include
  * like button and thumbs up button.
  *
- * @param isToggled {boolean} use it to determine if the button is toggled by default or not.
- * @param onToggled {()=>{void}}
- * @param buttonSize {number}
- * @param Icon {JSX.Element}
+ * isToggled {boolean} use it to determine if the button is toggled by default or not.
  */
 export const ToggleButton = ({
                                  isToggled = false,
@@ -18,7 +22,7 @@ export const ToggleButton = ({
                                  },
                                  buttonSize = 35,
                                  Icon,
-                             }) => {
+                             }: ToggleButtonProps) => {
 
     // If toggled, true. Otherwise, false.
     const [buttonState, setButtonState] = useState(isToggled);
