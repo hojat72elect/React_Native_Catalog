@@ -15,6 +15,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         gap: 50,
         flexWrap: 'wrap',
+        marginTop: 50,
     }
 });
 
@@ -22,7 +23,7 @@ export default function StepCounterAppNavigation() {
     return (
         <View style={styles.container}>
 
-            <RingProgress/>
+            <RingProgress progress={0.95}/>
 
             <View style={styles.valuesRow}>
                 <Value label="Steps" value="1219"/>
