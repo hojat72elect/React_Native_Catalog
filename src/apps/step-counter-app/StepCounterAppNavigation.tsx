@@ -1,6 +1,7 @@
-import {View, Text, StyleSheet} from 'react-native'
+import {View, StyleSheet} from 'react-native'
 import React from 'react'
 import {StatusBar} from "expo-status-bar";
+import {Value} from "./Value";
 
 const styles = StyleSheet.create({
     container: {
@@ -9,33 +10,12 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         padding: 12
     },
-    label: {
-        color: 'white',
-        fontSize: 20,
-    },
-    value: {
-        fontSize: 34,
-        color: '#AFB3BE',
-        fontWeight: "500",
-    },
     valuesRow: {
         flexDirection: 'row',
         gap: 50,
         flexWrap: 'wrap',
     }
 });
-
-type ValueProps = {
-    label: string;
-    value: string;
-};
-
-const Value = ({label, value}: ValueProps) => (
-    <View>
-        <Text style={styles.label}>{label}</Text>
-        <Text style={styles.value}>{value}</Text>
-    </View>
-);
 
 export default function StepCounterAppNavigation() {
     return (
