@@ -30,5 +30,5 @@ Apps implemented:
 
 1. <a href="https://youtu.be/Q1xQuCpYIFE">Movie App</a> (fully implemented).
 2. <a href="https://youtu.be/mhyuMy4aI-M">Coffee App</a> (fully implemented).
-3. [Step Counter app](https://www.youtube.com/live/VVoXcr18mdo?feature=share)(00:31:20).
+3. [Step Counter app](https://www.youtube.com/live/VVoXcr18mdo?feature=share)(00:59:46).
 4. [Food order and map app](https://youtu.be/v-zxqkz1T8E)(00:00).
