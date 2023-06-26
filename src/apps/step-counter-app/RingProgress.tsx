@@ -1,5 +1,6 @@
-import {View, Text} from 'react-native'
+import {View} from 'react-native'
 import React from 'react'
+import SVG, {Circle} from "react-native-svg";
 
 type RingProgressProps = {
     radius?: number;
@@ -12,11 +13,12 @@ export default function RingProgress({radius = 50}: RingProgressProps) {
         <View style={{
             width: radius * 2,
             height: radius * 2,
-            backgroundColor: color,
             alignSelf: 'center'
         }}>
 
-
+            <SVG>
+                <Circle r={radius} fill={color}/>
+            </SVG>
         </View>
-    )
-}
+    );
+};
