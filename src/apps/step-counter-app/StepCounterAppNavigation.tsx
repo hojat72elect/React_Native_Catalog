@@ -23,7 +23,7 @@ export default function StepCounterAppNavigation() {
     return (
         <View style={styles.container}>
 
-            <RingProgress progress={0.80}/>
+            <RingProgress progress={0.9}/>
 
             <View style={styles.valuesRow}>
                 <Value label="Steps" value="1219"/>
