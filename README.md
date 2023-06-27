@@ -25,6 +25,9 @@ I am using this library in combination with NativeWind.
 I'm not going to navigate to any screens, just added this so I can do some experiments with navigation in RN. I'm currently just using the <i>native</i> and <i>native-stack</i> modules of this library.
 </ul>
 
+<hr/>
+As a part of this catalog, I needed to read users' health data. So, I am using <a href="https://github.com/matinzd/react-native-health-connect">React Native Health Connect</a> in order to read health data in android and also I'm using <a href="https://github.com/agencyenterprise/react-native-health">React Native Health</a> for reading health data in iOS devices.
+<hr/>
 
 Apps implemented:
 
