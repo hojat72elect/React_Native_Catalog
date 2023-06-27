@@ -1,9 +1,9 @@
-import {View, StyleSheet} from 'react-native'
+import {StyleSheet, View} from 'react-native'
 import React, {useEffect, useState} from 'react'
 import {StatusBar} from "expo-status-bar";
 import {Value} from "./Value";
 import RingProgress from "./RingProgress";
-import AppleHealthKit, {HealthInputOptions, HealthKitPermissions} from 'react-native-health';
+import AppleHealthKit, {HealthInputOptions, HealthKitPermissions, HealthUnit} from 'react-native-health';
 
 const styles = StyleSheet.create({
     container: {
@@ -26,20 +26,26 @@ export default function StepCounterAppNavigation() {
 
     const permissions: HealthKitPermissions = {
         permissions: {
-            read: [AppleHealthKit.Constants.Permissions.Steps],
+            read: [
+                AppleHealthKit.Constants.Permissions.Steps,
+                AppleHealthKit.Constants.Permissions.FlightsClimbed,
+                AppleHealthKit.Constants.Permissions.DistanceWalkingRunning,
+            ],
             write: [],
         }
     };
 
     const [hasPermissions, setHasPermissions] = useState(false);
     const [steps, setSteps] = useState(0);
+    const [flights, setFlights] = useState(0);
+    const [distance, setDistance] = useState(0);
 
     // initializing the permissions when app opens up
     useEffect(() => {
         AppleHealthKit.initHealthKit(permissions, (error) => {
             if (error) {
                 console.error(`error while initializing apple health : ${error}`)
-                throw  new Error(error);
+                throw new Error(error);
             }
             setHasPermissions(true);
         })
@@ -51,7 +57,7 @@ export default function StepCounterAppNavigation() {
 
         const options: HealthInputOptions = {
             date: new Date().toISOString(),
-            includeManuallyAdded: false,
+            includeManuallyAdded: false
         };
         AppleHealthKit.getStepCount(options, (error, results) => {
             if (error) {
@@ -60,7 +66,23 @@ export default function StepCounterAppNavigation() {
             }
             setSteps(results.value);
 
-        })
+        });
+        AppleHealthKit.getFlightsClimbed(options, (error, results) => {
+            if (error) {
+                console.error(`Error while getting number of flights climbed on iOS : ${error}`);
+                throw new Error(error);
+            }
+            setFlights(results.value);
+
+        });
+        AppleHealthKit.getDistanceWalkingRunning(options, (error, results) => {
+            if (error) {
+                console.error(`Error while getting distance walked/ran on iOS : ${error}`);
+                throw new Error(error);
+            }
+            setDistance(results.value);
+
+        });
 
 
     }, [hasPermissions]);
@@ -73,8 +95,8 @@ export default function StepCounterAppNavigation() {
 
             <View style={styles.valuesRow}>
                 <Value label="Steps" value={steps.toString()}/>
-                <Value label="Distance" value="0,75 Km"/>
-                <Value label="Flights Climbed" value="12"/>
+                <Value label="Distance" value={`${(distance / 1000).toFixed(2)} km`}/>
+                <Value label="Flights Climbed" value={flights.toString()}/>
             </View>
 
             <StatusBar style="auto"/>
