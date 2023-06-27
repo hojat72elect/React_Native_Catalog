@@ -24,7 +24,7 @@ const STEPS_GOAL: number = 10_000;
 
 export default function StepCounterAppNavigation() {
 
-    const {steps, flights, distance} = useHealthData();
+    const {steps, flights, distance} = useHealthData(new Date(2023, 5, 26));
 
     return (
         <View style={styles.container}>

@@ -1,7 +1,7 @@
 import AppleHealthKit, {HealthInputOptions, HealthKitPermissions} from "react-native-health";
 import {useEffect, useState} from "react";
 
-export const useHealthData = () => {
+export const useHealthData = (date: Date) => {
 
     const permissions: HealthKitPermissions = {
         permissions: {
@@ -35,7 +35,7 @@ export const useHealthData = () => {
             return;
 
         const options: HealthInputOptions = {
-            date: new Date().toISOString(),
+            date: date.toISOString(),
             includeManuallyAdded: false
         };
         AppleHealthKit.getStepCount(options, (error, results) => {
@@ -66,7 +66,7 @@ export const useHealthData = () => {
 
     }, [hasPermissions]);
 
-    return{
-       steps, flights, distance,
+    return {
+        steps, flights, distance,
     };
 };
