@@ -1,5 +1,6 @@
 import AppleHealthKit, {HealthInputOptions, HealthKitPermissions} from "react-native-health";
 import {useEffect, useState} from "react";
+import {Platform} from "react-native";
 
 export const useHealthData = (date: Date) => {
 
@@ -21,13 +22,27 @@ export const useHealthData = (date: Date) => {
 
     // initializing the permissions when app opens up
     useEffect(() => {
-        AppleHealthKit.initHealthKit(permissions, (error) => {
+        if (Platform.OS !== 'ios')
+            return;
+
+        AppleHealthKit.isAvailable((error, isAvailable) => {
             if (error) {
-                console.error(`error while initializing apple health : ${error}`)
-                throw new Error(error);
+                console.error(`Error while checking if apple helth kit is available on this device: ${error}`);
+                throw new Error(error.toString());
             }
-            setHasPermissions(true);
-        })
+            if (!isAvailable) {
+                console.warn("Apple Health kit is not available");
+                return;
+            }
+
+            AppleHealthKit.initHealthKit(permissions, (error) => {
+                if (error) {
+                    console.error(`error while initializing apple health : ${error}`)
+                    throw new Error(error);
+                }
+                setHasPermissions(true);
+            });
+        });
     }, []);
 
     useEffect(() => {
