@@ -1,19 +1,46 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import {Platform, SafeAreaView, ScrollView, Text, TouchableOpacity, View} from "react-native";
 import {StatusBar} from "expo-status-bar";
 import {Bars3CenterLeftIcon, MagnifyingGlassIcon} from "react-native-heroicons/outline";
 import {TrendingMovies} from "../components/TrendingMovies";
 import {MovieList} from "../components/MovieList";
 import {styles} from "../../../common/Theme";
+import {useNavigation} from "@react-navigation/native";
+import {fetchTopRatedMovies, fetchTrendingMovies, fetchUpcomingMovies} from "../api/MovieDb";
+import Loading from "../components/Loading";
 
 const isIos = Platform.OS === 'ios';
 
 export const HomeScreen = () => {
 
-    const [trending] = useState([3, 8, 4, 7, 5, 6, 3, 4, 8, 7, 5]);
-    const [upcoming] = useState([3, 4, 7, 6, 5, 3, 4, 5]);
-    const [topRated] = useState([2, 6, 8, 3, 7, 4, 5, 2]);
+    const [trending, setTrending] = useState([]);
+    const [upcoming, setUpcoming] = useState([]);
+    const [topRated, setTopRated] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const navigation = useNavigation();
 
+    useEffect(() => {
+        getTrendingMovies();
+        getUpcomingMovies();
+        getTopRatedMovies();
+    }, []);
+
+    const getTrendingMovies = async () => {
+        const data = await fetchTrendingMovies();
+        console.log('got trending', data.results.length)
+        if (data && data.results) setTrending(data.results);
+        setLoading(false)
+    }
+    const getUpcomingMovies = async () => {
+        const data = await fetchUpcomingMovies();
+        console.log('got upcoming', data.results.length)
+        if (data && data.results) setUpcoming(data.results);
+    }
+    const getTopRatedMovies = async () => {
+        const data = await fetchTopRatedMovies();
+        console.log('got top rated', data.results.length)
+        if (data && data.results) setTopRated(data.results);
+    }
 
     return (
         <View className="flex-1 bg-gray-600">
@@ -25,25 +52,28 @@ export const HomeScreen = () => {
                     <Text className="text-white text-3xl font-bold">
                         <Text style={styles.text}>M</Text>ovies
                     </Text>
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={() => navigation.navigate('Search')}>
                         <MagnifyingGlassIcon size="30" strokeWidth="2" color="white"/>
                     </TouchableOpacity>
                 </View>
             </SafeAreaView>
             {/*List of movies*/}
-            <ScrollView
-                showsVerticalScrollIndicator={true}
-                contentContainerStyle={{paddingBottom: 10}}
-            >
-                {/*movies carousel.*/}
-                <TrendingMovies data={trending}/>
+            {loading ? (
+                <Loading/>
+            ) : (
+                <ScrollView
+                    showsVerticalScrollIndicator={false}
+                    contentContainerStyle={{paddingBottom: 10}}
+                >
+                    {/*Trending movies carousel.*/}
+                    {trending.length > 0 && <TrendingMovies data={trending}/>}
 
-                {/*A list of upcoming movies.*/}
-                <MovieList title="upcoming" data={upcoming}/>
+                    {/*A row of upcoming movies.*/}
+                    {upcoming.length > 0 && <MovieList title="upcoming" data={upcoming}/>}
 
-                {/*A list of top-rated movies.*/}
-                <MovieList title="Top Rated" data={topRated}/>
-            </ScrollView>
+                    {/*A row of top-rated movies.*/}
+                    {topRated.length > 0 && <MovieList title="Top Rated" data={topRated}/>}
+                </ScrollView>)}
         </View>
     )
 }
