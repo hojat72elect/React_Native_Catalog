@@ -4,7 +4,7 @@ import Carousel from "react-native-snap-carousel";
 import {useNavigation} from "@react-navigation/native";
 import {image500} from "../api/MovieDb";
 
-let {width, height} = Dimensions.get('window');
+const {width, height} = Dimensions.get('window');
 
 const MovieCard = ({item, handleClick}) => {
 

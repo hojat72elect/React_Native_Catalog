@@ -9,7 +9,7 @@ import {MovieList} from "../components/MovieList";
 import {Cast} from "../components/Cast";
 import {styles} from "../../../common/Theme";
 
-let {width, height} = Dimensions.get('window');
+const {width, height} = Dimensions.get('window');
 const isIos = Platform.OS === 'ios';
 const topMargin = isIos ? '' : ' mt-7';
 

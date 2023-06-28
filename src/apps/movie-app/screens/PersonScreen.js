@@ -7,7 +7,7 @@ import {MovieList} from "../components/MovieList";
 import {ToggleButton} from "../../../common/ToggleButton";
 import {useNavigation} from "@react-navigation/native";
 
-let {width, height} = Dimensions.get('window');
+const {width, height} = Dimensions.get('window');
 const isIos = Platform.OS === 'ios';
 const verticalMargin = isIos ? '' : ' my-10';
 

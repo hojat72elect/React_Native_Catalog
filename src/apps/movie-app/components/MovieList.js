@@ -1,13 +1,14 @@
 import React from 'react'
 import {Dimensions, Image, ScrollView, Text, TouchableOpacity, TouchableWithoutFeedback, View} from "react-native";
 import {styles} from "../../../common/Theme";
+import {useNavigation} from "@react-navigation/native";
+import {fallbackMoviePoster, image185} from "../api/MovieDb";
 
-
-let {width, height} = Dimensions.get('window');
+const {width, height} = Dimensions.get('window');
 
 export const MovieList = ({title, data, hideSeeAll}) => {
 
-    const movieName = "the name of the movie ";
+    const navigation = useNavigation();
 
     return (
         <View className="mb-8 space-y-4">
@@ -33,12 +34,13 @@ export const MovieList = ({title, data, hideSeeAll}) => {
                             <TouchableWithoutFeedback
                                 key={index}
                                 onPress={() => {
+                                    navigation.push('Movie', item);
                                     console.log(`user clicked on a movie : ${item}`);
                                 }}
                             >
                                 <View className="space-y-1 mr-4">
                                     <Image
-                                        source={require('../../../../assets/images/moviePoster2.png')}
+                                        source={{uri: image185(item.poster_path) || fallbackMoviePoster}}
                                         style={{
                                             width: width * 0.33,
                                             height: height * 0.22,
@@ -46,17 +48,18 @@ export const MovieList = ({title, data, hideSeeAll}) => {
                                             borderRadius: 24
                                         }}
                                     />
-                                    <Text
-                                        className="text-neutral-300 ml-5">{movieName.length > 14 ? movieName.slice(0, 14) + '...' : movieName}</Text>
+                                    <Text className="text-neutral-300 ml-5">
+                                        {
+                                            item.title.length > 14 ? item.title.slice(0, 14) + '...' : item.title
+                                        }
+                                    </Text>
                                 </View>
-
                             </TouchableWithoutFeedback>
                         )
                     })
                 }
             </ScrollView>
         </View>
-
-    )
-}
+    );
+};
 
