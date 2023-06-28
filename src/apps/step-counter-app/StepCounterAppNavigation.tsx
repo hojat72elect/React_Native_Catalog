@@ -3,7 +3,6 @@ import React from 'react'
 import {StatusBar} from "expo-status-bar";
 import {Value} from "./Value";
 import RingProgress from "./RingProgress";
-import {useHealthData} from "./UseHealthData";
 
 const styles = StyleSheet.create({
     container: {
@@ -20,21 +19,17 @@ const styles = StyleSheet.create({
     }
 });
 
-const STEPS_GOAL: number = 10_000;
-
 export default function StepCounterAppNavigation() {
-
-    const {steps, flights, distance} = useHealthData(new Date(2023, 5, 26));
 
     return (
         <View style={styles.container}>
 
-            <RingProgress radius={120} strokeWidth={25} progress={steps / STEPS_GOAL}/>
+            <RingProgress radius={120} strokeWidth={25} progress={0.18}/>
 
             <View style={styles.valuesRow}>
-                <Value label="Steps" value={steps.toString()}/>
-                <Value label="Distance" value={`${(distance / 1000).toFixed(2)} km`}/>
-                <Value label="Flights Climbed" value={flights.toString()}/>
+                <Value label="Steps" value="789"/>
+                <Value label="Distance" value="2.56 km"/>
+                <Value label="Flights Climbed" value="45"/>
             </View>
 
             <StatusBar style="auto"/>
