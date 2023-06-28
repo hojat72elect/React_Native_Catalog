@@ -1,9 +1,7 @@
-import 'react-native-reanimated';
-import 'react-native-gesture-handler';
-import MotiTutorialAppNavigation from "./src/apps/moti-tutorial-app/MotiTutorialAppNavigation";
+import StepCounterAppNavigation from "./src/apps/step-counter-app/StepCounterAppNavigation";
 
 export default function App() {
     return (
-        <MotiTutorialAppNavigation/>
+        <StepCounterAppNavigation/>
     );
 }
