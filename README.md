@@ -35,4 +35,4 @@ Apps implemented:
 2. <a href="https://youtu.be/mhyuMy4aI-M">Coffee App</a> (fully implemented).
 3. [Step Counter app](https://www.youtube.com/live/VVoXcr18mdo?feature=share)(implemented the UI part).
 4. [Food order and map app](https://youtu.be/v-zxqkz1T8E)(00:00).
-5. [Moti tutorial](https://youtu.be/LwKUjau3Ifw) (5:25).
+5. [Moti tutorial](https://youtu.be/LwKUjau3Ifw) (It's hard to install Moti, I let it go for now).
