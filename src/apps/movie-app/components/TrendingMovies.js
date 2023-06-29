@@ -32,7 +32,6 @@ export const TrendingMovies = ({data}) => {
         navigation.navigate('Movie', item);
     };
 
-
     return (
         <View className="mb-8">
             <Text className="text-white text-xl mx-4 mb-5">Trending</Text>
@@ -40,15 +39,12 @@ export const TrendingMovies = ({data}) => {
                 layout={'stack'}
                 layoutCardOffset={18}
                 data={data}
-                renderItem={({item}) => <MovieCard item={item} handleClick={() => {
-                    handleClick(item)
-                }}/>}
-                firstItem={2}
+                renderItem={({item}) => <MovieCard item={item} handleClick={handleClick}/>}
+                firstItem={1}
                 inactiveSlideOpacity={0.60}
                 sliderWidth={width}
                 itemWidth={width * 0.62}
                 slideStyle={{display: 'flex', alignItems: 'center'}}
-                autoplay={false}
             />
         </View>
     )

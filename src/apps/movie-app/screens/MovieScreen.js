@@ -4,10 +4,12 @@ import {useNavigation, useRoute} from "@react-navigation/native";
 import {ChevronLeftIcon} from "react-native-heroicons/outline";
 import {LinearGradient} from "expo-linear-gradient";
 import {HeartIcon} from "react-native-heroicons/solid";
-import {ToggleButton} from "../../../common/ToggleButton";
 import {MovieList} from "../components/MovieList";
 import {Cast} from "../components/Cast";
 import {styles} from "../../../common/Theme";
+import {fallbackMoviePoster, fetchMovieCredits, fetchMovieDetails, fetchSimilarMovies, image500} from "../api/MovieDb";
+import Loading from "../components/Loading";
+import {theme} from "../MovieAppTheme";
 
 const {width, height} = Dimensions.get('window');
 const isIos = Platform.OS === 'ios';
@@ -16,76 +18,142 @@ const topMargin = isIos ? '' : ' mt-7';
 export const MovieScreen = () => {
 
     const {params: item} = useRoute();
-    const likeButtonCallback = () => {
-        console.log("User has clicked on the like button.");
-    }
     const navigation = useNavigation();
-    const [cast] = useState([2, 6, 7, 3, 4, 5]);
-    const [similarMovies] = useState([2, 2, 3, 4, 3, 5, 6, 7, 3, 4, 5]);
+    const [movie, setMovie] = useState({});
+    const [cast, setCast] = useState([])
+    const [similarMovies, setSimilarMovies] = useState([])
+    const [isFavourite, toggleFavourite] = useState(false);
+    const [loading, setLoading] = useState(false);
+
     useEffect(() => {
-        // Get the info about this specific movie
+        setLoading(true);
+        getMovieDetials(item.id);
+        getMovieCredits(item.id);
+        getSimilarMovies(item.id);
     }, [item]);
 
+    const getMovieDetials = async id => {
+        const data = await fetchMovieDetails(id);
+        console.log('got movie details');
+        setLoading(false);
+        if (data) {
+            setMovie({...movie, ...data});
+        }
+    }
+    const getMovieCredits = async id => {
+        const data = await fetchMovieCredits(id);
+        console.log('got movie credits')
+        if (data && data.cast) {
+            setCast(data.cast);
+        }
+
+    }
+    const getSimilarMovies = async id => {
+        const data = await fetchSimilarMovies(id);
+        console.log('got similar movies');
+        if (data && data.results) {
+            setSimilarMovies(data.results);
+        }
+
+    }
 
     return (
-        <View className="flex-1 bg-neutral-900">
-            <SafeAreaView
-                className={`absolute z-20 w-full flex-row justify-between items-center px-4 ${topMargin}`}>
-                <TouchableOpacity onPress={() => {
-                    console.log("user clicked on the back button");
-                    navigation.goBack();
-                }}
-                                  style={styles.background}
-                                  className="rounded-xl p-1">
-                    <ChevronLeftIcon size="28" strokeWidth={2.5} color="white"/>
-                </TouchableOpacity>
-                <ToggleButton isToggled={false} onToggled={likeButtonCallback} Icon={HeartIcon}/>
-            </SafeAreaView>
-            <ScrollView
-                contentContainerStyle={{paddingBottom: 20}}
-                className="w-full"
-            >
-                <View>
-                    <Image
-                        source={require('../../../../assets/images/moviePoster2.png')}
-                        style={{width: width, height: height * 0.55}}
-                    />
-                    <LinearGradient
-                        colors={['transparent', 'rgba(23, 23, 23, 0.8)', 'rgba(23, 23, 23, 1)']}
-                        style={{width: width, height: height * 0.40}}
-                        start={{x: 0.5, y: 0}}
-                        end={{x: 0.5, y: 1}}
-                        className="absolute bottom-0"
-                    />
-                </View>
+        <ScrollView
+            contentContainerStyle={{paddingBottom: 20}}
+            className="flex-1 bg-neutral-900">
 
-                {/*All the movie details*/}
-                <View style={{marginTop: -(height * 0.09)}} className="space-y-3">
-                    {/*title*/}
-                    <Text className="text-white text-center text-3xl font-bold tracking-wider">
-                        Ant-Man and the Wasp: Quantumania
-                    </Text>
-                    <Text className="text-neutral-400 font-semibold text-base text-center">
-                        Released . 2020 . 170 min
-                    </Text>
-                    <View className="flex-row justify-center mx-4 space-x-2">
+            {/* back button and movie poster */}
+            <View className="w-full">
+                <SafeAreaView
+                    className={"absolute z-20 w-full flex-row justify-between items-center px-4 " + topMargin}>
+                    <TouchableOpacity style={styles.background} className="rounded-xl p-1"
+                                      onPress={() => navigation.goBack()}>
+                        <ChevronLeftIcon size="28" strokeWidth={2.5} color="white"/>
+                    </TouchableOpacity>
+
+                    <TouchableOpacity onPress={() => toggleFavourite(!isFavourite)}>
+                        <HeartIcon size="35" color={isFavourite ? theme.background : 'white'}/>
+                    </TouchableOpacity>
+                </SafeAreaView>
+                {
+                    loading ? (
+                        <Loading/>
+                    ) : (
+                        <View>
+                            <Image
+                                source={{uri: image500(movie.poster_path) || fallbackMoviePoster}}
+                                style={{width, height: height * 0.55}}
+                            />
+                            <LinearGradient
+                                colors={['transparent', 'rgba(23, 23, 23, 0.8)', 'rgba(23, 23, 23, 1)']}
+                                style={{width, height: height * 0.40}}
+                                start={{x: 0.5, y: 0}}
+                                end={{x: 0.5, y: 1}}
+                                className="absolute bottom-0"
+                            />
+                        </View>
+                    )
+                }
+
+
+            </View>
+
+            {/* movie details */}
+
+            <View style={{marginTop: -(height * 0.09)}} className="space-y-3">
+                {/* title */}
+                <Text className="text-white text-center text-3xl font-bold tracking-widest">
+                    {
+                        movie?.title
+                    }
+                </Text>
+
+                {/* status, release year, runtime */}
+                {
+                    movie?.id ? (
                         <Text className="text-neutral-400 font-semibold text-base text-center">
-                            Action . Thrill . Comedy
+                            {movie?.status} • {movie?.release_date?.split('-')[0] || 'N/A'} • {movie?.runtime} min
                         </Text>
-                    </View>
-                    <Text className="text-neutral-400 mx-4 tracking-wide">
-                        Imagine a very long and pompous description that will go here.
-                    </Text>
+                    ) : null
+                }
+
+
+                {/* genres  */}
+                <View className="flex-row justify-center mx-4 space-x-2">
+                    {
+                        movie?.genres?.map((genre, index) => {
+                            let showDot = index + 1 !== movie.genres.length;
+                            return (
+                                <Text key={index} className="text-neutral-400 font-semibold text-base text-center">
+                                    {genre?.name} {showDot ? "•" : null}
+                                </Text>
+                            )
+                        })
+                    }
                 </View>
 
-                {/*cast members of the movie*/}
-                <Cast cast={cast}/>
+                {/* description */}
+                <Text className="text-neutral-400 mx-4 tracking-wide">
+                    {
+                        movie?.overview
+                    }
+                </Text>
 
-                {/*Similar movies*/}
-                <MovieList title="Similar Movies" data={similarMovies} hideSeeAll={true}/>
+            </View>
 
-            </ScrollView>
-        </View>
+
+            {/* cast */}
+            {
+                movie?.id && cast.length > 0 && <Cast navigation={navigation} cast={cast}/>
+            }
+
+            {/* similar movies section */}
+            {
+                movie?.id && similarMovies.length > 0 &&
+                <MovieList title={'Similar Movies'} hideSeeAll={true} data={similarMovies}/>
+            }
+
+        </ScrollView>
     )
 }
 
