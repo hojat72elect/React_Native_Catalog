@@ -3,15 +3,27 @@ import {Dimensions, Image, Text, TouchableWithoutFeedback, View} from "react-nat
 import Carousel from "react-native-snap-carousel";
 import {useNavigation} from "@react-navigation/native";
 import {image500} from "../api/MovieDb";
+import {ApiResponseResults} from "../api/response/ApiResponse";
 
 const {width, height} = Dimensions.get('window');
 
-const MovieCard = ({item, handleClick}) => {
+type TrendingMoviesProps = {
+    data: ApiResponseResults[];
+};
+
+type MovieCardProps = {
+    item: ApiResponseResults;
+    handleClick: (item: ApiResponseResults) => void
+};
+
+const MovieCard = ({item, handleClick}: MovieCardProps) => {
+
 
     return (
         <TouchableWithoutFeedback onPress={() => handleClick(item)}>
             <Image
-                source={{uri:image500(item.poster_path)}}
+                // @ts-ignore
+                source={{uri: image500(item.poster_path)}}
                 style={{
                     width: width * 0.6,
                     height: height * 0.4,
@@ -23,12 +35,13 @@ const MovieCard = ({item, handleClick}) => {
     );
 }
 
-export const TrendingMovies = ({data}) => {
+export const TrendingMovies = ({data}: TrendingMoviesProps) => {
 
     const navigation = useNavigation();
 
-    const handleClick = (item) => {
+    const handleClick = (item: ApiResponseResults) => {
         console.log(`user clicked on item ${item} in carousel`);
+        // @ts-ignore
         navigation.navigate('Movie', item);
     };
 
