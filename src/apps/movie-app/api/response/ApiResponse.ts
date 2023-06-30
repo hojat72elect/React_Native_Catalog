@@ -1,6 +1,6 @@
 export type ApiResponse = {
     page: number;
-    // This is what we give to [TrendingMovies].
+    // This is what we give to [TrendingMovies] and [MovieList].
     results: ApiResponseResults[];
     total_pages: number;
     total_results: number;
