@@ -10,46 +10,55 @@ import {styles} from "../../../common/Theme";
 import {fallbackMoviePoster, fetchMovieCredits, fetchMovieDetails, fetchSimilarMovies, image500} from "../api/MovieDb";
 import {Loading} from "../components/Loading";
 import {theme} from "../MovieAppTheme";
+import {
+    ApiMovieCredits,
+    ApiMovieCreditsCast,
+    ApiMovieDetails,
+    ApiResponse,
+    ApiResponseResults
+} from "../api/response/ApiResponse";
 
 const {width, height} = Dimensions.get('window');
 const isIos = Platform.OS === 'ios';
-const topMargin = isIos ? '' : ' mt-7';
+const topMargin: string = isIos ? '' : ' mt-7';
 
 export const MovieScreen = () => {
 
     const {params: item} = useRoute();
     const navigation = useNavigation();
-    const [movie, setMovie] = useState({});
-    const [cast, setCast] = useState([])
-    const [similarMovies, setSimilarMovies] = useState([])
+
+    const [movie, setMovie] = useState<ApiMovieDetails | null>(null);
+    const [cast, setCast] = useState<ApiMovieCreditsCast[]>([]);
+    const [similarMovies, setSimilarMovies] = useState<ApiResponseResults[]>([]);
     const [isFavourite, toggleFavourite] = useState(false);
     const [loading, setLoading] = useState(false);
 
     useEffect(() => {
+        // @ts-ignore
+        const movieId = item.id
         setLoading(true);
-        getMovieDetials(item.id);
-        getMovieCredits(item.id);
-        getSimilarMovies(item.id);
+        getMovieDetails(movieId);
+        getMovieCredits(movieId);
+        getSimilarMovies(movieId);
     }, [item]);
 
-    const getMovieDetials = async id => {
-        const data = await fetchMovieDetails(id);
-        console.log('got movie details');
+    const getMovieDetails = async (id: number) => {
+        const data: ApiMovieDetails = await fetchMovieDetails(id);
+        console.log('got movie details', data);
         setLoading(false);
         if (data) {
-            setMovie({...movie, ...data});
+            setMovie(data);
         }
     }
-    const getMovieCredits = async id => {
-        const data = await fetchMovieCredits(id);
-        console.log('got movie credits')
+    const getMovieCredits = async (id: number) => {
+        const data: ApiMovieCredits = await fetchMovieCredits(id);
+        console.log('got movie credits', data);
         if (data && data.cast) {
             setCast(data.cast);
         }
-
     }
-    const getSimilarMovies = async id => {
-        const data = await fetchSimilarMovies(id);
+    const getSimilarMovies = async (id: number) => {
+        const data: ApiResponse = await fetchSimilarMovies(id);
         console.log('got similar movies');
         if (data && data.results) {
             setSimilarMovies(data.results);
@@ -72,7 +81,7 @@ export const MovieScreen = () => {
                     </TouchableOpacity>
 
                     <TouchableOpacity onPress={() => toggleFavourite(!isFavourite)}>
-                        <HeartIcon size="35" color={isFavourite ? theme.background : 'white'}/>
+                        <HeartIcon size={35} color={isFavourite ? theme.background : 'white'}/>
                     </TouchableOpacity>
                 </SafeAreaView>
                 {
@@ -81,7 +90,7 @@ export const MovieScreen = () => {
                     ) : (
                         <View>
                             <Image
-                                source={{uri: image500(movie.poster_path) || fallbackMoviePoster}}
+                                source={{uri: image500(movie?.poster_path) || fallbackMoviePoster}}
                                 style={{width, height: height * 0.55}}
                             />
                             <LinearGradient
