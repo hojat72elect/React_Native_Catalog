@@ -8,14 +8,15 @@ import {styles} from "../../../common/Theme";
 import {useNavigation} from "@react-navigation/native";
 import {fetchTopRatedMovies, fetchTrendingMovies, fetchUpcomingMovies} from "../api/MovieDb";
 import {Loading} from "../components/Loading";
+import {ApiResponse, ApiResponseResults} from "../api/response/ApiResponse";
 
 const isIos = Platform.OS === 'ios';
 
 export const HomeScreen = () => {
 
-    const [trending, setTrending] = useState([]);
-    const [upcoming, setUpcoming] = useState([]);
-    const [topRated, setTopRated] = useState([]);
+    const [trending, setTrending] = useState<ApiResponseResults[]>([]);
+    const [upcoming, setUpcoming] = useState<ApiResponseResults[]>([]);
+    const [topRated, setTopRated] = useState<ApiResponseResults[]>([]);
     const [loading, setLoading] = useState(true);
     const navigation = useNavigation();
 
@@ -26,18 +27,18 @@ export const HomeScreen = () => {
     }, []);
 
     const getTrendingMovies = async () => {
-        const data = await fetchTrendingMovies();
+        const data: ApiResponse = await fetchTrendingMovies();
         console.log('got trending', data.results.length)
         if (data && data.results) setTrending(data.results);
         setLoading(false)
     }
     const getUpcomingMovies = async () => {
-        const data = await fetchUpcomingMovies();
+        const data: ApiResponse = await fetchUpcomingMovies();
         console.log('got upcoming', data.results.length)
         if (data && data.results) setUpcoming(data.results);
     }
     const getTopRatedMovies = async () => {
-        const data = await fetchTopRatedMovies();
+        const data: ApiResponse = await fetchTopRatedMovies();
         console.log('got top rated', data.results.length)
         if (data && data.results) setTopRated(data.results);
     }
@@ -52,6 +53,7 @@ export const HomeScreen = () => {
                     <Text className="text-white text-3xl font-bold">
                         <Text style={styles.text}>M</Text>ovies
                     </Text>
+                    {/*@ts-ignore*/}
                     <TouchableOpacity onPress={() => navigation.navigate('Search')}>
                         <MagnifyingGlassIcon size={30} strokeWidth={2} color="white"/>
                     </TouchableOpacity>
