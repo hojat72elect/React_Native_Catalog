@@ -6,7 +6,7 @@ import {styles} from "../../../common/Theme";
 import {MovieList} from "../components/MovieList";
 import {useNavigation, useRoute} from "@react-navigation/native";
 import {fallbackPersonImage, fetchPersonDetails, fetchPersonMovies, image342} from "../api/MovieDb";
-import Loading from "../components/Loading";
+import {Loading} from "../components/Loading";
 
 const ios = Platform.OS === 'ios';
 const verticalMargin = ios ? '' : ' my-7';

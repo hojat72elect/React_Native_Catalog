@@ -8,7 +8,7 @@ import {MovieList} from "../components/MovieList";
 import {Cast} from "../components/Cast";
 import {styles} from "../../../common/Theme";
 import {fallbackMoviePoster, fetchMovieCredits, fetchMovieDetails, fetchSimilarMovies, image500} from "../api/MovieDb";
-import Loading from "../components/Loading";
+import {Loading} from "../components/Loading";
 import {theme} from "../MovieAppTheme";
 
 const {width, height} = Dimensions.get('window');

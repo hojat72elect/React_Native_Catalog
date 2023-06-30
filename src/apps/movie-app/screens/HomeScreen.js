@@ -7,7 +7,7 @@ import {MovieList} from "../components/MovieList";
 import {styles} from "../../../common/Theme";
 import {useNavigation} from "@react-navigation/native";
 import {fetchTopRatedMovies, fetchTrendingMovies, fetchUpcomingMovies} from "../api/MovieDb";
-import Loading from "../components/Loading";
+import {Loading} from "../components/Loading";
 
 const isIos = Platform.OS === 'ios';
 
