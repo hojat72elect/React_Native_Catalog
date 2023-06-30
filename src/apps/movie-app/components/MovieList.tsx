@@ -3,10 +3,17 @@ import {Dimensions, Image, ScrollView, Text, TouchableOpacity, TouchableWithoutF
 import {styles} from "../../../common/Theme";
 import {useNavigation} from "@react-navigation/native";
 import {fallbackMoviePoster, image185} from "../api/MovieDb";
+import {ApiResponseResults} from "../api/response/ApiResponse";
 
 const {width, height} = Dimensions.get('window');
 
-export const MovieList = ({title, data, hideSeeAll}) => {
+type MovieListProps = {
+    title: string;
+    data: ApiResponseResults[];
+    hideSeeAll: boolean;
+};
+
+export const MovieList = ({title, data, hideSeeAll}: MovieListProps) => {
 
     const navigation = useNavigation();
 
@@ -34,6 +41,7 @@ export const MovieList = ({title, data, hideSeeAll}) => {
                             <TouchableWithoutFeedback
                                 key={index}
                                 onPress={() => {
+                                    // @ts-ignore
                                     navigation.push('Movie', item);
                                     console.log(`user clicked on a movie : ${item}`);
                                 }}
@@ -62,4 +70,3 @@ export const MovieList = ({title, data, hideSeeAll}) => {
         </View>
     );
 };
-
