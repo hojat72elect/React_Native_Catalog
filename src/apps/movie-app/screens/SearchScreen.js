@@ -7,14 +7,14 @@ import {
     TouchableWithoutFeedback,
     View,
     Image,
+    Text,
 } from "react-native";
 import {useNavigation} from "@react-navigation/native";
 import {useCallback, useState} from "react";
 import {fallbackMoviePoster, image185, searchMovies} from "../api/MovieDb";
-import {debounce} from 'lodash'
+import {debounce} from 'lodash';
 import {XMarkIcon} from "react-native-heroicons/mini";
 import {Loading} from "../components/Loading";
-
 
 const {width, height} = Dimensions.get('window');
 
@@ -23,7 +23,7 @@ export default function SearchScreen() {
     const [loading, setLoading] = useState(false);
     const [results, setResults] = useState([])
 
-    const handleSearch = search => {
+    const handleSearch = (search) => {
         if (search && search.length > 2) {
             setLoading(true);
             searchMovies({
@@ -87,7 +87,6 @@ export default function SearchScreen() {
                                                 <View className="space-y-2 mb-4">
                                                     <Image
                                                         source={{uri: image185(item.poster_path) || fallbackMoviePoster}}
-                                                        // source={require('../assets/images/moviePoster2.png')}
                                                         className="rounded-3xl"
                                                         style={{width: width * 0.44, height: height * 0.3}}
                                                     />
