@@ -1,9 +1,11 @@
 export type ApiResponse = {
     page: number;
+    // This is what we give to [TrendingMovies].
     results: ApiResponseResults[];
     total_pages: number;
     total_results: number;
 }
+
 export type ApiResponseResults = {
     adult: boolean;
     backdrop_path: string;
