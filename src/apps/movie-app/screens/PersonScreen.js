@@ -9,7 +9,7 @@ import {fallbackPersonImage, fetchPersonDetails, fetchPersonMovies, image342} fr
 import Loading from "../components/Loading";
 
 const ios = Platform.OS === 'ios';
-const verticalMargin = ios ? '' : ' my-3';
+const verticalMargin = ios ? '' : ' my-7';
 const {width, height} = Dimensions.get('window');
 
 export function PersonScreen() {
@@ -47,9 +47,9 @@ export function PersonScreen() {
         <ScrollView
             className="flex-1 bg-neutral-900"
             contentContainerStyle={{paddingBottom: 20}}>
-            {/* back button */}
             <SafeAreaView
                 className={"flex-row justify-between items-center mx-4 z-10 " + verticalMargin}>
+                {/* back button */}
                 <TouchableOpacity style={styles.background} className="rounded-xl p-1"
                                   onPress={() => navigation.goBack()}>
                     <ChevronLeftIcon size="28" strokeWidth={2.5} color="white"/>

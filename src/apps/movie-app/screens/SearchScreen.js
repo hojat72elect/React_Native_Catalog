@@ -17,7 +17,6 @@ import Loading from "../components/Loading";
 
 const {width, height} = Dimensions.get('window');
 
-
 export default function SearchScreen() {
     const navigation = useNavigation();
     const [loading, setLoading] = useState(false);
