@@ -10,10 +10,10 @@ const {width, height} = Dimensions.get('window');
 type MovieListProps = {
     title: string;
     data: ApiResponseResults[];
-    hideSeeAll: boolean;
+    hideSeeAll?: boolean;
 };
 
-export const MovieList = ({title, data, hideSeeAll}: MovieListProps) => {
+export const MovieList = ({title, data, hideSeeAll = false}: MovieListProps) => {
 
     const navigation = useNavigation();
 
