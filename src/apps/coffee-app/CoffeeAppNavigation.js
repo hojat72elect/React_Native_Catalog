@@ -20,7 +20,6 @@ import {themeColors} from "./CoffeeTheme";
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
-
 LogBox.ignoreLogs([
     'Non-serializable values were found in the navigation state',
 ]);
@@ -65,7 +64,7 @@ export const CoffeeAppNavigation = () => {
                         borderRadius: 50,
                         backgroundColor: themeColors.bgLight,
                         marginHorizontal: 10,
-                        position:'absolute'
+                        position: 'absolute'
                     }
                 })}
             >
