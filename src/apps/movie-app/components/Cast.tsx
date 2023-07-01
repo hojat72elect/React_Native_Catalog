@@ -1,9 +1,16 @@
 import React from 'react'
 import {Image, ScrollView, Text, TouchableOpacity, View} from "react-native";
 import {fallbackPersonImage, image185} from "../api/MovieDb";
+import {ApiMovieCreditsCast} from "../api/response/ApiResponse";
+import {NavigationProp} from "@react-navigation/core/src/types";
 
-export const Cast = ({cast, navigation}) => {
 
+type CastProps = {
+    cast: ApiMovieCreditsCast[];
+    navigation: NavigationProp<ReactNavigation.RootParamList>;
+};
+
+export const Cast = ({cast, navigation}: CastProps) => {
 
     return (
         <View className="my-6">
@@ -14,11 +21,12 @@ export const Cast = ({cast, navigation}) => {
                 contentContainerStyle={{paddingHorizontal: 15}}
             >
                 {
-                    cast && cast.map((person, index)=>{
+                    cast && cast.map((person, index) => {
                         return (
                             <TouchableOpacity
                                 key={index}
-                                onPress={()=> navigation.navigate('Person', person)}
+                                // @ts-ignore
+                                onPress={() => navigation.navigate('Person', person)}
                                 className="mr-4 items-center">
                                 <View
                                     className="overflow-hidden rounded-full h-20 w-20 items-center border border-neutral-500">
@@ -31,12 +39,12 @@ export const Cast = ({cast, navigation}) => {
 
                                 <Text className="text-white text-xs mt-1">
                                     {
-                                        person?.character.length>10? person.character.slice(0,10)+'...' : person?.character
+                                        person?.character.length > 10 ? person.character.slice(0, 10) + '...' : person?.character
                                     }
                                 </Text>
                                 <Text className="text-neutral-400 text-xs">
                                     {
-                                        person?.original_name.length>10? person.original_name.slice(0,10)+'...' : person?.original_name
+                                        person?.original_name.length > 10 ? person.original_name.slice(0, 10) + '...' : person?.original_name
                                     }
                                 </Text>
                             </TouchableOpacity>
