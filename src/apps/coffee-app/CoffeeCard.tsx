@@ -4,18 +4,9 @@ import {StarIcon} from 'react-native-heroicons/solid';
 import {PlusIcon} from 'react-native-heroicons/outline';
 import {useNavigation} from "@react-navigation/native";
 import {themeColors} from "./CoffeeTheme";
+import {Coffee} from "./FakeData";
 
 const {width, height} = Dimensions.get('window');
-
-export type Coffee = {
-    id: number;
-    name: string,
-    price: number;
-    volume: string
-    stars: number
-    image: NodeRequire;
-    desc: string;
-};
 
 export type CoffeeCardProps = {
     item: Coffee;
