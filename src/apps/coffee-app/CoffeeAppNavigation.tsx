@@ -1,5 +1,5 @@
 import React from 'react'
-import {NavigationContainer} from "@react-navigation/native";
+import {NavigationContainer, Route} from "@react-navigation/native";
 import {createNativeStackNavigator} from "@react-navigation/native-stack";
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {LogBox, View} from "react-native";
@@ -29,8 +29,7 @@ LogBox.ignoreLogs([
  */
 export const CoffeeAppNavigation = () => {
 
-
-    const menuIcons = (route, focused) => {
+    const menuIcons = (route: Route<any>, focused: boolean) => {
         let icon;
         if (route.name === 'home') {
             icon = focused ? <HomeSolid size={30} color={themeColors.bgLight}/> :
