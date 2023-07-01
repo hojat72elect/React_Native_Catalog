@@ -6,7 +6,6 @@ import {ArrowLeftCircleIcon, PlusIcon, MinusIcon, ShoppingBagIcon} from "react-n
 import {HeartIcon, StarIcon} from "react-native-heroicons/solid";
 import {themeColors} from "./CoffeeTheme";
 
-
 export const ProductScreen = (props) => {
 
     const item = props.route.params;
@@ -18,7 +17,7 @@ export const ProductScreen = (props) => {
             <StatusBar style="light"/>
             <Image
                 source={require('../../../assets/images/beansBackground2.png')}
-                style={{height:120 , borderBottomLeftRadius: 50, borderBottomRightRadius: 50}}
+                style={{height: 120, borderBottomLeftRadius: 50, borderBottomRightRadius: 50}}
                 className="w-full absolute"
             />
             <View className="space-y-4 mt-6">

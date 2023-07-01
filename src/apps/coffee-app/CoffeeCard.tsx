@@ -8,18 +8,20 @@ import {themeColors} from "./CoffeeTheme";
 const {width, height} = Dimensions.get('window');
 
 export type Coffee = {
-    item: {
-        id: number;
-        name: string,
-        price: number;
-        volume: string
-        stars: number
-        image: NodeRequire;
-        desc: string
-    };
+    id: number;
+    name: string,
+    price: number;
+    volume: string
+    stars: number
+    image: NodeRequire;
+    desc: string;
 };
 
-export const CoffeeCard = ({item}: Coffee) => {
+export type CoffeeCardProps = {
+    item: Coffee;
+};
+
+export const CoffeeCard = ({item}: CoffeeCardProps) => {
 
     const navigation = useNavigation();
 
