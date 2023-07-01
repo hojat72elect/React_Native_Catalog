@@ -15,15 +15,17 @@ import {fallbackMoviePoster, image185, searchMovies} from "../api/MovieDb";
 import {debounce} from 'lodash';
 import {XMarkIcon} from "react-native-heroicons/mini";
 import {Loading} from "../components/Loading";
+import {ApiResponse, ApiResponseResults} from "../api/response/ApiResponse";
 
 const {width, height} = Dimensions.get('window');
 
 export default function SearchScreen() {
     const navigation = useNavigation();
-    const [loading, setLoading] = useState(false);
-    const [results, setResults] = useState([])
 
-    const handleSearch = (search) => {
+    const [loading, setLoading] = useState(false);
+    const [results, setResults] = useState<ApiResponseResults[]>([])
+
+    const handleSearch = (search: string) => {
         if (search && search.length > 2) {
             setLoading(true);
             searchMovies({
@@ -31,8 +33,8 @@ export default function SearchScreen() {
                 include_adult: false,
                 language: 'en-US',
                 page: '1'
-            }).then(data => {
-                console.log('got search results');
+            }).then((data: ApiResponse) => {
+                console.log('got search results', data);
                 setLoading(false);
                 if (data && data.results) setResults(data.results);
             })
@@ -57,10 +59,11 @@ export default function SearchScreen() {
                     className="pb-1 pl-6 flex-1 text-base font-semibold text-white tracking-wider"
                 />
                 <TouchableOpacity
+                    // @ts-ignore
                     onPress={() => navigation.navigate('Home')}
                     className="rounded-full p-3 m-1 bg-neutral-500"
                 >
-                    <XMarkIcon size="25" color="white"/>
+                    <XMarkIcon size={25} color="white"/>
 
                 </TouchableOpacity>
             </View>
@@ -83,6 +86,7 @@ export default function SearchScreen() {
                                         return (
                                             <TouchableWithoutFeedback
                                                 key={index}
+                                                // @ts-ignore
                                                 onPress={() => navigation.push('Movie', item)}>
                                                 <View className="space-y-2 mb-4">
                                                     <Image
