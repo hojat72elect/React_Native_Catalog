@@ -12,6 +12,7 @@ export const ProductScreen = () => {
     const navigation = useNavigation();
     const [orderSize, setOrderSize] = useState('small');
 
+
     return (
         <View className="flex-1">
             <StatusBar style="light"/>
@@ -39,15 +40,19 @@ export const ProductScreen = () => {
                         shadowOpacity: 0.9
                     }}
                 >
+                    {/*@ts-ignore*/}
                     <Image source={item.image} className="-mt-9 h-28 w-28"/>
                 </View>
                 <View style={{backgroundColor: themeColors.bgLight}}
                       className="flex-row mx-4 items-center rounded-3xl p-1 px-2 space-x-1 w-16 opacity-90">
                     <StarIcon size="15" color="white"/>
+                    {/*@ts-ignore*/}
                     <Text className="text-base font-semibold text-white">{item.stars}</Text>
                 </View>
                 <View className="mx-4 flex-row justify-between items-center">
+                    {/*@ts-ignore*/}
                     <Text style={{color: themeColors.text}} className="text-3xl font-semibold">{item.name}</Text>
+                    {/*@ts-ignore*/}
                     <Text style={{color: themeColors.text}} className="text-lg font-semibold">$ {item.price}</Text>
                 </View>
                 <View className="mx-4 space-y-2">
@@ -86,6 +91,7 @@ export const ProductScreen = () => {
                         About
                     </Text>
                     <Text className="text-gray-600">
+                        {/*@ts-ignore*/}
                         {item.desc}
                     </Text>
                 </View>
@@ -93,6 +99,7 @@ export const ProductScreen = () => {
                     <View className="flex-row items-center space-x-1">
                         <Text className="text-base text-gray-700 font-semibold opacity-60">Volume</Text>
                         <Text className="text-base text-black font-semibold">
+                            {/*@ts-ignore*/}
                             {item.volume}
                         </Text>
                     </View>
