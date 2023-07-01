@@ -113,3 +113,45 @@ export type ApiMovieCreditsCrew = {
     popularity: number;
     profile_path: string;
 }
+
+export type ApiPersonDetails = {
+    adult: boolean;
+    also_known_as: any[];
+    biography: string;
+    birthday: string;
+    deathday?: any;
+    gender: number;
+    homepage: string;
+    id: number;
+    imdb_id: string;
+    known_for_department: string;
+    name: string;
+    place_of_birth: string;
+    popularity: number;
+    profile_path: string;
+}
+
+export type ApiPersonMovies = {
+    cast: ApiResponseResults[];
+    crew: ApiPersonMoviesCrew[];
+    id: number;
+}
+export type ApiPersonMoviesCrew = {
+    adult: boolean;
+    backdrop_path?: any;
+    credit_id: string;
+    department: string;
+    genre_ids: string[];
+    id: number;
+    job: string;
+    original_language: string;
+    original_title: string;
+    overview: string;
+    popularity: number;
+    poster_path: string;
+    release_date: string;
+    title: string;
+    video: boolean;
+    vote_average: number;
+    vote_count: number;
+}
