@@ -21,7 +21,6 @@ const {width, height} = Dimensions.get('window');
 
 export const HomeScreen = () => {
 
-
     return (
         <View className="flex-1 relative bg-white">
             <StatusBar/>
@@ -42,7 +41,7 @@ export const HomeScreen = () => {
                         New York, NYC
                     </Text>
                 </View>
-                <BellIcon size="27" color="black"/>
+                <BellIcon size={27} color="black"/>
             </View>
 
             <ScrollView className="mb-16">
@@ -53,7 +52,7 @@ export const HomeScreen = () => {
                         <TouchableOpacity
                             className="rounded-full p-2"
                             style={{backgroundColor: themeColors.bgLight}}>
-                            <MagnifyingGlassIcon size="25" strokeWidth={2} color="white"/>
+                            <MagnifyingGlassIcon size={25} strokeWidth={2} color="white"/>
                         </TouchableOpacity>
                     </View>
                 </View>
