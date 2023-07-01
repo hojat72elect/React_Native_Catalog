@@ -1,14 +1,14 @@
 import {View, Text, Image, TouchableOpacity} from 'react-native'
 import React, {useState} from 'react'
-import {useNavigation} from "@react-navigation/native";
+import {useNavigation, useRoute} from "@react-navigation/native";
 import {StatusBar} from "expo-status-bar";
 import {ArrowLeftCircleIcon, PlusIcon, MinusIcon, ShoppingBagIcon} from "react-native-heroicons/outline";
 import {HeartIcon, StarIcon} from "react-native-heroicons/solid";
 import {themeColors} from "./CoffeeTheme";
 
-export const ProductScreen = (props) => {
+export const ProductScreen = () => {
 
-    const item = props.route.params;
+    const {params: item} = useRoute();
     const navigation = useNavigation();
     const [orderSize, setOrderSize] = useState('small');
 
