@@ -7,7 +7,19 @@ import {themeColors} from "./CoffeeTheme";
 
 const {width, height} = Dimensions.get('window');
 
-export const CoffeeCard = ({item}) => {
+export type Coffee = {
+    item: {
+        id: number;
+        name: string,
+        price: number;
+        volume: string
+        stars: number
+        image: NodeRequire;
+        desc: string
+    };
+};
+
+export const CoffeeCard = ({item}: Coffee) => {
 
     const navigation = useNavigation();
 
@@ -29,6 +41,7 @@ export const CoffeeCard = ({item}) => {
                 className="flex-row justify-center"
             >
                 <Image
+                    // @ts-ignore
                     source={item.image}
                     className="h-40 w-40"
                 />
@@ -64,6 +77,7 @@ export const CoffeeCard = ({item}) => {
                     <TouchableOpacity
                         onPress={() => {
                             console.log("user bought a coffee")
+                            // @ts-ignore
                             navigation.navigate('Product', {...item})
                         }}
                         style={{
