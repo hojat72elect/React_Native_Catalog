@@ -7,36 +7,41 @@ import {MovieList} from "../components/MovieList";
 import {useNavigation, useRoute} from "@react-navigation/native";
 import {fallbackPersonImage, fetchPersonDetails, fetchPersonMovies, image342} from "../api/MovieDb";
 import {Loading} from "../components/Loading";
+import {ApiPersonDetails, ApiPersonMovies, ApiResponseResults} from "../api/response/ApiResponse";
 
 const ios = Platform.OS === 'ios';
-const verticalMargin = ios ? '' : ' my-7';
+const verticalMargin: string = ios ? '' : ' my-7';
 const {width, height} = Dimensions.get('window');
 
 export function PersonScreen() {
     const {params: item} = useRoute();
-    const [isFavourite, toggleFavourite] = useState(false);
     const navigation = useNavigation();
-    const [person, setPerson] = useState({});
-    const [personMovies, setPersonMovies] = useState([]);
+
+    const [isFavourite, toggleFavourite] = useState(false);
+    const [person, setPerson] = useState<ApiPersonDetails | null>(null);
+    const [personMovies, setPersonMovies] = useState<ApiResponseResults[]>([]);
     const [loading, setLoading] = useState(false);
 
     useEffect(() => {
+
+        // @ts-ignore
+        const personId = item.id
         setLoading(true);
-        getPersonDetails(item.id);
-        getPersonMovies(item.id);
+        getPersonDetails(personId);
+        getPersonMovies(personId);
     }, [item]);
 
-    const getPersonDetails = async id => {
-        const data = await fetchPersonDetails(id);
-        console.log('got person details');
+    const getPersonDetails = async (id: number) => {
+        const data: ApiPersonDetails = await fetchPersonDetails(id);
+        console.log('got person details', data);
         setLoading(false);
         if (data) {
             setPerson(data);
         }
     }
-    const getPersonMovies = async id => {
-        const data = await fetchPersonMovies(id);
-        console.log('got person movies')
+    const getPersonMovies = async (id: number) => {
+        const data: ApiPersonMovies = await fetchPersonMovies(id);
+        console.log('got person movies', data)
         if (data && data.cast) {
             setPersonMovies(data.cast);
         }
@@ -52,11 +57,11 @@ export function PersonScreen() {
                 {/* back button */}
                 <TouchableOpacity style={styles.background} className="rounded-xl p-1"
                                   onPress={() => navigation.goBack()}>
-                    <ChevronLeftIcon size="28" strokeWidth={2.5} color="white"/>
+                    <ChevronLeftIcon size={28} strokeWidth={2.5} color="white"/>
                 </TouchableOpacity>
 
                 <TouchableOpacity onPress={() => toggleFavourite(!isFavourite)}>
-                    <HeartIcon size="35" color={isFavourite ? 'red' : 'white'}/>
+                    <HeartIcon size={35} color={isFavourite ? 'red' : 'white'}/>
                 </TouchableOpacity>
             </SafeAreaView>
 
@@ -86,12 +91,10 @@ export function PersonScreen() {
 
                         <View className="mt-6">
                             <Text className="text-3xl text-white font-bold text-center">
-                                {/* Keanu Reeves */}
                                 {person?.name}
                             </Text>
                             <Text className="text-neutral-500 text-base text-center">
                                 {person?.place_of_birth}
-                                {/* Beirut, Lebanon */}
                             </Text>
                         </View>
 
@@ -100,7 +103,6 @@ export function PersonScreen() {
                             <View className="border-r-2 border-r-neutral-400 px-2 items-center">
                                 <Text className="text-white font-semibold ">Gender</Text>
                                 <Text className="text-neutral-300 text-sm">
-                                    {/* Male */}
                                     {
                                         person?.gender === 1 ? 'Female' : 'Male'
                                     }
@@ -109,21 +111,18 @@ export function PersonScreen() {
                             <View className="border-r-2 border-r-neutral-400 px-2 items-center">
                                 <Text className="text-white font-semibold">Birthday</Text>
                                 <Text className="text-neutral-300 text-sm">
-                                    {/* 1964-09-02 */}
                                     {person?.birthday}
                                 </Text>
                             </View>
                             <View className="border-r-2 border-r-neutral-400 px-2 items-center">
                                 <Text className="text-white font-semibold">known for</Text>
                                 <Text className="text-neutral-300 text-sm">
-                                    {/* Acting */}
                                     {person?.known_for_department}
                                 </Text>
                             </View>
                             <View className="px-2 items-center">
                                 <Text className="text-white font-semibold">Popularity</Text>
                                 <Text className="text-neutral-300 text-sm">
-                                    {/* 84.23 % */}
                                     {person?.popularity?.toFixed(2)} %
                                 </Text>
                             </View>
@@ -138,7 +137,6 @@ export function PersonScreen() {
                             </Text>
                         </View>
 
-                        {/* person movies */}
                         {person?.id && personMovies.length > 0 &&
                             <MovieList title="Movies" hideSeeAll={true} data={personMovies}/>}
 
