@@ -17,6 +17,7 @@ import {
     ApiResponse,
     ApiResponseResults
 } from "../api/response/ApiResponse";
+import {NavigationProp} from "@react-navigation/core/src/types";
 
 const {width, height} = Dimensions.get('window');
 const isIos = Platform.OS === 'ios';
@@ -25,7 +26,7 @@ const topMargin: string = isIos ? '' : ' mt-7';
 export const MovieScreen = () => {
 
     const {params: item} = useRoute();
-    const navigation = useNavigation();
+    const navigation: NavigationProp<ReactNavigation.RootParamList> = useNavigation();
 
     const [movie, setMovie] = useState<ApiMovieDetails | null>(null);
     const [cast, setCast] = useState<ApiMovieCreditsCast[]>([]);
@@ -90,7 +91,7 @@ export const MovieScreen = () => {
                     ) : (
                         <View>
                             <Image
-                                source={{uri: image500(movie?.poster_path) || fallbackMoviePoster}}
+                                source={{uri: image500(movie?.poster_path ?? null) || fallbackMoviePoster}}
                                 style={{width, height: height * 0.55}}
                             />
                             <LinearGradient

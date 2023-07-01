@@ -83,7 +83,7 @@ export function PersonScreen() {
                             <View
                                 className="items-center rounded-full overflow-hidden h-72 w-72 border-neutral-500 border-2">
                                 <Image
-                                    source={{uri: image342(person?.profile_path) || fallbackPersonImage}}
+                                    source={{uri: image342(person?.profile_path ?? null) || fallbackPersonImage}}
                                     style={{height: height * 0.43, width: width * 0.74}}
                                 />
                             </View>
