@@ -9,7 +9,7 @@ export type Coffee = {
     price: number;
     volume: string
     stars: number
-    image: NodeRequire;
+    image: string;
     desc: string;
 };
 
