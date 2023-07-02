@@ -1,9 +1,9 @@
 /// <reference types="nativewind/types" />
-import {CoffeeAppNavigation} from "./src/apps/coffee-app/CoffeeAppNavigation";
 import React from "react";
+import {WeatherChannelAppNavigation} from "./src/apps/weather-channel-app/navigation/WeatherChannelAppNavigation";
 
 export default function App() {
     return (
-        <CoffeeAppNavigation/>
+        <WeatherChannelAppNavigation/>
     );
 }
