@@ -75,16 +75,27 @@ export function PersonScreen() {
                 ) : (
                     <View>
                         <View
-                            className="flex-row justify-center"
                             style={{
                                 shadowColor: 'gray',
                                 shadowRadius: 40,
                                 shadowOffset: {width: 0, height: 5},
                                 shadowOpacity: 1,
+                                flexDirection: 'row',
+                                justifyContent: 'center'
+
                             }}
                         >
                             <View
-                                className="items-center rounded-full overflow-hidden h-72 w-72 border-neutral-500 border-2">
+                                style={{
+                                    alignItems: 'center',
+                                    borderRadius: 200,
+                                    overflow: 'hidden',
+                                    height: 288,
+                                    width: 288,
+                                    borderWidth: 2,
+                                    borderColor: 'rgb(115 115 115)'
+                                }}
+                            >
                                 <Image
                                     source={{uri: image342(person?.profile_path ?? null) || fallbackPersonImage}}
                                     style={{height: height * 0.43, width: width * 0.74}}
