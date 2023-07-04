@@ -17,8 +17,6 @@ type MovieCardProps = {
 };
 
 const MovieCard = ({item, handleClick}: MovieCardProps) => {
-
-
     return (
         <TouchableWithoutFeedback onPress={() => handleClick(item)}>
             <Image
@@ -40,14 +38,13 @@ export const TrendingMovies = ({data}: TrendingMoviesProps) => {
     const navigation = useNavigation();
 
     const handleClick = (item: ApiResponseResults) => {
-        console.log(`user clicked on item ${item} in carousel`);
         // @ts-ignore
         navigation.navigate('Movie', item);
     };
 
     return (
-        <View className="mb-8">
-            <Text className="text-white text-xl mx-4 mb-5">Trending</Text>
+        <View style={{marginBottom: 12}}>
+            <Text style={{color: 'white', fontSize: 20, marginHorizontal: 16, marginBottom: 10}}>Trending</Text>
             <Carousel
                 layout={'stack'}
                 layoutCardOffset={18}
