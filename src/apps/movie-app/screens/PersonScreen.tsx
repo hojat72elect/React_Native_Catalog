@@ -10,7 +10,7 @@ import {Loading} from "../components/Loading";
 import {ApiPersonDetails, ApiPersonMovies, ApiResponseResults} from "../api/response/ApiResponse";
 
 const ios = Platform.OS === 'ios';
-const verticalMargin: string = ios ? '' : ' my-7';
+const verticalMargin: number = ios ? 0 : 34;
 const {width, height} = Dimensions.get('window');
 
 export function PersonScreen() {
@@ -33,7 +33,6 @@ export function PersonScreen() {
 
     const getPersonDetails = async (id: number) => {
         const data: ApiPersonDetails = await fetchPersonDetails(id);
-        console.log('got person details', data);
         setLoading(false);
         if (data) {
             setPerson(data);
@@ -41,7 +40,6 @@ export function PersonScreen() {
     }
     const getPersonMovies = async (id: number) => {
         const data: ApiPersonMovies = await fetchPersonMovies(id);
-        console.log('got person movies', data)
         if (data && data.cast) {
             setPersonMovies(data.cast);
         }
@@ -49,14 +47,19 @@ export function PersonScreen() {
     }
 
     return (
-        <ScrollView
-            className="flex-1 bg-neutral-900"
-            contentContainerStyle={{paddingBottom: 20}}>
-            <SafeAreaView
-                className={"flex-row justify-between items-center mx-4 z-10 " + verticalMargin}>
-                {/* back button */}
-                <TouchableOpacity style={styles.background} className="rounded-xl p-1"
-                                  onPress={() => navigation.goBack()}>
+        <ScrollView style={{flex: 1, backgroundColor: 'rgb(23 23 23)', paddingBottom: 20}}>
+            {/*The row on top containing back button and like button.*/}
+            <SafeAreaView style={{
+                flexDirection: 'row',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+                paddingHorizontal: 20,
+                paddingVertical: verticalMargin,
+            }}
+            >
+                <TouchableOpacity
+                    style={{backgroundColor: styles.background.backgroundColor, borderRadius: 12, padding: 2}}
+                    onPress={() => navigation.goBack()}>
                     <ChevronLeftIcon size={28} strokeWidth={2.5} color="white"/>
                 </TouchableOpacity>
 
