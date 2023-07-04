@@ -47,12 +47,19 @@ export const HomeScreen = () => {
 
     return (
         <View style={{flex: 1, backgroundColor: 'gray'}}>
-            {/*Search bar and logo*/}
             <SafeAreaView style={{marginBottom: safeAreaViewMarginBottom}}>
                 <StatusBar style="light"/>
-                <View className="flex-row justify-between items-center mx-4 my-10">
+                {/*Search bar and logo*/}
+                <View style={{
+                    flexDirection: 'row',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                    marginHorizontal: 14,
+                    marginVertical: 26
+                }}
+                >
                     <Bars3CenterLeftIcon size={30} strokeWidth={2} color="white"/>
-                    <Text className="text-white text-3xl font-bold">
+                    <Text style={{color: 'white', fontSize: 28, fontWeight: 'bold'}}>
                         <Text style={styles.text}>M</Text>ovies
                     </Text>
                     {/*@ts-ignore*/}
