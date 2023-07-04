@@ -18,13 +18,20 @@ export const MovieList = ({title, data, hideSeeAll = false}: MovieListProps) => 
     const navigation = useNavigation();
 
     return (
-        <View className="mb-8 space-y-4">
-            <View className="mx-4 flex-row justify-between items-center">
-                <Text className="text-white text-xl">{title}</Text>
+        <View style={{marginBottom: 18}}>
+            {/*The row on top of the movies list.*/}
+            <View style={{
+                marginHorizontal: 12,
+                flexDirection: 'row',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+                marginBottom: 16,
+            }}>
+                <Text style={{color: 'white', fontSize: 20}}>{title}</Text>
                 {
                     !hideSeeAll && (
                         <TouchableOpacity>
-                            <Text style={styles.text} className="text-lg">See All</Text>
+                            <Text style={{color: styles.text.color, fontSize: 16}}>See All</Text>
                         </TouchableOpacity>
                     )
                 }
@@ -43,20 +50,21 @@ export const MovieList = ({title, data, hideSeeAll = false}: MovieListProps) => 
                                 onPress={() => {
                                     // @ts-ignore
                                     navigation.push('Movie', item);
-                                    console.log(`user clicked on a movie : ${item}`);
                                 }}
                             >
-                                <View className="space-y-1 mr-4">
+                                {/*Each card inside the horizontal scroll view.*/}
+                                <View style={{marginRight: 18, flexDirection: 'column', alignItems: 'center'}}>
                                     <Image
                                         source={{uri: image185(item.poster_path) || fallbackMoviePoster}}
                                         style={{
                                             width: width * 0.33,
                                             height: height * 0.22,
                                             resizeMode: 'cover',
-                                            borderRadius: 24
+                                            borderRadius: 24,
+                                            marginBottom: 8,
                                         }}
                                     />
-                                    <Text className="text-neutral-300 ml-5">
+                                    <Text style={{color: 'lightgray'}}>
                                         {
                                             item.title.length > 14 ? item.title.slice(0, 14) + '...' : item.title
                                         }

@@ -80,7 +80,7 @@ export const HomeScreen = () => {
                     {trending.length > 0 && <TrendingMovies data={trending}/>}
 
                     {/*A row of upcoming movies.*/}
-                    {upcoming.length > 0 && <MovieList title="upcoming" data={upcoming}/>}
+                    {upcoming.length > 0 && <MovieList title="Upcoming" data={upcoming}/>}
 
                     {/*A row of top-rated movies.*/}
                     {topRated.length > 0 && <MovieList title="Top Rated" data={topRated}/>}

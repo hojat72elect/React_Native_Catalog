@@ -43,7 +43,7 @@ export const TrendingMovies = ({data}: TrendingMoviesProps) => {
     };
 
     return (
-        <View style={{marginBottom: 12}}>
+        <View style={{marginBottom: 50}}>
             <Text style={{color: 'white', fontSize: 20, marginHorizontal: 16, marginBottom: 10}}>Trending</Text>
             <Carousel
                 layout={'stack'}
