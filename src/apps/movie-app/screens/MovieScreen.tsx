@@ -131,7 +131,14 @@ export const MovieScreen = () => {
                 {/* status, release year, runtime */}
                 {
                     movie?.id ? (
-                        <Text className="text-neutral-400 font-semibold text-base text-center">
+                        <Text style={{
+                            color: 'rgb(163 163 163)',
+                            fontWeight: "600",
+                            fontSize: 16,
+                            lineHeight: 24,
+                            textAlign: 'center',
+                            paddingTop: 6,
+                        }}>
                             {movie?.status} • {movie?.release_date?.split('-')[0] || 'N/A'} • {movie?.runtime} min
                         </Text>
                     ) : null
@@ -139,13 +146,21 @@ export const MovieScreen = () => {
 
 
                 {/* genres  */}
-                <View className="flex-row justify-center mx-4 space-x-2">
+                <View style={{flexDirection: 'row', justifyContent: 'center', marginHorizontal: 8, paddingTop: 6,}}>
                     {
                         movie?.genres?.map((genre, index) => {
                             let showDot = index + 1 !== movie.genres.length;
                             return (
-                                <Text key={index} className="text-neutral-400 font-semibold text-base text-center">
-                                    {genre?.name} {showDot ? "•" : null}
+                                <Text key={index} style={{
+                                    color: 'rgb(163 163 163)',
+                                    fontWeight: '600',
+                                    fontSize: 16,
+                                    lineHeight: 24,
+                                    textAlign: 'center',
+                                    paddingTop: 6,
+                                }}
+                                >
+                                    {genre?.name} {showDot ? "• " : null}
                                 </Text>
                             )
                         })
@@ -153,7 +168,12 @@ export const MovieScreen = () => {
                 </View>
 
                 {/* description */}
-                <Text className="text-neutral-400 mx-4 tracking-wide">
+                <Text style={{
+                    color: 'rgb(163 163 163)',
+                    marginHorizontal: 8,
+                    letterSpacing: 1,
+                    paddingTop: 10,
+                }}>
                     {
                         movie?.overview
                     }
