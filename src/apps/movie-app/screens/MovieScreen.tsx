@@ -82,11 +82,12 @@ export const MovieScreen = () => {
                         marginTop: topMargin,
                         zIndex: 20,
                         position: 'absolute',
-                        width:'100%',
+                        width: '100%',
                     }}
                 >
-                    <TouchableOpacity style={styles.background} className="rounded-xl p-1"
-                                      onPress={() => navigation.goBack()}>
+                    <TouchableOpacity
+                        style={{backgroundColor: styles.background.backgroundColor, borderRadius: 12, padding: 2}}
+                        onPress={() => navigation.goBack()}>
                         <ChevronLeftIcon size="28" strokeWidth={2.5} color="white"/>
                     </TouchableOpacity>
 
@@ -99,16 +100,16 @@ export const MovieScreen = () => {
                         <Loading/>
                     ) : (
                         <View>
+                            {/*The poster of the movie*/}
                             <Image
                                 source={{uri: image500(movie?.poster_path ?? null) || fallbackMoviePoster}}
                                 style={{width, height: height * 0.55}}
                             />
                             <LinearGradient
                                 colors={['transparent', 'rgba(23, 23, 23, 0.8)', 'rgba(23, 23, 23, 1)']}
-                                style={{width, height: height * 0.40}}
+                                style={{width, height: height * 0.40, bottom: 0, position: 'absolute'}}
                                 start={{x: 0.5, y: 0}}
                                 end={{x: 0.5, y: 1}}
-                                className="absolute bottom-0"
                             />
                         </View>
                     )
@@ -119,9 +120,9 @@ export const MovieScreen = () => {
 
             {/* movie details */}
 
-            <View style={{marginTop: -(height * 0.09)}} className="space-y-3">
+            <View style={{marginTop: -(height * 0.09)}}>
                 {/* title */}
-                <Text className="text-white text-center text-3xl font-bold tracking-widest">
+                <Text style={{color: 'white', textAlign: 'center', fontSize: 28, fontWeight: 'bold', letterSpacing: 1}}>
                     {
                         movie?.title
                     }
