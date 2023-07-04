@@ -21,7 +21,7 @@ import {NavigationProp} from "@react-navigation/core/src/types";
 
 const {width, height} = Dimensions.get('window');
 const isIos = Platform.OS === 'ios';
-const topMargin: string = isIos ? '' : ' mt-7';
+const topMargin: number = isIos ? 0 : 26;
 
 export const MovieScreen = () => {
 
@@ -69,13 +69,22 @@ export const MovieScreen = () => {
 
     return (
         <ScrollView
-            contentContainerStyle={{paddingBottom: 20}}
-            className="flex-1 bg-neutral-900">
+            style={{paddingBottom: 24, flex: 1, backgroundColor: 'rgb(23, 23, 23)'}}>
 
-            {/* back button and movie poster */}
-            <View className="w-full">
+            <View>
+                {/* back button, like button, and movie poster */}
                 <SafeAreaView
-                    className={"absolute z-20 w-full flex-row justify-between items-center px-4 " + topMargin}>
+                    style={{
+                        flexDirection: 'row',
+                        justifyContent: 'space-between',
+                        alignItems: 'center',
+                        paddingHorizontal: 14,
+                        marginTop: topMargin,
+                        zIndex: 20,
+                        position: 'absolute',
+                        width:'100%',
+                    }}
+                >
                     <TouchableOpacity style={styles.background} className="rounded-xl p-1"
                                       onPress={() => navigation.goBack()}>
                         <ChevronLeftIcon size="28" strokeWidth={2.5} color="white"/>
