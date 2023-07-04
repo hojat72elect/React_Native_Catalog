@@ -48,13 +48,23 @@ export const Cast = ({cast, navigation}: CastProps) => {
                                     source={{uri: image185(person?.profile_path) || fallbackPersonImage}}
                                 />
 
-                                <Text className="text-white text-xs mt-1">
+                                <Text
+                                    style={{
+                                        color: 'white',
+                                        fontSize: 12,
+                                        lineHeight: 16,
+                                        marginTop: 3
+                                    }}>
                                     {
                                         person?.character.length > 10 ? person.character.slice(0, 10) + '...' : person?.character
                                     }
                                 </Text>
 
-                                <Text className="text-neutral-400 text-xs">
+                                <Text style={{
+                                    color: 'rgb(163 163 163)',
+                                    fontSize: 12,
+                                    lineHeight: 16,
+                                }}>
                                     {
                                         person?.original_name.length > 10 ? person.original_name.slice(0, 10) + '...' : person?.original_name
                                     }
