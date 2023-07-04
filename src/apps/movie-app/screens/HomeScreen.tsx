@@ -43,10 +43,12 @@ export const HomeScreen = () => {
         if (data && data.results) setTopRated(data.results);
     }
 
+    const safeAreaViewMarginBottom: number = isIos ? -2 : 3
+
     return (
-        <View className="flex-1 bg-gray-600">
+        <View style={{flex: 1, backgroundColor: 'gray'}}>
             {/*Search bar and logo*/}
-            <SafeAreaView className={isIos ? "-mb-2" : "mb-3"}>
+            <SafeAreaView style={{marginBottom: safeAreaViewMarginBottom}}>
                 <StatusBar style="light"/>
                 <View className="flex-row justify-between items-center mx-4 my-10">
                     <Bars3CenterLeftIcon size={30} strokeWidth={2} color="white"/>
