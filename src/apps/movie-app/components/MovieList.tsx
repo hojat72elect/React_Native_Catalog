@@ -45,7 +45,7 @@ export const MovieList = ({title, data, hideSeeAll = false}: MovieListProps) => 
                 {
                     data.map((item, index) => {
                         return (
-                            <TouchableWithoutFeedback
+                            <TouchableOpacity
                                 key={index}
                                 onPress={() => {
                                     // @ts-ignore
@@ -70,7 +70,7 @@ export const MovieList = ({title, data, hideSeeAll = false}: MovieListProps) => 
                                         }
                                     </Text>
                                 </View>
-                            </TouchableWithoutFeedback>
+                            </TouchableOpacity>
                         )
                     })
                 }
