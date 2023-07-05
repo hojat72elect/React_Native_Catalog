@@ -18,10 +18,10 @@ export const MovieList = ({title, data, hideSeeAll = false}: MovieListProps) => 
     const navigation = useNavigation();
 
     return (
-        <View style={{marginBottom: 18}}>
+        <View style={{marginBottom: 18, marginTop: 8}}>
             {/*The row on top of the movies list.*/}
             <View style={{
-                marginHorizontal: 12,
+                marginHorizontal: 8,
                 flexDirection: 'row',
                 justifyContent: 'space-between',
                 alignItems: 'center',
@@ -40,7 +40,7 @@ export const MovieList = ({title, data, hideSeeAll = false}: MovieListProps) => 
             <ScrollView
                 horizontal
                 showsHorizontalScrollIndicator={false}
-                contentContainerStyle={{paddingHorizontal: 15}}
+                style={{paddingHorizontal: 12}}
             >
                 {
                     data.map((item, index) => {
