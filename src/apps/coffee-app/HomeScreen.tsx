@@ -87,7 +87,14 @@ export const HomeScreen = () => {
                         backgroundColor: 'lightgray'
                     }}
                 >
-                    <TextInput placeholder='Search' className="p-4 flex-1 font-semibold text-gray-700"/>
+                    <TextInput placeholder='Search for your favorite coffee'
+                               style={{
+                                   paddingLeft: 18,
+                                   flex: 1,
+                                   fontWeight: '600',
+                                   color: 'rgb(55 65 81)'
+                               }}
+                    />
                     <TouchableOpacity
                         className="rounded-full p-4 mr-0.5"
                         style={{backgroundColor: themeColors.bgLight}}>
