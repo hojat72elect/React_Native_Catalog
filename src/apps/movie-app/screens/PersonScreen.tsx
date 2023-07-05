@@ -68,46 +68,42 @@ export function PersonScreen() {
                 </TouchableOpacity>
             </SafeAreaView>
 
-            {/* person details */}
             {
                 loading ? (
                     <Loading/>
                 ) : (
-                    <View>
-                        <View
+                    <View
+                        style={{
+                            flexDirection: 'column',
+                            alignItems: 'center',
+                        }}
+                    >
+                        {/*Person's profile picture*/}
+                        <Image
+                            source={{uri: image342(person?.profile_path ?? null) || fallbackPersonImage}}
                             style={{
-                                shadowColor: 'gray',
-                                shadowRadius: 40,
-                                shadowOffset: {width: 0, height: 5},
-                                shadowOpacity: 1,
-                                flexDirection: 'row',
-                                justifyContent: 'center'
-
+                                width: width * 0.74,
+                                height: height * 0.43,
+                                borderRadius: 150,
+                                borderWidth: 2,
+                                borderColor: 'gray'
                             }}
-                        >
-                            <View
-                                style={{
-                                    alignItems: 'center',
-                                    borderRadius: 200,
-                                    overflow: 'hidden',
-                                    height: 288,
-                                    width: 288,
-                                    borderWidth: 2,
-                                    borderColor: 'rgb(115 115 115)'
-                                }}
-                            >
-                                <Image
-                                    source={{uri: image342(person?.profile_path ?? null) || fallbackPersonImage}}
-                                    style={{height: height * 0.43, width: width * 0.74}}
-                                />
-                            </View>
-                        </View>
+                        />
 
                         <View className="mt-6">
-                            <Text className="text-3xl text-white font-bold text-center">
+                            {/*Person's name*/}
+                            <Text style={{
+                                fontSize: 30,
+                                lineHeight: 36,
+                                color: 'white',
+                                fontWeight: 'bold',
+                                textAlign: 'center',
+                            }}>
                                 {person?.name}
                             </Text>
-                            <Text className="text-neutral-500 text-base text-center">
+                            {/*Person's birthplace*/}
+                            <Text
+                                style={{color: 'rgb(115 115 115)', fontSize: 16, lineHeight: 24, textAlign: 'center'}}>
                                 {person?.place_of_birth}
                             </Text>
                         </View>
