@@ -41,10 +41,23 @@ export const HomeScreen = () => {
                 }}
             />
 
-            {/* avatar, address, and bell icon */}
-            <View className="my-8 mx-4 flex-row justify-between items-center">
+            <View
+                style={{
+                    marginVertical: 26,
+                    marginHorizontal: 12,
+                    flexDirection: 'row',
+                    justifyContent: 'space-between',
+                    alignItems: 'center'
+                }}
+            >
+                {/*The avatar image*/}
                 <Image source={require('../../../assets/images/avatar.png')}
-                       className="h-9 w-9 rounded-full"/>
+                       style={{
+                           height: 35,
+                           width: 35,
+                           borderRadius: 9999,
+                       }}
+                />
 
                 <View className="flex-row items-center space-x-2">
                     <MapPinIcon size="25" color={themeColors.bgLight}/>
