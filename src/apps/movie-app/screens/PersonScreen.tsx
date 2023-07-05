@@ -90,54 +90,100 @@ export function PersonScreen() {
                             }}
                         />
 
-                        <View className="mt-6">
-                            {/*Person's name*/}
-                            <Text style={{
-                                fontSize: 30,
-                                lineHeight: 36,
-                                color: 'white',
-                                fontWeight: 'bold',
-                                textAlign: 'center',
-                            }}>
-                                {person?.name}
-                            </Text>
-                            {/*Person's birthplace*/}
-                            <Text
-                                style={{color: 'rgb(115 115 115)', fontSize: 16, lineHeight: 24, textAlign: 'center'}}>
-                                {person?.place_of_birth}
-                            </Text>
-                        </View>
+                        {/*Person's name*/}
+                        <Text style={{
+                            fontSize: 30,
+                            lineHeight: 36,
+                            color: 'white',
+                            fontWeight: 'bold',
+                            textAlign: 'center',
+                            marginTop: 8,
+                        }}>
+                            {person?.name}
+                        </Text>
 
+                        {/*Person's birthplace*/}
+                        <Text
+                            style={{
+                                color: 'rgb(115 115 115)',
+                                fontSize: 16,
+                                lineHeight: 24,
+                                textAlign: 'center'
+                            }}>
+                            {person?.place_of_birth}
+                        </Text>
+
+                        {/*A row of quick facts about that person*/}
                         <View
-                            className="mx-3 p-4 mt-6 flex-row justify-between items-center bg-neutral-700 rounded-full ">
-                            <View className="border-r-2 border-r-neutral-400 px-2 items-center">
-                                <Text className="text-white font-semibold ">Gender</Text>
-                                <Text className="text-neutral-300 text-sm">
+                            style={{
+                                marginHorizontal: 3,
+                                padding: 18,
+                                marginTop: 10,
+                                flexDirection: 'row',
+                                justifyContent: 'space-between',
+                                alignItems: 'center',
+                                backgroundColor: 'rgb(64 64 64)',
+                                borderRadius: 9999,
+                            }}
+                        >
+                            <View
+                                style={{
+                                    borderRightWidth: 2,
+                                    borderRightColor: 'rgb(163 163 163)',
+                                    paddingHorizontal: 8,
+                                    alignItems: 'center'
+                                }}
+                            >
+                                <Text style={{color: 'white', fontWeight: '600'}}>Gender</Text>
+                                <Text
+                                    style={{
+                                        color: 'rgb(212 212 212)',
+                                        fontSize: 14,
+                                        lineHeight: 20
+                                    }}
+                                >
                                     {
                                         person?.gender === 1 ? 'Female' : 'Male'
                                     }
                                 </Text>
                             </View>
-                            <View className="border-r-2 border-r-neutral-400 px-2 items-center">
+                            <View
+                                style={{
+                                    borderRightWidth: 2,
+                                    borderRightColor: 'rgb(163 163 163)',
+                                    paddingHorizontal: 8,
+                                    alignItems: 'center'
+                                }}
+                            >
                                 <Text className="text-white font-semibold">Birthday</Text>
                                 <Text className="text-neutral-300 text-sm">
                                     {person?.birthday}
                                 </Text>
                             </View>
-                            <View className="border-r-2 border-r-neutral-400 px-2 items-center">
-                                <Text className="text-white font-semibold">known for</Text>
+                            <View style={{
+                                borderRightWidth: 2,
+                                borderRightColor: 'rgb(163 163 163)',
+                                paddingHorizontal: 8,
+                                alignItems: 'center'
+                            }}>
+                                <Text className="text-white font-semibold">Known for</Text>
                                 <Text className="text-neutral-300 text-sm">
                                     {person?.known_for_department}
                                 </Text>
                             </View>
-                            <View className="px-2 items-center">
+                            <View
+                                style={{
+                                    paddingHorizontal: 8,
+                                    alignItems: 'center'
+                                }}
+                            >
                                 <Text className="text-white font-semibold">Popularity</Text>
                                 <Text className="text-neutral-300 text-sm">
                                     {person?.popularity?.toFixed(2)} %
                                 </Text>
                             </View>
-
                         </View>
+
                         <View className="my-6 mx-4 space-y-2">
                             <Text className="text-white text-lg">Biography</Text>
                             <Text className="text-neutral-400 tracking-wide">
