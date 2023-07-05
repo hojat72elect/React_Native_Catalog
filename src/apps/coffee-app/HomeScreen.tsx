@@ -71,7 +71,7 @@ export const HomeScreen = () => {
                         New York, NYC
                     </Text>
                 </View>
-                <BellIcon size={27} color="black"/>
+                <BellIcon size={30} color={themeColors.text}/>
             </View>
 
             <ScrollView style={{marginBottom: 72}}>
@@ -111,7 +111,14 @@ export const HomeScreen = () => {
                 <HorizontalChipsView data={mockedCoffeeCategories}/>
 
                 {/* A horizontal carousel showing coffee cards */}
-                <View className={`overflow-visible flex justify-center flex-1 mt-4`}>
+                <View
+                    style={{
+                        overflow: 'visible',
+                        justifyContent: 'center',
+                        flex: 1,
+                        marginTop: 18,
+                    }}
+                >
                     <Carousel
                         containerCustomStyle={{overflow: 'visible'}}
                         data={mockedCoffeeItems}
