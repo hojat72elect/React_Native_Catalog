@@ -50,7 +50,7 @@ export const CoffeeAppNavigation = () => {
                     alignItems: 'center',
                     borderRadius: 100,
                     padding: 8,
-                    backgroundColor: buttonClass
+                    backgroundColor: buttonClass,
                 }}
             >
                 {icon}
