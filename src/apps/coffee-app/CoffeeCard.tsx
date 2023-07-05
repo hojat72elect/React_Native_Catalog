@@ -64,6 +64,7 @@ export const CoffeeCard = ({item}: CoffeeCardProps) => {
                     >
                         {item.name}
                     </Text>
+
                     {/* The score of this item out of 5. */}
                     <View
                         style={{
@@ -89,35 +90,68 @@ export const CoffeeCard = ({item}: CoffeeCardProps) => {
                             }}
                         >{item.stars}</Text>
                     </View>
-                    <View className="flex-row space-x-1 mt-3">
-                        <Text className="text-base text-white font-semibold opacity-60">
+
+                    {/* Volume of this item. */}
+                    <View
+                        style={{
+                            flexDirection: 'row',
+                            marginTop: 14,
+                            justifyContent: 'flex-start',
+                            alignItems: 'center',
+                        }}
+                    >
+                        <Text
+                            style={{
+                                fontSize: 16,
+                                lineHeight: 16,
+                                color: 'white',
+                                fontWeight: '600',
+                                opacity: 0.6,
+                            }}
+                        >
                             Volume
                         </Text>
-                        <Text className="text-base text-white font-semibold"> {item.volume}</Text>
+                        <Text
+                            style={{
+                                fontSize: 16,
+                                lineHeight: 16,
+                                color: 'white',
+                                fontWeight: '600',
+                                marginLeft: 4
+                            }}
+                        > {item.volume}</Text>
                     </View>
+
                 </View>
 
-
+                {/*The row at the bottom of the coffee card*/}
                 <View style={{
-                    backgroundColor: 'transparent',
-                    shadowColor: themeColors.bgDark,
-                    shadowRadius: 25,
-                    shadowOffset: {width: 0, height: 40},
-                    shadowOpacity: 0.8,
-                }} className="flex-row justify-between items-center mb-2">
-                    <Text className="text-white font-bold text-lg">$ {item.price}</Text>
+                    flexDirection: 'row',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                    marginBottom: 10
+                }}>
+                    {/*The price*/}
+                    <Text
+                        style={{
+                            color: 'white',
+                            fontWeight: 'bold',
+                            fontSize: 18,
+                            lineHeight: 18
+                        }}
+                    >$ {item.price}</Text>
+
+                    {/*The key for adding this item to cart.*/}
                     <TouchableOpacity
                         onPress={() => {
                             // @ts-ignore
                             navigation.navigate('Product', {...item})
                         }}
                         style={{
-                            shadowColor: 'black',
-                            shadowRadius: 40,
-                            shadowOffset: {width: -20, height: -10},
-                            shadowOpacity: 1,
+                            padding: 14,
+                            backgroundColor: 'rgb(245 245 245)',
+                            borderRadius: 100
                         }}
-                        className="p-4 bg-neutral-100 rounded-full"
                     >
                         <PlusIcon size="25" strokeWidth={2} color={themeColors.bgDark}/>
                     </TouchableOpacity>
