@@ -24,22 +24,18 @@ export const CoffeeCard = ({item}: CoffeeCardProps) => {
             width: width * 0.65,
         }}>
             {/*The picture of the chosen coffee on top of the card.*/}
-            <View
+
+            <Image
+                // @ts-ignore
+                source={item.image}
                 style={{
+                    width: 140,
+                    height: 140,
+                    alignSelf: 'center',
                     marginTop: 15,
-                    flexDirection: 'row',
-                    justifyContent: 'center',
                 }}
-            >
-                <Image
-                    // @ts-ignore
-                    source={item.image}
-                    style={{
-                        width: 140,
-                        height: 140,
-                    }}
-                />
-            </View>
+            />
+
 
             <View
                 style={{
