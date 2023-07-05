@@ -22,13 +22,24 @@ const {width, height} = Dimensions.get('window');
 export const HomeScreen = () => {
 
     return (
-        <View className="flex-1 relative bg-white">
+        <View
+            style={{
+                flex: 1,
+                backgroundColor: 'white'
+            }}
+        >
             <StatusBar/>
 
             <Image
                 source={require('../../../assets/images/beansBackground1.png')}
-                style={{height: height * 0.2}}
-                className="w-full absolute -top-5 opacity-10"/>
+                style={{
+                    height: height * 0.2,
+                    width: '100%',
+                    position: 'absolute',
+                    top: -5,
+                    opacity: 0.1,
+                }}
+            />
 
             {/* avatar, address, and bell icon */}
             <View className="my-8 mx-4 flex-row justify-between items-center">

@@ -1,9 +1,9 @@
 /// <reference types="nativewind/types" />
 import React from "react";
-import MovieAppNavigation from "./src/apps/movie-app/MovieAppNavigation";
+import {CoffeeAppNavigation} from "./src/apps/coffee-app/CoffeeAppNavigation";
 
 export default function App() {
     return (
-        <MovieAppNavigation/>
+        <CoffeeAppNavigation/>
     );
 }
