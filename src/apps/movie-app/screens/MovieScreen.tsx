@@ -45,7 +45,6 @@ export const MovieScreen = () => {
 
     const getMovieDetails = async (id: number) => {
         const data: ApiMovieDetails = await fetchMovieDetails(id);
-        console.log('got movie details', data);
         setLoading(false);
         if (data) {
             setMovie(data);
@@ -53,14 +52,12 @@ export const MovieScreen = () => {
     }
     const getMovieCredits = async (id: number) => {
         const data: ApiMovieCredits = await fetchMovieCredits(id);
-        console.log('got movie credits', data);
         if (data && data.cast) {
             setCast(data.cast);
         }
     }
     const getSimilarMovies = async (id: number) => {
         const data: ApiResponse = await fetchSimilarMovies(id);
-        console.log('got similar movies');
         if (data && data.results) {
             setSimilarMovies(data.results);
         }

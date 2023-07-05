@@ -34,7 +34,6 @@ export default function SearchScreen() {
                 language: 'en-US',
                 page: '1'
             }).then((data: ApiResponse) => {
-                console.log('got search results', data);
                 setLoading(false);
                 if (data && data.results) setResults(data.results);
             })

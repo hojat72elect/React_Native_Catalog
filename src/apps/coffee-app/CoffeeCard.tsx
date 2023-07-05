@@ -69,7 +69,6 @@ export const CoffeeCard = ({item}: CoffeeCardProps) => {
                     <Text className="text-white font-bold text-lg">$ {item.price}</Text>
                     <TouchableOpacity
                         onPress={() => {
-                            console.log("user bought a coffee")
                             // @ts-ignore
                             navigation.navigate('Product', {...item})
                         }}
