@@ -59,26 +59,40 @@ export const HomeScreen = () => {
                        }}
                 />
 
-                <View className="flex-row items-center space-x-2">
+                {/*The pin icon and the address of the cafe*/}
+                <View
+                    style={{
+                        flexDirection: 'row',
+                        alignItems: 'center',
+                    }}
+                >
                     <MapPinIcon size="25" color={themeColors.bgLight}/>
-                    <Text className="font-semibold text-base">
+                    <Text style={{fontWeight: '600', fontSize: 16, lineHeight: 24, marginLeft: 4}}>
                         New York, NYC
                     </Text>
                 </View>
                 <BellIcon size={27} color="black"/>
             </View>
 
-            <ScrollView className="mb-16">
+            <ScrollView style={{marginBottom: 72}}>
                 {/* search bar */}
-                <View className="mx-5 shadow" style={{marginTop: height * 0.06}}>
-                    <View className="flex-row items-center rounded-full p-1 bg-[#e6e6e6]">
-                        <TextInput placeholder='Search' className="p-4 flex-1 font-semibold text-gray-700"/>
-                        <TouchableOpacity
-                            className="rounded-full p-2"
-                            style={{backgroundColor: themeColors.bgLight}}>
-                            <MagnifyingGlassIcon size={25} strokeWidth={2} color="white"/>
-                        </TouchableOpacity>
-                    </View>
+                <View
+                    style={{
+                        marginTop: height * 0.01,
+                        marginHorizontal: 12,
+                        flexDirection: 'row',
+                        alignItems: 'center',
+                        borderRadius: 100,
+                        padding: 2,
+                        backgroundColor: 'lightgray'
+                    }}
+                >
+                    <TextInput placeholder='Search' className="p-4 flex-1 font-semibold text-gray-700"/>
+                    <TouchableOpacity
+                        className="rounded-full p-4 mr-0.5"
+                        style={{backgroundColor: themeColors.bgLight}}>
+                        <MagnifyingGlassIcon size={25} strokeWidth={2} color="white"/>
+                    </TouchableOpacity>
                 </View>
                 {/* A chips view, showing categories of coffee served in this shop.*/}
                 <HorizontalChipsView data={mockedCoffeeCategories}/>
