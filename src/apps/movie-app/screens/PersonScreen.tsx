@@ -76,6 +76,7 @@ export function PersonScreen() {
                         style={{
                             flexDirection: 'column',
                             alignItems: 'center',
+                            marginHorizontal: 16,
                         }}
                     >
                         {/*Person's profile picture*/}
@@ -211,14 +212,26 @@ export function PersonScreen() {
                             </View>
                         </View>
 
-                        <View className="my-6 mx-4 space-y-2">
-                            <Text className="text-white text-lg">Biography</Text>
-                            <Text className="text-neutral-400 tracking-wide">
-                                {
-                                    person?.biography ? person.biography : 'N/A'
-                                }
-                            </Text>
-                        </View>
+                        <Text
+                            style={{
+                                color: 'white',
+                                fontSize: 18,
+                                lineHeight: 28,
+                                marginTop: 18,
+                            }}
+                        >Biography</Text>
+                        <Text
+                            style={{
+                                color: 'rgb(163 163 163)',
+                                letterSpacing: 1,
+                                marginTop:10
+                            }}
+                        >
+                            {
+                                person?.biography ? person.biography : 'N/A'
+                            }
+                        </Text>
+
 
                         {person?.id && personMovies.length > 0 &&
                             <MovieList title="Movies" hideSeeAll={true} data={personMovies}/>}
