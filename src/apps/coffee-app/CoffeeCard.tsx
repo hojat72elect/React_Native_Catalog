@@ -25,18 +25,18 @@ export const CoffeeCard = ({item}: CoffeeCardProps) => {
         }}>
             <View
                 style={{
-                    shadowColor: 'black',
-                    shadowRadius: 30,
-                    shadowOffset: {width: 0, height: 40},
-                    shadowOpacity: 0.8,
                     marginTop: 15,
+                    flexDirection: 'row',
+                    justifyContent: 'center',
                 }}
-                className="flex-row justify-center"
             >
                 <Image
                     // @ts-ignore
                     source={item.image}
-                    className="h-40 w-40"
+                    style={{
+                        width: 140,
+                        height: 140,
+                    }}
                 />
             </View>
 
