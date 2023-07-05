@@ -87,20 +87,26 @@ export const HomeScreen = () => {
                         backgroundColor: 'lightgray'
                     }}
                 >
-                    <TextInput placeholder='Search for your favorite coffee'
-                               style={{
-                                   paddingLeft: 18,
-                                   flex: 1,
-                                   fontWeight: '600',
-                                   color: 'rgb(55 65 81)'
-                               }}
+                    <TextInput
+                        placeholder='Search for your favorite coffee'
+                        style={{
+                            paddingLeft: 18,
+                            flex: 1,
+                            fontWeight: '600',
+                            color: 'rgb(55 65 81)'
+                        }}
                     />
                     <TouchableOpacity
-                        className="rounded-full p-4 mr-0.5"
-                        style={{backgroundColor: themeColors.bgLight}}>
+                        style={{
+                            backgroundColor: themeColors.bgLight,
+                            borderRadius: 100,
+                            padding: 16,
+                            marginRight: 2
+                        }}>
                         <MagnifyingGlassIcon size={25} strokeWidth={2} color="white"/>
                     </TouchableOpacity>
                 </View>
+
                 {/* A chips view, showing categories of coffee served in this shop.*/}
                 <HorizontalChipsView data={mockedCoffeeCategories}/>
 
