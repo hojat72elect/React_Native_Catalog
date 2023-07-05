@@ -134,7 +134,10 @@ export function PersonScreen() {
                                     alignItems: 'center'
                                 }}
                             >
-                                <Text style={{color: 'white', fontWeight: '600'}}>Gender</Text>
+                                <Text style={{
+                                    color: 'white',
+                                    fontWeight: '600'
+                                }}>Gender</Text>
                                 <Text
                                     style={{
                                         color: 'rgb(212 212 212)',
@@ -155,8 +158,17 @@ export function PersonScreen() {
                                     alignItems: 'center'
                                 }}
                             >
-                                <Text className="text-white font-semibold">Birthday</Text>
-                                <Text className="text-neutral-300 text-sm">
+                                <Text
+                                    style={{
+                                        color: 'white',
+                                        fontWeight: '600',
+                                    }}
+                                >Birthday</Text>
+                                <Text style={{
+                                    color: 'rgb(212 212 212)',
+                                    fontSize: 14,
+                                    lineHeight: 20
+                                }}>
                                     {person?.birthday}
                                 </Text>
                             </View>
@@ -166,8 +178,15 @@ export function PersonScreen() {
                                 paddingHorizontal: 8,
                                 alignItems: 'center'
                             }}>
-                                <Text className="text-white font-semibold">Known for</Text>
-                                <Text className="text-neutral-300 text-sm">
+                                <Text style={{
+                                    color: 'white',
+                                    fontWeight: '600',
+                                }}>Known for</Text>
+                                <Text style={{
+                                    color: 'rgb(212 212 212)',
+                                    fontSize: 14,
+                                    lineHeight: 20
+                                }}>
                                     {person?.known_for_department}
                                 </Text>
                             </View>
@@ -177,8 +196,16 @@ export function PersonScreen() {
                                     alignItems: 'center'
                                 }}
                             >
-                                <Text className="text-white font-semibold">Popularity</Text>
-                                <Text className="text-neutral-300 text-sm">
+                                <Text
+                                    style={{
+                                        color: 'white',
+                                        fontWeight: '600',
+                                    }}>Popularity</Text>
+                                <Text style={{
+                                    color: 'rgb(212 212 212)',
+                                    fontSize: 14,
+                                    lineHeight: 20
+                                }}>
                                     {person?.popularity?.toFixed(2)} %
                                 </Text>
                             </View>
