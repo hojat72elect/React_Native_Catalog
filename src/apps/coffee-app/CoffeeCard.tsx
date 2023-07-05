@@ -23,6 +23,7 @@ export const CoffeeCard = ({item}: CoffeeCardProps) => {
             height: height * 0.57,
             width: width * 0.65,
         }}>
+            {/*The picture of the chosen coffee on top of the card.*/}
             <View
                 style={{
                     marginTop: 15,
@@ -40,17 +41,55 @@ export const CoffeeCard = ({item}: CoffeeCardProps) => {
                 />
             </View>
 
-            <View className={`px-5 flex-1 justify-between`}>
-                <View className="space-y-3 mt-3">
-                    <Text className="text-3xl text-white font-semibold">
+            <View
+                style={{
+                    paddingHorizontal: 10,
+                    flex: 1,
+                    justifyContent: 'space-between',
+                    flexDirection: 'column'
+                }}
+            >
+                <View
+                    style={{
+                        marginTop: 14
+                    }}
+                >
+                    <Text
+                        style={{
+                            fontSize: 24,
+                            lineHeight: 25,
+                            color: 'white',
+                            fontWeight: '600'
+                        }}
+                    >
                         {item.name}
                     </Text>
-                    <View style={{backgroundColor: 'rgba(255,255,255,0.2)'}}
-                          className="flex-row items-center rounded-3xl p-1 px-2 space-x-1 w-16">
+                    {/* The score of this item out of 5. */}
+                    <View
+                        style={{
+                            backgroundColor: 'rgba(255,255,255,0.2)',
+                            flexDirection: 'row',
+                            alignItems: 'center',
+                            borderRadius: 16,
+                            paddingVertical: 8,
+                            paddingHorizontal: 12,
+                            width: 60,
+                            marginTop: 18,
+                            justifyContent: 'center',
+                        }}
+                    >
                         <StarIcon size="15" color="white"/>
-                        <Text className="text-base font-semibold text-white">{item.stars}</Text>
+                        <Text
+                            style={{
+                                fontSize: 18,
+                                lineHeight: 18,
+                                fontWeight: '600',
+                                color: 'white',
+                                marginLeft: 4
+                            }}
+                        >{item.stars}</Text>
                     </View>
-                    <View className="flex-row space-x-1">
+                    <View className="flex-row space-x-1 mt-3">
                         <Text className="text-base text-white font-semibold opacity-60">
                             Volume
                         </Text>
