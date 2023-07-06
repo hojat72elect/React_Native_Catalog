@@ -46,24 +46,48 @@ export default function SearchScreen() {
     const handleTextDebounce = useCallback(debounce(handleSearch, 400), []);
 
     return (
-        <SafeAreaView className="bg-neutral-800 flex-1">
+        <SafeAreaView
+            style={{
+                backgroundColor: 'dimgray',
+                flex: 1
+            }}
+        >
 
             {/* search input */}
             <View
-                className="mx-4 mb-3 mt-7 flex-row justify-between items-center border border-neutral-500 rounded-full">
+                style={{
+                    marginHorizontal: 18,
+                    marginTop: 30,
+                    flexDirection: 'row',
+                    alignItems: 'center',
+                    borderWidth: 1,
+                    borderColor: 'oldlace',
+                    borderRadius: 100,
+                }}
+            >
                 <TextInput
                     onChangeText={handleTextDebounce}
-                    placeholder="Search Movie"
+                    placeholder="Search Movies"
                     placeholderTextColor={'lightgray'}
-                    className="pb-1 pl-6 flex-1 text-base font-semibold text-white tracking-wider"
+                    style={{
+                        paddingLeft: 19,
+                        fontSize: 18,
+                        flex: 1,
+                        color: 'white',
+                        letterSpacing: 1,
+                    }}
                 />
                 <TouchableOpacity
                     // @ts-ignore
                     onPress={() => navigation.navigate('Home')}
-                    className="rounded-full p-3 m-1 bg-neutral-500"
+                    style={{
+                        borderRadius: 100,
+                        padding: 12,
+                        margin: 4,
+                        backgroundColor: 'rgb(115 115 115)',
+                    }}
                 >
                     <XMarkIcon size={25} color="white"/>
-
                 </TouchableOpacity>
             </View>
 
@@ -107,12 +131,16 @@ export default function SearchScreen() {
 
                         </ScrollView>
                     ) : (
-                        <View className="flex-row justify-center">
-                            <Image
-                                source={require('../../../../assets/images/movieTime.png')}
-                                className="h-96 w-96"
-                            />
-                        </View>
+
+                        <Image
+                            source={require('../../../../assets/images/movieTime.png')}
+                            style={{
+                                height: 400,
+                                width: 400,
+                                alignItems:'center',
+                            }}
+                        />
+
                     )
             }
         </SafeAreaView>
