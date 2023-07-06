@@ -2,7 +2,7 @@ import React from 'react'
 import {NavigationContainer, Route} from "@react-navigation/native";
 import {createNativeStackNavigator} from "@react-navigation/native-stack";
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {LogBox, View} from "react-native";
+import {View} from "react-native";
 import {HomeScreen} from "./HomeScreen";
 import {
     HomeIcon as HomeOutline,
@@ -19,11 +19,6 @@ import {themeColors} from "./CoffeeTheme";
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
-
-LogBox.ignoreLogs([
-    'Non-serializable values were found in the navigation state',
-    "ViewPropTypes will be removed from React Native, along with all other PropTypes. We recommend that you migrate away from PropTypes and switch to a type system like TypeScript. If you need to continue using ViewPropTypes, migrate to the 'deprecated-react-native-prop-types' package."
-]);
 
 /**
  * This is the entry point to the coffee app.
