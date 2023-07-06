@@ -6,7 +6,15 @@ const {width, height} = Dimensions.get('window');
 
 export const Loading = () => {
     return (
-        <View style={{height, width}} className="absolute flex-row justify-center items-center">
+        <View
+            style={{
+                height: height,
+                width: width,
+                position:'absolute',
+                alignItems:'center',
+                justifyContent:'center',
+            }}
+        >
             <Progress.CircleSnail thickness={12} size={160} color={theme.background}/>
         </View>
     )
