@@ -188,51 +188,145 @@ export const ProductScreen = () => {
                                 justifyContent: 'center'
                             }}
                         >
-                            <Text className={orderSize === 'large' ? "text-white" : "text-gray-700"}>Large</Text>
+                            <Text
+                                style={{
+                                    color: orderSize === 'large' ? "white" : "rgb(55 65 81)"
+                                }}
+                            >Large</Text>
                         </TouchableOpacity>
                     </View>
                 </View>
 
-
-                <View className="mx-4 space-y-2 h-28 mt-4">
-                    <Text style={{color: themeColors.text}} className="text-lg font-bold">
+                {/*About section*/}
+                <View
+                    style={{
+                        marginHorizontal: 16,
+                        marginTop: 12,
+                    }}
+                >
+                    <Text style={{
+                        color: themeColors.text,
+                        fontSize: 20,
+                        fontWeight: 'bold',
+                    }}>
                         About
                     </Text>
-                    <Text className="text-gray-600">
+                    <Text
+                        style={{
+                            color: 'rgb(75 85 99)',
+                            marginTop: 4,
+                        }}>
                         {/*@ts-ignore*/}
                         {item.desc}
                     </Text>
                 </View>
-                <View className="flex-row justify-between items-center mx-4 mb-2 mt-4">
-                    <View className="flex-row items-center space-x-1">
-                        <Text className="text-base text-gray-700 font-semibold opacity-60">Volume</Text>
-                        <Text className="text-base text-black font-semibold">
+
+                <View
+                    style={{
+                        flexDirection: 'row',
+                        justifyContent: 'space-between',
+                        alignItems: 'center',
+                        marginHorizontal: 14,
+                        marginTop: 18,
+                    }}
+                >
+
+                    {/*Volume of the coffee item.*/}
+                    <View style={{
+                        flexDirection: 'row',
+                        alignItems: 'center',
+                    }}>
+                        <Text
+                            style={{
+                                fontSize: 16,
+                                color: 'rgb(55 65 81)',
+                                fontWeight: '600',
+                                opacity: 0.6,
+                            }}
+                        >Volume</Text>
+                        <Text
+                            style={{
+                                fontSize: 16,
+                                color: 'black',
+                                fontWeight: '600',
+                                marginLeft: 6,
+                            }}>
                             {/*@ts-ignore*/}
                             {item.volume}
                         </Text>
                     </View>
-                    <View className="flex-row items-center space-x-4 border border-gray-500 rounded-full py-1 px-4">
+
+                    {/*The view for choosing the number of items to order.*/}
+                    <View
+                        style={{
+                            flexDirection: 'row',
+                            alignItems: 'center',
+                            borderWidth: 1,
+                            borderColor: 'rgb(107 114 128)',
+                            borderRadius: 100,
+                            paddingVertical: 6,
+                            paddingHorizontal: 16,
+                        }}
+                    >
                         <TouchableOpacity>
                             <MinusIcon size={20} color={themeColors.text} strokeWidth={3}/>
                         </TouchableOpacity>
-                        <Text style={{color: themeColors.text}} className="font-extrabold text-lg">2</Text>
-                        <TouchableOpacity>
+                        <Text
+                            style={{
+                                color: themeColors.text,
+                                fontWeight: '800',
+                                fontSize: 18,
+                                marginLeft: 16,
+                            }}
+                        >2</Text>
+                        <TouchableOpacity style={{marginLeft: 16}}>
                             <PlusIcon size={20} color={themeColors.text} strokeWidth={3}/>
                         </TouchableOpacity>
                     </View>
+
                 </View>
+
                 {/*Buy button*/}
-                <View className="flex-row justify-between items-center mx-4 mt-4">
-                    <TouchableOpacity className="p-4 rounded-full border border-gray-400 ">
-                        <ShoppingBagIcon size={30} color="gray"/>
+                <View
+                    style={{
+                        flexDirection: 'row',
+                        alignItems: 'center',
+                        marginHorizontal: 14,
+                        marginTop: 20
+                    }}
+                >
+                    <TouchableOpacity
+                        style={{
+                            borderWidth: 1,
+                            borderColor: 'lightslategray',
+                            borderRadius: 100,
+                            padding: 17,
+                        }}
+                    >
+                        <ShoppingBagIcon size={30} color="lightslategray"/>
                     </TouchableOpacity>
-                    <TouchableOpacity style={{backgroundColor: themeColors.bgLight}}
-                                      className="p-5 rounded-full flex-1 ml-3">
-                        <Text className="text-center text-base font-semibold text-white">
+                    <TouchableOpacity
+                        style={{
+                            backgroundColor: themeColors.bgLight,
+                            borderRadius: 100,
+                            flex: 1,
+                            padding: 20,
+                            marginLeft: 14,
+                            alignItems: 'center'
+                        }}
+                    >
+                        <Text
+                            style={{
+                                fontSize: 18,
+                                fontWeight: '600',
+                                color: 'white'
+                            }}
+                        >
                             Buy now
                         </Text>
                     </TouchableOpacity>
                 </View>
+
             </View>
         </View>
     )
