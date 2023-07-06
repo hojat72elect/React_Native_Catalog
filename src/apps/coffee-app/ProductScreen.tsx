@@ -12,81 +12,189 @@ export const ProductScreen = () => {
     const navigation = useNavigation();
     const [orderSize, setOrderSize] = useState('small');
 
-
     return (
-        <View className="flex-1">
+        <View style={{
+            flex: 1
+        }}>
             <StatusBar style="light"/>
             <Image
                 source={require('../../../assets/images/beansBackground2.png')}
-                style={{height: 120, borderBottomLeftRadius: 50, borderBottomRightRadius: 50}}
-                className="w-full absolute"
+                style={{
+                    width: '100%',
+                    height: 120,
+                    borderBottomLeftRadius: 50,
+                    borderBottomRightRadius: 50,
+                    position: 'absolute'
+                }}
             />
-            <View className="space-y-4 mt-6">
-                <View className="mx-4 flex-row justify-between items-center">
+            <View style={{marginTop: 24}}>
+
+                {/*The row containing back button and the like button.*/}
+                <View
+                    style={{
+                        marginHorizontal: 8,
+                        flexDirection: 'row',
+                        justifyContent: 'space-between',
+                        alignItems: 'center',
+                    }}
+                >
                     <TouchableOpacity onPress={() => navigation.goBack()}>
                         <ArrowLeftCircleIcon size={50} strokeWidth={1.2} color="white"/>
                     </TouchableOpacity>
 
-                    <TouchableOpacity className="rounded-full border-2 border-white p-2">
+                    <TouchableOpacity
+                        style={{
+                            borderRadius: 100,
+                            borderWidth: 2,
+                            borderColor: 'white',
+                            padding: 6,
+                        }}
+                    >
                         <HeartIcon size={24} color="white"/>
                     </TouchableOpacity>
                 </View>
+
+                {/*@ts-ignore*/}
+                <Image source={item.image}
+                       style={{
+                           marginTop: -30,
+                           height: 120,
+                           width: 120,
+                           alignSelf: 'center'
+                       }}
+                />
+
+                {/*Rate of the coffee item out of 5*/}
                 <View
-                    className="flex-row justify-center"
                     style={{
-                        shadowColor: themeColors.bgDark,
-                        shadowRadius: 30,
-                        shadowOffset: {width: 0, height: 30},
-                        shadowOpacity: 0.9
+                        width: 70,
+                        height: 40,
+                        backgroundColor: themeColors.bgLight,
+                        flexDirection: 'row',
+                        marginHorizontal: 14,
+                        alignItems: 'center',
+                        borderRadius: 19,
+                        paddingVertical: 6,
+                        paddingHorizontal: 12,
+                        justifyContent: 'center',
                     }}
                 >
-                    {/*@ts-ignore*/}
-                    <Image source={item.image} className="-mt-9 h-28 w-28"/>
-                </View>
-                <View style={{backgroundColor: themeColors.bgLight}}
-                      className="flex-row mx-4 items-center rounded-3xl p-1 px-2 space-x-1 w-16 opacity-90">
                     <StarIcon size="15" color="white"/>
-                    {/*@ts-ignore*/}
-                    <Text className="text-base font-semibold text-white">{item.stars}</Text>
+                    <Text
+                        style={{
+                            fontSize: 16,
+                            fontWeight: '600',
+                            color: 'white',
+                            marginLeft: 8
+                        }}
+                        /*@ts-ignore*/
+                    >{item?.stars}</Text>
                 </View>
-                <View className="mx-4 flex-row justify-between items-center">
-                    {/*@ts-ignore*/}
-                    <Text style={{color: themeColors.text}} className="text-3xl font-semibold">{item.name}</Text>
-                    {/*@ts-ignore*/}
-                    <Text style={{color: themeColors.text}} className="text-lg font-semibold">$ {item.price}</Text>
+
+                {/*The row containing name and price of the coffee item.*/}
+                <View
+                    style={{
+                        flexDirection: 'row',
+                        justifyContent: 'space-between',
+                        marginHorizontal: 14,
+                        alignItems: 'center',
+                        marginTop: 22
+                    }}
+                >
+                    <Text style={{
+                        color: themeColors.text,
+                        fontSize: 30,
+                        lineHeight: 30,
+                        fontWeight: '600',
+                        /*@ts-ignore*/
+                    }}>{item.name}</Text>
+                    <Text style={{
+                        color: themeColors.text,
+                        fontSize: 18,
+                        lineHeight: 18,
+                        fontWeight: '600',
+                        /*@ts-ignore*/
+                    }}>$ {item.price}</Text>
                 </View>
-                <View className="mx-4 space-y-2">
-                    <Text style={{color: themeColors.text}} className="text-lg font-bold">
+
+                {/*The row for choosing coffee size*/}
+                <View
+                    style={{
+                        marginHorizontal: 14,
+                        marginTop: 18
+                    }}
+                >
+                    <Text
+                        style={{
+                            color: themeColors.text,
+                            fontSize: 18,
+                            lineHeight: 18,
+                            fontWeight: 'bold'
+                        }}>
                         Coffee size
                     </Text>
-                    <View className="flex-row justify-between">
+                    <View
+                        style={{
+                            flexDirection: 'row',
+                            justifyContent: 'space-around',
+                            marginTop: 8,
+                        }}
+                    >
                         <TouchableOpacity
                             onPress={() => setOrderSize('small')}
-                            className="px-8 py-3 rounded-full"
-                            style={{backgroundColor: orderSize === 'small' ? themeColors.bgLight : 'rgba(0, 0, 0, 0.07)'}}
+                            style={{
+                                backgroundColor: orderSize === 'small' ? themeColors.bgLight : 'rgba(0, 0, 0, 0.07)',
+                                paddingHorizontal: 25,
+                                paddingVertical: 10,
+                                borderRadius: 80,
+                                alignItems: 'center',
+                                justifyContent: 'center'
+                            }}
                         >
-                            <Text className={orderSize === 'small' ? "text-white" : "text-gray-700"}>Small</Text>
+                            <Text
+                                style={{
+                                    color: orderSize === 'small' ? 'white' : "rgb(55 65 81)",
+                                }}
+                            >Small</Text>
                         </TouchableOpacity>
 
                         <TouchableOpacity
                             onPress={() => setOrderSize('medium')}
-                            className="px-8 py-3 rounded-full"
-                            style={{backgroundColor: orderSize === 'medium' ? themeColors.bgLight : 'rgba(0, 0, 0, 0.07)'}}
+                            style={{
+                                backgroundColor: orderSize === 'medium' ? themeColors.bgLight : 'rgba(0, 0, 0, 0.07)',
+                                paddingHorizontal: 25,
+                                paddingVertical: 10,
+                                borderRadius: 80,
+                                alignItems: 'center',
+                                justifyContent: 'center'
+                            }}
                         >
-                            <Text className={orderSize === 'medium' ? "text-white" : "text-gray-700"}>Medium</Text>
+                            <Text
+                                style={{
+                                    color: orderSize === 'medium' ? "white" : "rgb(55 65 81)",
+
+                                }}
+                            >Medium</Text>
                         </TouchableOpacity>
 
                         <TouchableOpacity
                             onPress={() => setOrderSize('large')}
-                            className="px-8 py-3 rounded-full"
-                            style={{backgroundColor: orderSize === 'large' ? themeColors.bgLight : 'rgba(0, 0, 0, 0.07)'}}
+                            style={{
+                                backgroundColor: orderSize === 'large' ? themeColors.bgLight : 'rgba(0, 0, 0, 0.07)',
+                                paddingHorizontal: 25,
+                                paddingVertical: 10,
+                                borderRadius: 80,
+                                alignItems: 'center',
+                                justifyContent: 'center'
+                            }}
                         >
                             <Text className={orderSize === 'large' ? "text-white" : "text-gray-700"}>Large</Text>
                         </TouchableOpacity>
                     </View>
-
                 </View>
-                <View className="mx-4 space-y-2 h-28">
+
+
+                <View className="mx-4 space-y-2 h-28 mt-4">
                     <Text style={{color: themeColors.text}} className="text-lg font-bold">
                         About
                     </Text>
@@ -95,7 +203,7 @@ export const ProductScreen = () => {
                         {item.desc}
                     </Text>
                 </View>
-                <View className="flex-row justify-between items-center mx-4 mb-2">
+                <View className="flex-row justify-between items-center mx-4 mb-2 mt-4">
                     <View className="flex-row items-center space-x-1">
                         <Text className="text-base text-gray-700 font-semibold opacity-60">Volume</Text>
                         <Text className="text-base text-black font-semibold">
@@ -114,7 +222,7 @@ export const ProductScreen = () => {
                     </View>
                 </View>
                 {/*Buy button*/}
-                <View className="flex-row justify-between items-center mx-4">
+                <View className="flex-row justify-between items-center mx-4 mt-4">
                     <TouchableOpacity className="p-4 rounded-full border border-gray-400 ">
                         <ShoppingBagIcon size={30} color="gray"/>
                     </TouchableOpacity>
