@@ -35,7 +35,14 @@ export function SearchBar({placeHolder, onTextChanged, locations, handleLocation
                 {
                     showSearch ? (
                         <TextInput
-                            className="pl-6 h-10 flex-1 text-base text-white pb-1"
+                            style={{
+                                paddingLeft: 10,
+                                height: 30,
+                                flex: 1,
+                                fontSize: 19,
+                                color: 'white',
+                                paddingBottom: 5,
+                            }}
                             placeholder={placeHolder}
                             onChangeText={onTextChanged}
                             placeholderTextColor={'lightgray'}/>
@@ -45,15 +52,28 @@ export function SearchBar({placeHolder, onTextChanged, locations, handleLocation
                     onPress={() => {
                         setShowSearch(!showSearch);
                     }}
-                    style={{backgroundColor: Theme.bgWhite(0.3)}}
-                    className="rounded-full p-2.5 m-1 h-auto"
+                    style={{
+                        backgroundColor: Theme.bgWhite(0.3),
+                        borderRadius: 100,
+                        padding: 6,
+                        margin: 2,
+                        height: 'auto'
+                    }}
                 >
                     <MagnifyingGlassIcon size="25" color="white"/>
                 </TouchableOpacity>
             </View>
             {
                 locations.length > 0 && showSearch ? (
-                    <View className="absolute w-full bg-gray-300 top-16 rounded-3xl">
+                    <View
+                        style={{
+                            position: 'absolute',
+                            width: '100%',
+                            backgroundColor: 'rgb(209 213 219)',
+                            marginTop: 30,
+                            borderRadius: 20,
+                        }}
+                    >
                         {
                             locations.map((location, index) => {
                                 let showBorder = index + 1 !== locations.length;
