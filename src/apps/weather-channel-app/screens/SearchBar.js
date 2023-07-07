@@ -18,7 +18,10 @@ export function SearchBar({placeHolder, onTextChanged, locations, handleLocation
     const [showSearch, setShowSearch] = useState(false);
 
     return (
-        <View style={{height: '7%'}} className="mx-4 z-50">
+        <View style={{
+            height: '7%',
+            marginHorizontal: 16,
+        }}>
             <View
                 style={{
                     backgroundColor: showSearch ? Theme.bgWhite(0.2) : 'transparent',
