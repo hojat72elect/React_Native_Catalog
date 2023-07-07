@@ -19,8 +19,15 @@ export function SearchBar({placeHolder, onTextChanged, locations, handleLocation
 
     return (
         <View style={{height: '7%'}} className="mx-4 z-50">
-            <View className="flex-row justify-end items-center rounded-full h-12"
-                  style={{backgroundColor: showSearch ? Theme.bgWhite(0.2) : 'transparent'}}>
+            <View
+                style={{
+                    backgroundColor: showSearch ? Theme.bgWhite(0.2) : 'transparent',
+                    flexDirection: 'row',
+                    alignItems: 'center',
+                    borderRadius: 80,
+                    marginTop: 8
+                }}
+            >
 
                 {
                     showSearch ? (
@@ -53,7 +60,7 @@ export function SearchBar({placeHolder, onTextChanged, locations, handleLocation
                                     <TouchableOpacity
                                         key={index}
                                         className={"flex-row items-center border-0 p-3 px-4 m-1 " + borderClass}
-                                        onPress={() =>{
+                                        onPress={() => {
                                             setShowSearch(false);
                                             handleLocation(location)
                                         }}
