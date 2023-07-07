@@ -3,7 +3,7 @@ import {weatherImages} from "../constants";
 
 /**
  *
- * The View for showing weather information for a single day.
+ * View for showing weather info for today.
  *
  * @param location
  * @param current
@@ -25,13 +25,23 @@ export function SingleDayWeatherView({location, current, weather}) {
             source={weatherImages[current?.condition?.text]}
             className="w-52 h-52 justify-center flex-row mx-auto"
         />
-        {/*Degree celsius*/}
-        <View className="space-y-2">
+
+        <View>
+            {/*Temperature in celsius.*/}
             <Text
-                className="text-center font-bold text-white text-6xl ml-5">{current?.temp_c}&#176;</Text>
+                style={{
+                    textAlign: "center",
+                    color: 'white',
+                    fontWeight: 'bold',
+                    fontSize: 40,
+                }}
+            >{current?.temp_c}&#176;</Text>
+            {/*Today's weather condition.*/}
             <Text
+                style={{}}
                 className="text-center text-white text-xl tracking-widest">{current?.condition?.text}</Text>
         </View>
+
         {/*Other stats*/}
         <View className="flex-row justify-between mx-4">
             <View className="flex-row space-x-2 items-center">
