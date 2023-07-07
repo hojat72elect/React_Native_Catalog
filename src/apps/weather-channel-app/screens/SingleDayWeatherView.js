@@ -13,12 +13,18 @@ import {weatherImages} from "../constants";
 export function SingleDayWeatherView({location, current, weather}) {
 
     return (<View
-        style={{alignItems: 'center'}}
-        className="mx-4 flex justify-around flex-1 mb-2">
+        style={{
+            marginHorizontal: 12,
+            justifyContent: 'space-around',
+            marginBottom: 20,
+            flex: 1
+        }}
+    >
 
         {/*location (city and country)*/}
         <Text
             style={{
+                textAlign: 'center',
                 color: 'white',
                 fontSize: 25,
                 fontWeight: 'bold'
