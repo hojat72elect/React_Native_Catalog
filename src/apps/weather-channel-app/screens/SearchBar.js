@@ -77,12 +77,20 @@ export function SearchBar({placeHolder, onTextChanged, locations, handleLocation
                         {
                             locations.map((location, index) => {
                                 let showBorder = index + 1 !== locations.length;
-                                let borderClass = showBorder ? ' border-b-2 border-b-gray-400' : '';
+                                let borderClass = showBorder ? 'gray' : undefined;
 
                                 return (
                                     <TouchableOpacity
                                         key={index}
-                                        className={"flex-row items-center border-0 p-3 px-4 m-1 " + borderClass}
+                                        style={{
+                                            flexDirection: 'row',
+                                            alignItems: 'center',
+                                            paddingVertical: 10,
+                                            paddingHorizontal: 18,
+                                            margin: 5,
+                                            borderWidth: 1,
+                                            borderColor: borderClass,
+                                        }}
                                         onPress={() => {
                                             setShowSearch(false);
                                             handleLocation(location)
@@ -90,7 +98,11 @@ export function SearchBar({placeHolder, onTextChanged, locations, handleLocation
                                     >
                                         <MapPinIcon size="20" color="gray"/>
                                         <Text
-                                            className="text-black text-lg ml-2"
+                                            style={{
+                                                color: 'black',
+                                                fontSize: 12,
+                                                marginLeft: 8,
+                                            }}
                                         >{location?.name}, {location?.country}</Text>
                                     </TouchableOpacity>
                                 );
