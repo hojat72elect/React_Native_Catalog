@@ -4,7 +4,6 @@ import {
     ScrollView,
     TextInput,
     TouchableOpacity,
-    TouchableWithoutFeedback,
     View,
     Image,
     Text,
@@ -100,30 +99,52 @@ export default function SearchScreen() {
                         <ScrollView
                             showsVerticalScrollIndicator={false}
                             contentContainerStyle={{paddingHorizontal: 15}}
-                            className="space-y-3"
                         >
-                            <Text className="text-white font-semibold ml-1">Results ({results.length})</Text>
-                            <View className="flex-row justify-between flex-wrap">
+                            <Text
+                                style={{
+                                    color: 'white',
+                                    fontWeight: '600',
+                                    marginLeft: 2
+                                }}
+                            >Results ({results.length})</Text>
+                            <View
+                                style={{
+                                    flexDirection: 'row',
+                                    justifyContent: 'space-between',
+                                    flexWrap: 'wrap',
+                                }}
+                            >
                                 {
                                     results.map((item, index) => {
                                         return (
-                                            <TouchableWithoutFeedback
+                                            <TouchableOpacity
                                                 key={index}
                                                 // @ts-ignore
                                                 onPress={() => navigation.push('Movie', item)}>
-                                                <View className="space-y-2 mb-4">
+                                                <View
+                                                    style={{marginTop: 10}}
+                                                >
                                                     <Image
                                                         source={{uri: image185(item.poster_path) || fallbackMoviePoster}}
-                                                        className="rounded-3xl"
-                                                        style={{width: width * 0.44, height: height * 0.3}}
+                                                        style={{
+                                                            width: width * 0.44,
+                                                            height: height * 0.3,
+                                                            borderRadius: 30
+                                                        }}
                                                     />
-                                                    <Text className="text-gray-300 ml-1">
+                                                    <Text
+                                                        style={{
+                                                            color: 'lightgray',
+                                                            alignSelf: 'center',
+                                                            marginTop: 8,
+                                                        }}
+                                                    >
                                                         {
                                                             item.title.length > 22 ? item.title.slice(0, 22) + '...' : item.title
                                                         }
                                                     </Text>
                                                 </View>
-                                            </TouchableWithoutFeedback>
+                                            </TouchableOpacity>
                                         )
                                     })
                                 }
@@ -137,7 +158,7 @@ export default function SearchScreen() {
                             style={{
                                 height: 400,
                                 width: 400,
-                                alignItems:'center',
+                                alignItems: 'center',
                             }}
                         />
 
