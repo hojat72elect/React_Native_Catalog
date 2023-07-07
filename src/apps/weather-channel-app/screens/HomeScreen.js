@@ -60,22 +60,40 @@ export default function HomeScreen() {
     }, []);
 
     return (
-        <View className="flex-1 relative">
+        <View
+            style={{
+                flex: 1,
+                position: 'relative'
+            }}
+        >
             <StatusBar backgroundColor="#ffffff" barStyle="dark-content"/>
             <Image source={require('../../../../assets/images/bg.png')}
-                   className="absolute h-full w-full"
+                   style={{
+                       position: 'absolute',
+                       height: '100%',
+                       width: '100%'
+                   }}
                    blurRadius={70}
             />
             {
                 loading ? (
                     <View
-                        className="flex-1 flex-row justify-center items-center"
+                        style={{
+                            flex: 1,
+                            flexDirection: 'row',
+                            justifyContent: 'center',
+                            alignItems: 'center',
+                        }}
                     >
 
                         <CircleSnail thickness={10} size={140} color="#0bb3b2"/>
                     </View>
                 ) : (
-                    <SafeAreaView className="flex flex-1">
+                    <SafeAreaView
+                        style={{
+                            flex: 1
+                        }}
+                    >
                         {/*Search Section*/}
 
                         <SearchBar placeHolder="Search city" onTextChanged={handleTextDebounce} locations={locations}
