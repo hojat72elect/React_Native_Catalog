@@ -9,16 +9,28 @@ import {weatherImages} from "../constants";
  *
  * @returns {JSX.Element}
  */
-export function WeatherCalendar({forecastData}){
+export function WeatherCalendar({forecastData}) {
     return (
-        <View className="mb-2 space-y-3">
-            <View className="flex-row items-center mx-5 space-x-2">
+        <View style={{marginBottom: 10}}>
+            <View
+                style={{
+                    flexDirection: 'row',
+                    alignItems: 'center',
+                    marginLeft: 18,
+                }}
+            >
                 <CalendarDaysIcon size="22" color="white"/>
-                <Text className="text-white text-base">Daily forecast</Text>
+                <Text
+                    style={{
+                        color: 'white',
+                        marginLeft: 10,
+                        fontSize: 18,
+                    }}
+                >Daily forecast</Text>
             </View>
             <ScrollView
                 horizontal
-                contentContainerStyle={{paddingHorizontal: 15}}
+                contentContainerStyle={{paddingHorizontal: 15, marginTop: 8}}
                 showsHorizontalScrollIndicator={false}
             >
                 {
@@ -32,16 +44,31 @@ export function WeatherCalendar({forecastData}){
 
                         return (
                             <View key={index}
-                                  className="flex justify-center items-center w-24 rounded-3xl py-3 space-y-1 mr-4"
-                                  style={{backgroundColor: Theme.bgWhite(0.15)}}
+                                  style={{
+                                      backgroundColor: Theme.bgWhite(0.15),
+                                      justifyContent: 'center',
+                                      alignItems: 'center',
+                                      width: 100,
+                                      borderRadius: 20,
+                                      paddingVertical: 10,
+                                      marginHorizontal: 7
+                                  }}
                             >
                                 <Image
                                     source={weatherImages[item?.day?.condition?.text]}
-                                    className="h-11 w-11"
+                                    style={{
+                                        width: 55,
+                                        height: 55,
+                                    }}
                                 />
-                                <Text className="text-white">{dayName}</Text>
+                                <Text style={{color: 'white'}}>{dayName}</Text>
                                 <Text
-                                    className="text-white text-xl font-semibold">{item?.day?.avgtemp_c}&#176;</Text>
+                                    style={{
+                                        color: 'white',
+                                        fontSize: 20,
+                                        fontWeight: '600',
+                                    }}
+                                >{item?.day?.avgtemp_c}&#176;</Text>
                             </View>
                         );
                     })
