@@ -12,25 +12,47 @@ import {weatherImages} from "../constants";
  */
 export function SingleDayWeatherView({location, current, weather}) {
 
-    return (<View className="mx-4 flex justify-around flex-1 mb-2">
-        {/*location*/}
-        <Text className="text-white text-center text-2xl font-bold">
+    return (<View
+        style={{alignItems: 'center'}}
+        className="mx-4 flex justify-around flex-1 mb-2">
+
+        {/*location (city and country)*/}
+        <Text
+            style={{
+                color: 'white',
+                fontSize: 25,
+                fontWeight: 'bold'
+            }}
+        >
             {location?.name},{'\u0020'}
-            <Text className="text-lg font-semibold text-gray-300">
+            <Text
+                style={{
+                    fontSize: 18,
+                    fontWeight: '600',
+                    color: 'rgb(209 213 219)'
+                }}
+            >
                 {location?.country}
             </Text>
         </Text>
+
         {/*Weather image*/}
         <Image
             source={weatherImages[current?.condition?.text]}
-            className="w-52 h-52 justify-center flex-row mx-auto"
+            style={{
+                alignSelf: 'center',
+                width: 210,
+                height: 210,
+            }}
         />
 
-        <View>
+        <View
+            style={{
+                alignItems: 'center'
+            }}>
             {/*Temperature in celsius.*/}
             <Text
                 style={{
-                    textAlign: "center",
                     color: 'white',
                     fontWeight: 'bold',
                     fontSize: 40,
@@ -38,33 +60,84 @@ export function SingleDayWeatherView({location, current, weather}) {
             >{current?.temp_c}&#176;</Text>
             {/*Today's weather condition.*/}
             <Text
-                style={{}}
-                className="text-center text-white text-xl tracking-widest">{current?.condition?.text}</Text>
+                style={{
+                    color: 'white',
+                    fontSize: 20,
+                }}
+            >{current?.condition?.text}</Text>
         </View>
 
-        {/*Other stats*/}
-        <View className="flex-row justify-between mx-4">
-            <View className="flex-row space-x-2 items-center">
+        {/*A row of other stats*/}
+        <View
+            style={{
+                flexDirection: 'row',
+                justifyContent: 'space-evenly'
+            }}
+        >
+            <View
+                style={{
+                    flexDirection: 'row',
+                    alignItems: 'center'
+                }}
+            >
                 <Image
                     source={require('../../../../assets/icons/wind.png')}
-                    className="h-6 w-6"
-                />
-                <Text className="text-white font-semibold text-base">{current?.wind_kph} km/h</Text>
-            </View>
-            <View className="flex-row space-x-2 items-center">
-                <Image
-                    source={require('../../../../assets/icons/drop.png')}
-                    className="h-6 w-6"
-                />
-                <Text className="text-white font-semibold text-base">{current?.humidity}%</Text>
-            </View>
-            <View className="flex-row space-x-2 items-center">
-                <Image
-                    source={require('../../../../assets/icons/sun.png')}
-                    className="h-6 w-6"
+                    style={{
+                        height: 25,
+                        width: 25
+                    }}
+
                 />
                 <Text
-                    className="text-white font-semibold text-base">{weather?.forecast?.forecastday[0]?.astro?.sunrise}</Text>
+                    style={{
+                        fontSize: 16,
+                        marginLeft: 8,
+                        color: 'white',
+                        fontWeight: '600'
+                    }}
+                >{current?.wind_kph} km/h</Text>
+            </View>
+            <View
+                style={{
+                    flexDirection: 'row',
+                    alignItems: 'center'
+                }}
+            >
+                <Image
+                    source={require('../../../../assets/icons/drop.png')}
+                    style={{
+                        height: 25,
+                        width: 25
+                    }}
+                />
+                <Text
+                    style={{
+                        fontSize: 16,
+                        marginLeft: 8,
+                        color: 'white',
+                        fontWeight: '600'
+                    }}
+                >{current?.humidity}%</Text>
+            </View>
+            <View
+                style={{
+                    flexDirection: 'row',
+                    alignItems: 'center'
+                }}
+            >
+                <Image
+                    source={require('../../../../assets/icons/sun.png')}
+                    style={{
+                        height: 25,
+                        width: 25
+                    }}
+                />
+                <Text style={{
+                    fontSize: 16,
+                    marginLeft: 8,
+                    color: 'white',
+                    fontWeight: '600'
+                }}>{weather?.forecast?.forecastday[0]?.astro?.sunrise}</Text>
             </View>
         </View>
     </View>);
