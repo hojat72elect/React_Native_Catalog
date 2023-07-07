@@ -18,17 +18,15 @@ export function SearchBar({placeHolder, onTextChanged, locations, handleLocation
     const [showSearch, setShowSearch] = useState(false);
 
     return (
-        <View style={{
-            height: '7%',
-            marginHorizontal: 16,
-        }}>
+        <View>
             <View
                 style={{
                     backgroundColor: showSearch ? Theme.bgWhite(0.2) : 'transparent',
                     flexDirection: 'row',
                     alignItems: 'center',
                     borderRadius: 80,
-                    marginTop: 8
+                    marginTop: 10,
+                    marginHorizontal: 10
                 }}
             >
 
@@ -36,12 +34,11 @@ export function SearchBar({placeHolder, onTextChanged, locations, handleLocation
                     showSearch ? (
                         <TextInput
                             style={{
-                                paddingLeft: 10,
-                                height: 30,
+                                paddingLeft: 20,
+                                paddingVertical: 12,
                                 flex: 1,
-                                fontSize: 19,
+                                fontSize: 18,
                                 color: 'white',
-                                paddingBottom: 5,
                             }}
                             placeholder={placeHolder}
                             onChangeText={onTextChanged}
@@ -54,10 +51,8 @@ export function SearchBar({placeHolder, onTextChanged, locations, handleLocation
                     }}
                     style={{
                         backgroundColor: Theme.bgWhite(0.3),
-                        borderRadius: 100,
-                        padding: 6,
-                        margin: 2,
-                        height: 'auto'
+                        borderRadius: 50,
+                        padding: 10,
                     }}
                 >
                     <MagnifyingGlassIcon size="25" color="white"/>
@@ -68,43 +63,46 @@ export function SearchBar({placeHolder, onTextChanged, locations, handleLocation
                     <View
                         style={{
                             position: 'absolute',
-                            width: '100%',
+                            width: '95%',
+                            alignSelf: 'center',
                             backgroundColor: 'rgb(209 213 219)',
-                            marginTop: 30,
+                            marginTop: 65,
                             borderRadius: 20,
                         }}
                     >
                         {
                             locations.map((location, index) => {
                                 let showBorder = index + 1 !== locations.length;
-                                let borderClass = showBorder ? 'gray' : undefined;
+                                let borderClass = showBorder ? 1 : 0;
 
                                 return (
-                                    <TouchableOpacity
-                                        key={index}
-                                        style={{
-                                            flexDirection: 'row',
-                                            alignItems: 'center',
-                                            paddingVertical: 10,
-                                            paddingHorizontal: 18,
-                                            margin: 5,
-                                            borderWidth: 1,
-                                            borderColor: borderClass,
-                                        }}
-                                        onPress={() => {
-                                            setShowSearch(false);
-                                            handleLocation(location)
-                                        }}
-                                    >
-                                        <MapPinIcon size="20" color="gray"/>
-                                        <Text
+                                    <View>
+                                        <TouchableOpacity
+                                            key={index}
                                             style={{
-                                                color: 'black',
-                                                fontSize: 12,
-                                                marginLeft: 8,
+                                                flexDirection: 'row',
+                                                alignItems: 'center',
+                                                paddingVertical: 10,
+                                                paddingHorizontal: 18,
+                                                margin: 5,
+                                                borderBottomWidth: borderClass,
+                                                borderColor: 'darkgray'
                                             }}
-                                        >{location?.name}, {location?.country}</Text>
-                                    </TouchableOpacity>
+                                            onPress={() => {
+                                                setShowSearch(false);
+                                                handleLocation(location)
+                                            }}
+                                        >
+                                            <MapPinIcon size="20" color="gray"/>
+                                            <Text
+                                                style={{
+                                                    color: 'black',
+                                                    fontSize: 12,
+                                                    marginLeft: 8,
+                                                }}
+                                            >{location?.name}, {location?.country}</Text>
+                                        </TouchableOpacity>
+                                    </View>
                                 );
                             })
                         }
