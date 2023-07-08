@@ -1,4 +1,4 @@
-import {Image, SafeAreaView, ScrollView, StatusBar, View} from "react-native";
+import {Image, ScrollView, StatusBar, View} from "react-native";
 import {useCallback, useEffect, useState} from "react";
 import {debounce} from "lodash";
 import {fetchSearchLocations, fetchWeatherForecast} from "../api/Weather";
@@ -88,11 +88,7 @@ export default function HomeScreen() {
                         <CircleSnail thickness={10} size={140} color="#0bb3b2"/>
                     </View>
                 ) : (
-                    <ScrollView
-                        style={{
-                            flex: 1
-                        }}
-                    >
+                    <ScrollView>
                         {/*Search Section*/}
 
                         <SearchBar placeHolder="Search city" onTextChanged={handleTextDebounce} locations={locations}

@@ -14,11 +14,11 @@ export function SingleDayWeatherView({location, current, weather}) {
 
     return (<View
         style={{
-            marginHorizontal: 12,
-            justifyContent: 'space-around',
-            marginBottom: 20,
             flex: 1,
-            zIndex:-1,
+            paddingVertical: 15,
+            justifyContent: 'space-around',
+            alignItems: 'stretch',
+            zIndex: -1,
             top: 0,
             right: 0,
             bottom: 0,
@@ -54,6 +54,7 @@ export function SingleDayWeatherView({location, current, weather}) {
                 alignSelf: 'center',
                 width: 210,
                 height: 210,
+                marginTop: 5,
             }}
         />
 
@@ -74,6 +75,7 @@ export function SingleDayWeatherView({location, current, weather}) {
                 style={{
                     color: 'white',
                     fontSize: 20,
+                    marginTop: 7,
                 }}
             >{current?.condition?.text}</Text>
         </View>
@@ -82,7 +84,8 @@ export function SingleDayWeatherView({location, current, weather}) {
         <View
             style={{
                 flexDirection: 'row',
-                justifyContent: 'space-evenly'
+                justifyContent: 'space-evenly',
+                marginTop: 18,
             }}
         >
             <View

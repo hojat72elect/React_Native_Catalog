@@ -11,7 +11,9 @@ import {weatherImages} from "../constants";
  */
 export function WeatherCalendar({forecastData}) {
     return (
-        <View style={{marginBottom: 10}}>
+        <View
+        style={{marginTop:20}}
+        >
             <View
                 style={{
                     flexDirection: 'row',
@@ -30,7 +32,7 @@ export function WeatherCalendar({forecastData}) {
             </View>
             <ScrollView
                 horizontal
-                contentContainerStyle={{paddingHorizontal: 15, marginTop: 8}}
+                contentContainerStyle={{paddingHorizontal: 15, marginTop: 15}}
                 showsHorizontalScrollIndicator={false}
             >
                 {
