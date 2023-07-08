@@ -1,4 +1,4 @@
-import {Image, SafeAreaView, StatusBar, View} from "react-native";
+import {Image, SafeAreaView, ScrollView, StatusBar, View} from "react-native";
 import {useCallback, useEffect, useState} from "react";
 import {debounce} from "lodash";
 import {fetchSearchLocations, fetchWeatherForecast} from "../api/Weather";
@@ -63,7 +63,6 @@ export default function HomeScreen() {
         <View
             style={{
                 flex: 1,
-                position: 'relative'
             }}
         >
             <StatusBar backgroundColor="#ffffff" barStyle="dark-content"/>
@@ -89,7 +88,7 @@ export default function HomeScreen() {
                         <CircleSnail thickness={10} size={140} color="#0bb3b2"/>
                     </View>
                 ) : (
-                    <SafeAreaView
+                    <ScrollView
                         style={{
                             flex: 1
                         }}
@@ -104,7 +103,7 @@ export default function HomeScreen() {
 
                         {/*The weather calendar for next few days at the bottom of the page*/}
                         <WeatherCalendar forecastData={weather?.forecast?.forecastday}/>
-                    </SafeAreaView>
+                    </ScrollView>
                 )
             }
 
