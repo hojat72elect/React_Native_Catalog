@@ -17,7 +17,12 @@ export function SingleDayWeatherView({location, current, weather}) {
             marginHorizontal: 12,
             justifyContent: 'space-around',
             marginBottom: 20,
-            flex: 1
+            flex: 1,
+            zIndex:-1,
+            top: 0,
+            right: 0,
+            bottom: 0,
+            left: 0,
         }}
     >
 
