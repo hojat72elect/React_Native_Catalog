@@ -1,5 +1,6 @@
 import {Image, Text, View} from "react-native";
-import {weatherImages} from "../constants";
+import {weatherImages} from "../data/Constants";
+
 
 /**
  *

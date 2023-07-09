@@ -1,5 +1,5 @@
-import {apiKey} from "../constants";
 import axios from "axios";
+import {apiKey} from "../data/Constants";
 
 const forecastEndpoint = params => `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${params.cityName}&days=${params.days}&aqi=no&alerts=no`;
 const searchEndpoint = params => `https://api.weatherapi.com/v1/search.json?key=${apiKey}&q=${params.cityName}`;

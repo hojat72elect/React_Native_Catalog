@@ -1,8 +1,8 @@
 import {Image, ScrollView, Text, View} from "react-native";
 import {CalendarDaysIcon} from "react-native-heroicons/solid";
 import {Theme} from "../theme";
-import {weatherImages} from "../constants";
 import {ApiForecastResultForecastForecastday} from "../api/data/ApiResults";
+import {weatherImages} from "../data/Constants";
 
 type WeatherCalendarProps = {
     forecastData: ApiForecastResultForecastForecastday[];
