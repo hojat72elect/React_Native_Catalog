@@ -2,6 +2,11 @@ import {Image, ScrollView, Text, View} from "react-native";
 import {CalendarDaysIcon} from "react-native-heroicons/solid";
 import {Theme} from "../theme";
 import {weatherImages} from "../constants";
+import {ApiForecastResultForecastForecastday} from "../api/data/ApiResults";
+
+type WeatherCalendarProps = {
+    forecastData: ApiForecastResultForecastForecastday[];
+}
 
 /**
  * You give it the data of the next few days, and it shows it into a horizontal
@@ -12,7 +17,7 @@ import {weatherImages} from "../constants";
  *
  * @returns {JSX.Element}
  */
-export function WeatherCalendar({forecastData}) {
+export function WeatherCalendar({forecastData}: WeatherCalendarProps) {
     return (
         <View
         style={{marginTop:20}}
@@ -43,6 +48,7 @@ export function WeatherCalendar({forecastData}) {
 
                         let date = new Date(item.date);
                         let options = {weekday: 'long'};
+                        // @ts-ignore
                         let dayName = date.toLocaleDateString('en-US', options);
                         dayName = dayName.split(',')[0];
 
@@ -60,6 +66,7 @@ export function WeatherCalendar({forecastData}) {
                                   }}
                             >
                                 <Image
+                                    // @ts-ignore
                                     source={weatherImages[item?.day?.condition?.text]}
                                     style={{
                                         width: 55,
