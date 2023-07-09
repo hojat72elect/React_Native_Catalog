@@ -7,6 +7,9 @@ import {weatherImages} from "../constants";
  * You give it the data of the next few days, and it shows it into a horizontal
  * scroll view, just like a calendar.
  *
+ *
+ * @param forecastData {ApiForecastResultForecastForecastday[]}
+ *
  * @returns {JSX.Element}
  */
 export function WeatherCalendar({forecastData}) {
