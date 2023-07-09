@@ -14,6 +14,10 @@ export default function HomeScreen() {
     const [weather, setWeather] = useState({});
     const [loading, setLoading] = useState(true);
 
+    /**
+     *
+     * @param value {string}
+     */
     function handleSearch(value) {
         // fetch locations if search value is long enough
         if (value.length > 2) {
