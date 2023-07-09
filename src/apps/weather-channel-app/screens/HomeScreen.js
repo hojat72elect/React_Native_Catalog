@@ -34,6 +34,7 @@ export default function HomeScreen() {
             cityName: location.name,
             days: '7'
         }).then(data => {
+            // data: ApiForecastResult
             setWeather(data);
             setLoading(false);
             storeData('city', location.name)
