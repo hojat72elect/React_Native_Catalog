@@ -17,6 +17,7 @@ export default function HomeScreen() {
     function handleSearch(value) {
         // fetch locations if search value is long enough
         if (value.length > 2) {
+            // data: ApiSearchSuggestion[]
             fetchSearchLocations({cityName: value}).then(data => {
                 setLocations(data);
             });
