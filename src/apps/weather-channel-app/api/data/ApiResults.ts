@@ -1,14 +1,16 @@
-type ApiForecastResult = {
+export type ApiForecastResult = {
     current: ApiForecastResultCurrent;
     forecast: ApiForecastResultForecast;
     location: ApiForecastResultLocation;
 }
+
 type ApiForecastResultCurrentCondition = {
     code: number;
     icon: string;
     text: string;
 }
-type ApiForecastResultCurrent = {
+
+export type ApiForecastResultCurrent = {
     cloud: number;
     condition: ApiForecastResultCurrentCondition;
     feelslike_c: number;
@@ -33,7 +35,7 @@ type ApiForecastResultCurrent = {
     wind_kph: number;
     wind_mph: number;
 }
-type ApiForecastResultLocation = {
+export type ApiForecastResultLocation = {
     country: string;
     lat: number;
     localtime: string;
@@ -47,7 +49,7 @@ type ApiForecastResultForecast = {
     forecastday: ApiForecastResultForecastForecastday[];
 }
 export type ApiForecastResultForecastForecastday = {
-    astro: string[];
+    astro: ApiAstro;
     date: string;
     date_epoch: number;
     day: ApiSingleDayForecast;
@@ -90,3 +92,13 @@ type ApiSingleDayCondition = {
     text: string;
 }
 
+export type ApiAstro = {
+    is_moon_up: number;
+    is_sun_up: number;
+    moon_illumination: string;
+    moon_phase: string;
+    moonrise: string;
+    moonset: string;
+    sunrise: string;
+    sunset: string;
+}

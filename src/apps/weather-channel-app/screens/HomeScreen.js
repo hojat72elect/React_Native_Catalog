@@ -45,6 +45,11 @@ export default function HomeScreen() {
         });
     }
 
+    /**
+     * current : ApiForecastResultCurrent
+     *
+     * location: ApiForecastResultLocation
+     */
     const {current, location} = weather;
 
     async function fetchWeatherData() {

@@ -1,17 +1,21 @@
 import {Image, Text, View} from "react-native";
 import {weatherImages} from "../data/Constants";
+import {
+    ApiForecastResult,
+    ApiForecastResultCurrent,
+    ApiForecastResultLocation
+} from "../api/data/ApiResults";
 
+type SingleDayWeatherViewProps = {
+    location: ApiForecastResultLocation;
+    current: ApiForecastResultCurrent;
+    weather: ApiForecastResult;
+}
 
 /**
- *
  * View for showing weather info for today.
- *
- * @param location
- * @param current
- * @param weather
- * @returns {JSX.Element}
  */
-export function SingleDayWeatherView({location, current, weather}) {
+export function SingleDayWeatherView({location, current, weather}: SingleDayWeatherViewProps) {
 
     return (<View
         style={{
@@ -50,7 +54,8 @@ export function SingleDayWeatherView({location, current, weather}) {
 
         {/*Weather image*/}
         <Image
-            source={weatherImages[current?.condition?.text]}
+            // @ts-ignore
+            source={weatherImages[current.condition.text]}
             style={{
                 alignSelf: 'center',
                 width: 210,
@@ -152,7 +157,7 @@ export function SingleDayWeatherView({location, current, weather}) {
                     marginLeft: 8,
                     color: 'white',
                     fontWeight: '600'
-                }}>{weather?.forecast?.forecastday[0]?.astro?.sunrise}</Text>
+                }}>{weather.forecast.forecastday[0].astro.sunrise}</Text>
             </View>
         </View>
     </View>);

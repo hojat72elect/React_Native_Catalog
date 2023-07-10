@@ -20,7 +20,7 @@ type WeatherCalendarProps = {
 export function WeatherCalendar({forecastData}: WeatherCalendarProps) {
     return (
         <View
-        style={{marginTop:20}}
+            style={{marginTop: 20}}
         >
             <View
                 style={{

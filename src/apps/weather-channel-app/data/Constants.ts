@@ -1,25 +1,6 @@
 export const apiKey = 'b16211c089da4ad8897224431230306';
 
-type WeatherImagesType = {
-    "Partly cloudy": any,
-    "Moderate rain": any,
-    "Patchy rain possible": any,
-    'Sunny': any,
-    'Clear': any,
-    'Overcast': any,
-    'Cloudy': any,
-    "Light rain": any,
-    "Moderate rain at times": any,
-    "Heavy rain": any,
-    "Heavy rain at times": any,
-    "Moderate or heavy freezing rain": any,
-    "Moderate or heavy rain shower": any,
-    "Moderate or heavy rain with thunder": any,
-    'Mist': any,
-    'other': any,
-}
-
-export const weatherImages: WeatherImagesType = {
+export const weatherImages = {
     'Partly cloudy': require('../../../../assets/images/partlycloudy.png'),
     'Moderate rain': require('../../../../assets/images/moderaterain.png'),
     'Patchy rain possible': require('../../../../assets/images/moderaterain.png'),
