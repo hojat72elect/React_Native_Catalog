@@ -6,13 +6,14 @@ import {CircleSnail} from "react-native-progress";
 import {WeatherCalendar} from "./WeatherCalendar";
 import {SingleDayWeatherView} from "./SingleDayWeatherView";
 import {SearchBar} from "./SearchBar";
-import {ApiForecastResult, ApiSearchSuggestion} from "../api/data/ApiResults";
+import {ApiForecastResult, ApiSearchSuggestion} from "../api/ApiResults";
+
 
 export default function HomeScreen() {
 
 
     const [locations, setLocations] = useState<ApiSearchSuggestion[]>([]);
-    // weather :
+
     const [weather, setWeather] = useState<ApiForecastResult | null>(null);
     const [loading, setLoading] = useState(true);
 
@@ -23,7 +24,7 @@ export default function HomeScreen() {
     function handleSearch(value: string) {
         // fetch locations if search value is long enough
         if (value.length > 2) {
-            // data: ApiSearchSuggestion[]
+
             fetchSearchLocations({cityName: value}).then(data => {
                 setLocations(data);
             });
@@ -40,7 +41,7 @@ export default function HomeScreen() {
             cityName: location.name,
             days: '7'
         }).then(data => {
-            // data: ApiForecastResult
+
             setWeather(data);
             setLoading(false);
         });

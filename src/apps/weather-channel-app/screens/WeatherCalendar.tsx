@@ -1,8 +1,8 @@
 import {Image, ScrollView, Text, View} from "react-native";
 import {CalendarDaysIcon} from "react-native-heroicons/solid";
 import {Theme} from "../theme";
-import {ApiForecastResultForecastForecastday} from "../api/data/ApiResults";
 import {weatherImages} from "../data/Constants";
+import {ApiForecastResultForecastForecastday} from "../api/ApiResults";
 
 type WeatherCalendarProps = {
     forecastData: ApiForecastResultForecastForecastday[]|null;
@@ -11,11 +11,6 @@ type WeatherCalendarProps = {
 /**
  * You give it the data of the next few days, and it shows it into a horizontal
  * scroll view, just like a calendar.
- *
- *
- * @param forecastData {ApiForecastResultForecastForecastday[]}
- *
- * @returns {JSX.Element}
  */
 export function WeatherCalendar({forecastData}: WeatherCalendarProps) {
     return (

@@ -3,8 +3,8 @@ import {Theme} from "../theme";
 import {MagnifyingGlassIcon} from "react-native-heroicons/outline";
 import {MapPinIcon} from "react-native-heroicons/solid";
 import {useState} from "react";
-import {ApiSearchSuggestion} from "../api/data/ApiResults";
 import {DebouncedFunc} from "lodash";
+import {ApiSearchSuggestion} from "../api/ApiResults";
 
 type SearchBarProps = {
     placeHolder: string;

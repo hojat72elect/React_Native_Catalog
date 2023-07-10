@@ -1,10 +1,7 @@
 import {Image, Text, View} from "react-native";
 import {weatherImages} from "../data/Constants";
-import {
-    ApiForecastResult,
-    ApiForecastResultCurrent,
-    ApiForecastResultLocation
-} from "../api/data/ApiResults";
+import {ApiForecastResult, ApiForecastResultCurrent, ApiForecastResultLocation} from "../api/ApiResults";
+
 
 type SingleDayWeatherViewProps = {
     location: ApiForecastResultLocation | null;
