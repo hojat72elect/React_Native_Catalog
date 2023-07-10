@@ -5,7 +5,7 @@ import {ApiForecastResultForecastForecastday} from "../api/data/ApiResults";
 import {weatherImages} from "../data/Constants";
 
 type WeatherCalendarProps = {
-    forecastData: ApiForecastResultForecastForecastday[];
+    forecastData: ApiForecastResultForecastForecastday[]|null;
 }
 
 /**

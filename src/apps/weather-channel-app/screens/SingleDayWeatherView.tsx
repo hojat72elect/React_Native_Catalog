@@ -7,9 +7,9 @@ import {
 } from "../api/data/ApiResults";
 
 type SingleDayWeatherViewProps = {
-    location: ApiForecastResultLocation;
-    current: ApiForecastResultCurrent;
-    weather: ApiForecastResult;
+    location: ApiForecastResultLocation | null;
+    current: ApiForecastResultCurrent | null;
+    weather: ApiForecastResult | null;
 }
 
 /**
@@ -157,7 +157,7 @@ export function SingleDayWeatherView({location, current, weather}: SingleDayWeat
                     marginLeft: 8,
                     color: 'white',
                     fontWeight: '600'
-                }}>{weather.forecast.forecastday[0].astro.sunrise}</Text>
+                }}>{weather?.forecast.forecastday[0].astro.sunrise}</Text>
             </View>
         </View>
     </View>);

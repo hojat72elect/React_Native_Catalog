@@ -7,18 +7,21 @@ import {getData, storeData} from "../data/AsyncStorage";
 import {WeatherCalendar} from "./WeatherCalendar";
 import {SingleDayWeatherView} from "./SingleDayWeatherView";
 import {SearchBar} from "./SearchBar";
+import {ApiForecastResult, ApiSearchSuggestion} from "../api/data/ApiResults";
 
 export default function HomeScreen() {
 
-    const [locations, setLocations] = useState([]);
-    const [weather, setWeather] = useState({});
+
+    const [locations, setLocations] = useState<ApiSearchSuggestion[]>([]);
+    // weather :
+    const [weather, setWeather] = useState<ApiForecastResult | null>(null);
     const [loading, setLoading] = useState(true);
 
     /**
      *
      * @param value {string}
      */
-    function handleSearch(value) {
+    function handleSearch(value: string) {
         // fetch locations if search value is long enough
         if (value.length > 2) {
             // data: ApiSearchSuggestion[]
@@ -30,7 +33,7 @@ export default function HomeScreen() {
 
     const handleTextDebounce = useCallback(debounce(handleSearch, 1200), []);
 
-    function handleLocation(location) {
+    function handleLocation(location: ApiSearchSuggestion) {
 
         setLocations([]);
         setLoading(true);
@@ -45,12 +48,8 @@ export default function HomeScreen() {
         });
     }
 
-    /**
-     * current : ApiForecastResultCurrent
-     *
-     * location: ApiForecastResultLocation
-     */
-    const {current, location} = weather;
+    const location = weather?.location ?? null;
+    const current = weather?.current ?? null;
 
     async function fetchWeatherData() {
         const chosenCity = await getData('city');
@@ -109,7 +108,7 @@ export default function HomeScreen() {
                         <SingleDayWeatherView location={location} current={current} weather={weather}/>
 
                         {/*The weather calendar for next few days at the bottom of the page*/}
-                        <WeatherCalendar forecastData={weather?.forecast?.forecastday}/>
+                        <WeatherCalendar forecastData={weather?.forecast?.forecastday ?? null}/>
                     </ScrollView>
                 )
             }
