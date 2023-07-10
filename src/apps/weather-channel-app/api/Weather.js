@@ -1,9 +1,20 @@
 import axios from "axios";
 import {apiKey} from "../data/Constants";
 
-const forecastEndpoint = params => `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${params.cityName}&days=${params.days}&aqi=no&alerts=no`;
-const searchEndpoint = params => `https://api.weatherapi.com/v1/search.json?key=${apiKey}&q=${params.cityName}`;
+/**
+ * cityName: {string}
+ *days: {string}
+ */
+const forecastEndpoint = (params) => `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${params.cityName}&days=${params.days}&aqi=no&alerts=no`;
 
+/**
+ * cityName {string}
+ */
+const searchEndpoint = (params) => `https://api.weatherapi.com/v1/search.json?key=${apiKey}&q=${params.cityName}`;
+
+/**
+ * @param endpoint {string}
+ */
 const apiCall = async (endpoint) => {
     const options = {
         method: 'GET',
