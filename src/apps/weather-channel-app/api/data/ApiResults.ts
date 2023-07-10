@@ -35,6 +35,7 @@ export type ApiForecastResultCurrent = {
     wind_kph: number;
     wind_mph: number;
 }
+
 export type ApiForecastResultLocation = {
     country: string;
     lat: number;
@@ -45,9 +46,11 @@ export type ApiForecastResultLocation = {
     region: string;
     tz_id: string;
 }
+
 type ApiForecastResultForecast = {
     forecastday: ApiForecastResultForecastForecastday[];
 }
+
 export type ApiForecastResultForecastForecastday = {
     astro: ApiAstro;
     date: string;
@@ -55,6 +58,7 @@ export type ApiForecastResultForecastForecastday = {
     day: ApiSingleDayForecast;
     hour: string[];
 }
+
 export type ApiSearchSuggestion = {
     country: string;
     id: number;
@@ -64,6 +68,7 @@ export type ApiSearchSuggestion = {
     region: string;
     url: string;
 }
+
 type ApiSingleDayForecast = {
     avghumidity: number;
     avgtemp_c: number;
@@ -86,6 +91,7 @@ type ApiSingleDayForecast = {
     totalsnow_cm: number;
     uv: number;
 }
+
 type ApiSingleDayCondition = {
     code: number;
     icon: string;
