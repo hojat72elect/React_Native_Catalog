@@ -3,17 +3,26 @@ import {Theme} from "../theme";
 import {MagnifyingGlassIcon} from "react-native-heroicons/outline";
 import {MapPinIcon} from "react-native-heroicons/solid";
 import {useState} from "react";
+import {ApiSearchSuggestion} from "../api/data/ApiResults";
+import {DebouncedFunc} from "lodash";
+
+type SearchBarProps = {
+    placeHolder: string;
+    onTextChanged: DebouncedFunc<(value: string) => void>;
+    locations: ApiSearchSuggestion[];
+    handleLocation: (location: ApiSearchSuggestion) => void
+}
 
 /**
  *
  * @param placeHolder : string the place holder for search bar.
  * @param onTextChanged : DebouncedFunc The debounced function to be called when text inside input changes.
- * @param locations
- * @param handleLocation
+ * @param locations {ApiSearchSuggestion[]}
+ * @param handleLocation{(ApiSearchSuggestion) => void}
  *
  * @return {JSX.Element}
  */
-export function SearchBar({placeHolder, onTextChanged, locations, handleLocation}) {
+export function SearchBar({placeHolder, onTextChanged, locations, handleLocation}: SearchBarProps) {
 
     const [showSearch, setShowSearch] = useState(false);
 

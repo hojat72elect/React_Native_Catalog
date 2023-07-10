@@ -55,7 +55,7 @@ export type ApiForecastResultForecastForecastday = {
     day: ApiSingleDayForecast;
     hour: string[];
 }
-type ApiSearchSuggestion = {
+export type ApiSearchSuggestion = {
     country: string;
     id: number;
     lat: number;
