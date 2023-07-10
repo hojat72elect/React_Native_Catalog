@@ -3,7 +3,6 @@ import {useCallback, useEffect, useState} from "react";
 import {debounce} from "lodash";
 import {fetchSearchLocations, fetchWeatherForecast} from "../api/Weather";
 import {CircleSnail} from "react-native-progress";
-import {getData, storeData} from "../data/AsyncStorage";
 import {WeatherCalendar} from "./WeatherCalendar";
 import {SingleDayWeatherView} from "./SingleDayWeatherView";
 import {SearchBar} from "./SearchBar";
@@ -44,7 +43,6 @@ export default function HomeScreen() {
             // data: ApiForecastResult
             setWeather(data);
             setLoading(false);
-            storeData('city', location.name)
         });
     }
 
@@ -52,9 +50,8 @@ export default function HomeScreen() {
     const current = weather?.current ?? null;
 
     async function fetchWeatherData() {
-        const chosenCity = await getData('city');
+
         let cityName = 'Toronto';
-        if (chosenCity) cityName = chosenCity;
 
         fetchWeatherForecast({
             cityName: cityName,
