@@ -1,6 +1,6 @@
 import styled from "styled-components/native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import Text from "~components/Text";
+import {Text} from "../../components";
 
 export const Container = styled(SafeAreaView).attrs({
   edges: ["left", "right"],
