@@ -7,7 +7,6 @@ import {NavigationContainer} from "@react-navigation/native";
 import Router from "./views/index.routes";
 import {store} from "./store";
 import {Provider} from "react-redux";
-import {LogBox} from "react-native";
 import {StatusBar} from "expo-status-bar";
 import {SafeAreaProvider} from "react-native-safe-area-context";
 import {enableScreens} from "react-native-screens";
@@ -16,13 +15,9 @@ import * as SplashScreen from "expo-splash-screen";
 import {SafeComponent} from "./components";
 import {useDidMountEffect} from "./services/utils";
 
-LogBox.ignoreLogs([
-    "ViewPropTypes will be removed from React Native. Migrate to ViewPropTypes exported from 'deprecated-react-native-prop-types'.",
-]);
-
 enableScreens();
 
-export default function App() {
+export const DatingAppNavigation = () => {
     let [fontsLoaded] = useFonts({
         [Font.GilroyBold]: require("~assets/fonts/Gilroy-Bold.ttf"),
         [Font.GilroyExtraBold]: require("~assets/fonts/Gilroy-ExtraBold.ttf"),
@@ -63,4 +58,4 @@ export default function App() {
     );
 }
 
-registerRootComponent(App);
+
