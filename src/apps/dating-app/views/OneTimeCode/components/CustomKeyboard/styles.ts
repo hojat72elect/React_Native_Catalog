@@ -1,5 +1,5 @@
 import styled from "styled-components/native";
-import Text from "~components/Text";
+import Text from "../../../../components/Text";
 
 const numOfColumns = 3;
 export const KeyContainer = styled.TouchableOpacity`
@@ -10,7 +10,7 @@ export const KeyContainer = styled.TouchableOpacity`
 `;
 
 export const KeyContent = styled(Text).attrs({
-  fontSize: "h2",
+    fontSize: "h2",
 })`
   text-align: center;
   color: ${(props) => props.theme.colors.text};

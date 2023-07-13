@@ -1,8 +1,8 @@
-import { put } from "redux-saga/effects";
-import users from "~store/sagas/users";
-import { Actions } from "~store/reducers";
+import {put} from "redux-saga/effects";
+import users from "./users";
+import {Actions} from "../reducers";
 
 export default function* rootSaga() {
-  yield users;
-  yield put(Actions.users.list.request());
+    yield users;
+    yield put(Actions.users.list.request());
 }

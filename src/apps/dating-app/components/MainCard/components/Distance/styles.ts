@@ -1,6 +1,6 @@
 import styled from "styled-components/native";
-import Text from "~components/Text";
-import Glassmorphism from "~components/Glassmorphism";
+import Text from "../../../Text";
+import Glassmorphism from "../../../Glassmorphism";
 
 export const Container = styled(Glassmorphism)`
   margin: 15px;
@@ -17,7 +17,7 @@ export const Content = styled.View`
 `;
 
 export const DistanceText = styled(Text).attrs({
-  fontWeight: "semiBold",
+    fontWeight: "semiBold",
 })`
   margin-left: 5px;
   margin-bottom: 3px;

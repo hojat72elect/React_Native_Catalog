@@ -1,9 +1,10 @@
 import Animated from "react-native-reanimated";
-import styled, { css, DefaultTheme } from "styled-components/native";
-import Text from "~components/Text";
+import styled, {css, DefaultTheme} from "styled-components/native";
+import Text from "../../../../components/Text";
+
 export interface ICodeInputNumber {
-  filled: boolean;
-  active: boolean;
+    filled: boolean;
+    active: boolean;
 }
 
 const containerFilledMixin = css`
@@ -16,16 +17,16 @@ const containerActiveMixin = css`
 `;
 
 const getContainerVariantsMixin = (props: ICodeInputNumber) => {
-  if (props.filled) return containerFilledMixin;
-  if (props.active) return containerActiveMixin;
+    if (props.filled) return containerFilledMixin;
+    if (props.active) return containerActiveMixin;
 };
 
 const getInputColorMixin = (
-  props: ICodeInputNumber & { theme: DefaultTheme }
+    props: ICodeInputNumber & { theme: DefaultTheme }
 ) => {
-  if (props.filled) return props.theme.colors.background;
-  if (props.active) return props.theme.colors.primary;
-  return "#979797";
+    if (props.filled) return props.theme.colors.background;
+    if (props.active) return props.theme.colors.primary;
+    return "#979797";
 };
 
 export const InputNumberContainer = styled(Animated.View)<ICodeInputNumber>`
@@ -43,8 +44,8 @@ export const InputNumberContainer = styled(Animated.View)<ICodeInputNumber>`
 `;
 
 export const InputNumber = styled(Text).attrs({
-  fontSize: "h1",
-  fontWeight: "bold",
+    fontSize: "h1",
+    fontWeight: "bold",
 })<ICodeInputNumber>`
   color: ${getInputColorMixin};
 `;

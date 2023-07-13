@@ -1,7 +1,7 @@
 import styled from "styled-components/native";
 
 import LottieView from "lottie-react-native";
-import LoadingDots from "~animations/inverseLoadingDots.json";
+import LoadingDots from "../assets/animations/inverseLoadingDots.json";
 
 interface LoadingProps {
   inverse?: boolean;

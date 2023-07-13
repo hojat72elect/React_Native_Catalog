@@ -1,5 +1,5 @@
 import styled from "styled-components/native";
-import Text from "~components/Text";
+import Text from "../../components/Text";
 
 export const Container = styled.View`
   flex: 1;
@@ -9,23 +9,23 @@ export const Container = styled.View`
 `;
 
 export const Content = styled.ScrollView.attrs({
-  contentContainerStyle: {
-    justifyContent: "center",
-    alignItems: "center",
-    minHeight: "100%",
-    paddingBottom: 100,
-  },
+    contentContainerStyle: {
+        justifyContent: "center",
+        alignItems: "center",
+        minHeight: "100%",
+        paddingBottom: 100,
+    },
 })`
   flex-grow: 1;
 `;
 
 export const ResendCode = styled.TouchableOpacity.attrs({
-  hitSlop: {
-    top: 50,
-    left: 50,
-    bottom: 25,
-    right: 50,
-  },
+    hitSlop: {
+        top: 50,
+        left: 50,
+        bottom: 25,
+        right: 50,
+    },
 })`
   align-content: center;
   align-items: center;
@@ -45,8 +45,8 @@ export const TopColumn = styled.View`
 `;
 
 export const Timer = styled(Text).attrs({
-  fontSize: "h1",
-  fontWeight: "bold",
+    fontSize: "h1",
+    fontWeight: "bold",
 })`
   color: ${(props) => props.theme.colors.text};
 `;

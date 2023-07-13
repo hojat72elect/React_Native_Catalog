@@ -1,17 +1,17 @@
 import styled from "styled-components/native";
-import Text from "~components/Text";
-import Disconnected from "~animations/disconnected.json";
-import Error from "~animations/error.json";
+import Text from "../Text";
+import Disconnected from "../../assets/animations/disconnected.json";
+import Error from "../../assets/animations/error.json";
 import LottieView from "lottie-react-native";
 
 export const Container = styled.ScrollView.attrs({
-  contentContainerStyle: { flex: 1 },
+    contentContainerStyle: {flex: 1},
 })``;
 
 export const Content = styled.View`
   justify-content: center;
   align-items: center;
-  /* background: ${(props) => props.theme.colors.background}; */
+    /* background: ${(props) => props.theme.colors.background}; */
   padding: 20px;
   flex-grow: 1;
   flex-shrink: 0;
@@ -19,8 +19,8 @@ export const Content = styled.View`
 `;
 
 export const Title = styled(Text).attrs({
-  fontSize: "large",
-  fontWeight: "bold",
+    fontSize: "large",
+    fontWeight: "bold",
 })``;
 
 export const ContainedText = styled(Text)`
@@ -29,19 +29,19 @@ export const ContainedText = styled(Text)`
 `;
 
 export const DisconnectedIllustration = styled(LottieView).attrs({
-  autoPlay: true,
-  loop: true,
-  source: Disconnected,
+    autoPlay: true,
+    loop: true,
+    source: Disconnected,
 })`
   height: 150px;
   align-self: center;
 `;
 
 export const ErrorIllustration = styled(LottieView).attrs({
-  autoPlay: true,
-  loop: true,
-  delay: 2000,
-  source: Error,
+    autoPlay: true,
+    loop: true,
+    delay: 2000,
+    source: Error,
 })`
   height: 150px;
   align-self: center;

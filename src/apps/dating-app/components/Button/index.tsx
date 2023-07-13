@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, ButtonText, ContainerProps } from "./styles";
-import Loading from "~components/Loading";
+import {Loading} from "../index";
 
 const Button: React.FC<ContainerProps> = (props) => {
   const enabled = !props.loading && !props.disabled;

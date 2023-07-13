@@ -1,13 +1,14 @@
-import styled, { css } from "styled-components/native";
-import Text from "~components/Text";
-import { TouchableOpacityProps } from "react-native";
+import styled, {css} from "styled-components/native";
+import Text from "../Text";
+import {TouchableOpacityProps} from "react-native";
 
 interface VariantProps {
-  variant?: "outline" | "default";
+    variant?: "outline" | "default";
 }
+
 export interface ContainerProps extends VariantProps, TouchableOpacityProps {
-  loading?: boolean;
-  disabled?: boolean;
+    loading?: boolean;
+    disabled?: boolean;
 }
 
 export const Container = styled.TouchableOpacity<ContainerProps>`
@@ -22,13 +23,13 @@ export const Container = styled.TouchableOpacity<ContainerProps>`
   border: 3px ${(props) => props.theme.colors.primary};
 
   ${(props) =>
-    props.variant !== "outline" &&
-    css`
-      background-color: ${props.theme.colors.primary};
-    `}
+          props.variant !== "outline" &&
+          css`
+            background-color: ${props.theme.colors.primary};
+          `}
 `;
 
 export const ButtonText = styled(Text)<VariantProps>`
   color: ${(props) =>
-    props.variant === "outline" ? props.theme.colors.primary : "white"};
+          props.variant === "outline" ? props.theme.colors.primary : "white"};
 `;

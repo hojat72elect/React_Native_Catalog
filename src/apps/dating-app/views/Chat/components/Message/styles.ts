@@ -1,6 +1,6 @@
 import Animated from "react-native-reanimated";
 import styled, { css } from "styled-components/native";
-import { Text } from "~components";
+import { Text } from "../../../../components";
 import { FeedbackStatus } from "../Feedback";
 
 interface MessageProps {
@@ -18,21 +18,20 @@ export const Message = styled(Animated.View)<MessageProps>`
   margin-bottom: 5px;
 
   ${(props) =>
-    props.sending
-      ? css`
-  margin-left: auto
-  border-bottom-right-radius:  0;
-  `
-      : css`
-  margin-right: auto
-  border-bottom-left-radius:  0;
-  `},
-
+          props.sending
+                  ? css`
+                    margin-left: auto
+                    border-bottom-right-radius: 0;
+                  `
+                  : css`
+                    margin-right: auto
+                    border-bottom-left-radius: 0;
+                  `},
   ${(props) =>
-    props.status === FeedbackStatus.Error &&
-    css`
-      border: 1px #dd2e44;
-    `}
+          props.status === FeedbackStatus.Error &&
+          css`
+            border: 1px #dd2e44;
+          `}
 `;
 
 export const Info = styled.View`

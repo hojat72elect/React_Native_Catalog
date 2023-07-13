@@ -1,6 +1,6 @@
 import React from "react";
 import { View } from "react-native";
-import Text from "~components/Text";
+import Text from "../Text";
 import {
   Container,
   OptionButtonProps,

@@ -1,64 +1,64 @@
 import produce from "immer";
-import { createAsyncAction } from "typesafe-actions";
-import { ActionType, createReducer } from "typesafe-actions";
-import { removeDuplicates } from "~services/utils";
-import { initialState } from "./swipe";
+import {createAsyncAction} from "typesafe-actions";
+import {ActionType, createReducer} from "typesafe-actions";
+import {removeDuplicates} from "../../../services/utils";
+import {initialState} from "./swipe";
 
 export enum Types {
-  FETCH_USERS_REQUEST = "FETCH_USERS_REQUEST",
-  FETCH_USERS_SUCCESS = "FETCH_SUCCESS",
-  FETCH_USERS_FAILURE = "FETCH_FAILURE",
+    FETCH_USERS_REQUEST = "FETCH_USERS_REQUEST",
+    FETCH_USERS_SUCCESS = "FETCH_SUCCESS",
+    FETCH_USERS_FAILURE = "FETCH_FAILURE",
 }
 
 export const Actions = createAsyncAction(
-  Types.FETCH_USERS_REQUEST,
-  Types.FETCH_USERS_SUCCESS,
-  Types.FETCH_USERS_FAILURE
+    Types.FETCH_USERS_REQUEST,
+    Types.FETCH_USERS_SUCCESS,
+    Types.FETCH_USERS_FAILURE
 )<
-  void,
-  { users: any[]; nextPage: number; hasMore: boolean },
-  { message: string }
+    void,
+    { users: any[]; nextPage: number; hasMore: boolean },
+    { message: string }
 >();
 
 const fetchUsersRequest = (state = initialState) =>
-  produce(state, (draft) => {
-    draft.request.loading = true;
-    draft.request.error = null;
+    produce(state, (draft) => {
+        draft.request.loading = true;
+        draft.request.error = null;
 
-    return draft;
-  });
+        return draft;
+    });
 
 const fetchUsersSuccess = (
-  state = initialState,
-  { payload }: ActionType<typeof Actions.success>
+    state = initialState,
+    {payload}: ActionType<typeof Actions.success>
 ) =>
-  produce(state, (draft) => {
-    draft.request.loading = false;
-    draft.request.error = null;
-    draft.request.data = [...draft.request.data, ...payload.users].filter(
-      removeDuplicates
-    );
+    produce(state, (draft) => {
+        draft.request.loading = false;
+        draft.request.error = null;
+        draft.request.data = [...draft.request.data, ...payload.users].filter(
+            removeDuplicates
+        );
 
-    draft.config.nextPage = payload.nextPage;
-    draft.config.hasMore = payload.hasMore;
+        draft.config.nextPage = payload.nextPage;
+        draft.config.hasMore = payload.hasMore;
 
-    return draft;
-  });
+        return draft;
+    });
 
 const fetchUsersFailure = (
-  state = initialState,
-  { payload }: ActionType<typeof Actions.failure>
+    state = initialState,
+    {payload}: ActionType<typeof Actions.failure>
 ) =>
-  produce(state, (draft) => {
-    draft.request.loading = false;
-    draft.request.error = payload.message;
+    produce(state, (draft) => {
+        draft.request.loading = false;
+        draft.request.error = payload.message;
 
-    return draft;
-  });
+        return draft;
+    });
 
 export default createReducer<typeof initialState, ActionType<typeof Actions>>(
-  initialState
+    initialState
 )
-  .handleAction(Actions.request, fetchUsersRequest)
-  .handleAction(Actions.success, fetchUsersSuccess)
-  .handleAction(Actions.failure, fetchUsersFailure);
+    .handleAction(Actions.request, fetchUsersRequest)
+    .handleAction(Actions.success, fetchUsersSuccess)
+    .handleAction(Actions.failure, fetchUsersFailure);

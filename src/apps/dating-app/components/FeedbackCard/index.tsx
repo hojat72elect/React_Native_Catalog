@@ -4,7 +4,7 @@ import {
   interpolate,
   useAnimatedStyle,
 } from "react-native-reanimated";
-import { ACTION_OFFSET } from "~src/constants";
+import { ACTION_OFFSET } from "../../constants";
 import LikeFeedback from "./components/LikeFeedback";
 import MainCard from "../MainCard";
 import MaybeFeedback from "./components/MaybeFeedback";

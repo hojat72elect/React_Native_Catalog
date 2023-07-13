@@ -1,5 +1,4 @@
 import React, {useEffect, useMemo} from "react";
-import {registerRootComponent} from "expo";
 import {useFonts} from "@use-expo/font";
 import {DefaultTheme, Font, LightTheme, DarkTheme} from "./themes";
 import {ThemeProvider} from "styled-components/native";
@@ -19,12 +18,12 @@ enableScreens();
 
 export const DatingAppNavigation = () => {
     let [fontsLoaded] = useFonts({
-        [Font.GilroyBold]: require("~assets/fonts/Gilroy-Bold.ttf"),
-        [Font.GilroyExtraBold]: require("~assets/fonts/Gilroy-ExtraBold.ttf"),
-        [Font.GilroyLight]: require("~assets/fonts/Gilroy-Light.ttf"),
-        [Font.GilroyMedium]: require("~assets/fonts/Gilroy-Medium.ttf"),
-        [Font.GilroyRegular]: require("~assets/fonts/Gilroy-Regular.ttf"),
-        [Font.GilroySemiBold]: require("~assets/fonts/Gilroy-SemiBold.ttf"),
+        [Font.GilroyBold]: require("./assets/fonts/Gilroy-Bold.ttf"),
+        [Font.GilroyExtraBold]: require("./assets/fonts/Gilroy-ExtraBold.ttf"),
+        [Font.GilroyLight]: require("./assets/fonts/Gilroy-Light.ttf"),
+        [Font.GilroyMedium]: require("./assets/fonts/Gilroy-Medium.ttf"),
+        [Font.GilroyRegular]: require("./assets/fonts/Gilroy-Regular.ttf"),
+        [Font.GilroySemiBold]: require("./assets/fonts/Gilroy-SemiBold.ttf"),
     });
 
     const colorScheme = useColorScheme();

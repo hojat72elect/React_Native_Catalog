@@ -1,5 +1,5 @@
 import styled from "styled-components/native";
-import Text from "~components/Text";
+import Text from "../../../../components/Text";
 
 export const Container = styled.View`
   align-items: center;
@@ -10,8 +10,8 @@ export const Container = styled.View`
 `;
 
 export const Title = styled(Text).attrs({
-  fontSize: "h2",
-  fontWeight: "bold",
+    fontSize: "h2",
+    fontWeight: "bold",
 })`
   color: ${(props) => props.theme.colors.text};
 `;

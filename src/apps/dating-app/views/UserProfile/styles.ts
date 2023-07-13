@@ -2,8 +2,7 @@ import Color from "color";
 import { LinearGradient } from "expo-linear-gradient";
 import { clamp } from "lodash";
 import styled from "styled-components/native";
-import { height, width } from "~constants";
-
+import { height, width } from "../../constants";
 const ASPECT_RATIO = 4 / 3;
 const MAX_HEIGHT = height * 0.7;
 const MIN_HEIGHT = height * 0.4;

@@ -2,12 +2,12 @@ import styled from "styled-components/native";
 import Animated from "react-native-reanimated";
 
 // Should preload for a better user experience, so no inline requires
-import confusedEmoji from "~assets/images/ConfusedEmoji.png";
-import thinkingEmoji from "~assets/images/ThinkingEmoji.png";
-import heartEyesEmoji from "~assets/images/HeartEyesEmoji.png";
+import confusedEmoji from "../../assets/images/ConfusedEmoji.png";
+import thinkingEmoji from "../../assets/images/ThinkingEmoji.png";
+import heartEyesEmoji from "../../assets/images/HeartEyesEmoji.png";
 
 export const Container = styled(Animated.View).attrs({
-  pointerEvents: "box-none",
+    pointerEvents: "box-none",
 })`
   width: 100%;
   position: absolute;
@@ -31,19 +31,19 @@ export const ActionItem = styled.TouchableOpacity`
 `;
 
 export const ConfusedEmoji = styled.Image.attrs({
-  source: confusedEmoji,
+    source: confusedEmoji,
 })`
   width: 60px;
   height: 60px;
 `;
 
 export const ThinkingEmoji = styled.Image.attrs({
-  source: thinkingEmoji,
+    source: thinkingEmoji,
 })`
   width: 43px;
   height: 43px;
 `;
 
 export const HeartEyesEmoji = styled(ConfusedEmoji).attrs({
-  source: heartEyesEmoji,
+    source: heartEyesEmoji,
 })``;

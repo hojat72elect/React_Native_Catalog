@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { TouchableOpacityProps } from "react-native";
-import BackArrow from "~images/BackArrow.svg";
+import BackArrow from "../../../../assets/images/BackArrow.svg";
 import { Container } from "./styles";
 import { ThemeContext } from "styled-components/native";
 

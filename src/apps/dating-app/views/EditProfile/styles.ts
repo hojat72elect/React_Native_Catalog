@@ -1,6 +1,6 @@
-import styled, { css } from "styled-components/native";
-import { Button } from "~components";
-import { width } from "~constants";
+import styled, {css} from "styled-components/native";
+import {Button} from "../../components";
+import {width} from "../../constants";
 
 export const containerPadding = 15;
 export const numOfColumns = 3;
@@ -12,7 +12,7 @@ export const Container = styled.ScrollView`
 `;
 
 export const AddRemoveContainer = styled.TouchableOpacity<{
-  inverted: boolean;
+    inverted: boolean;
 }>`
   border-radius: 15px;
   width: 30px;
@@ -23,13 +23,13 @@ export const AddRemoveContainer = styled.TouchableOpacity<{
   bottom: 0;
   right: 0;
   background-color: ${(props) =>
-    props.inverted
-      ? props.theme.colors.secondaryBackground
-      : props.theme.colors.primary};
+          props.inverted
+                  ? props.theme.colors.secondaryBackground
+                  : props.theme.colors.primary};
 `;
 
 export const UserPictureContent = styled.ImageBackground<{
-  children: React.ReactElement;
+    children: React.ReactElement;
 }>`
   border-radius: 15px;
   align-items: center;
@@ -55,22 +55,22 @@ export const ContinueButton = styled(Button)`
   border-color: ${(props) => props.theme.colors.background};
 
   ${(props) =>
-    props.disabled &&
-    css`
-      opacity: 0.5;
-    `}
+          props.disabled &&
+          css`
+            opacity: 0.5;
+          `}
 `;
 
 interface BottomPaddingProps {
-  disabled?: boolean;
+    disabled?: boolean;
 }
 
 export const BottomPadding = styled.View<BottomPaddingProps>`
   background-color: ${(props) => props.theme.colors.primary};
 
   ${(props) =>
-    props.disabled &&
-    css`
-      opacity: 0.5;
-    `}
+          props.disabled &&
+          css`
+            opacity: 0.5;
+          `}
 `;

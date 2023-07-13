@@ -1,5 +1,5 @@
 import styled from "styled-components/native";
-import Text from "~components/Text";
+import Text from "../../../Text";
 
 export const Container = styled.View`
   padding: 25px;

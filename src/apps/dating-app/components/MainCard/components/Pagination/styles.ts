@@ -1,6 +1,6 @@
 import Animated from "react-native-reanimated";
 import styled from "styled-components/native";
-import Glassmorphism from "~components/Glassmorphism";
+import Glassmorphism from "../../../Glassmorphism";
 
 export const Content = styled.View`
   padding: 5px;
@@ -17,7 +17,7 @@ export const Container = styled(Glassmorphism)`
 `;
 
 interface IDot {
-  active: boolean;
+    active: boolean;
 }
 
 export const Dot = styled(Animated.View)<IDot>`

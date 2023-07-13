@@ -1,10 +1,11 @@
-import { TouchableOpacityProps } from "react-native";
-import styled, { css } from "styled-components/native";
-import Text from "~components/Text";
+import {TouchableOpacityProps} from "react-native";
+import styled, {css} from "styled-components/native";
+import Text from "../../components/Text";
+
 
 export interface OptionButtonProps extends TouchableOpacityProps {
-  marked?: boolean;
-  last?: boolean;
+    marked?: boolean;
+    last?: boolean;
 }
 
 export const Container = styled.View`

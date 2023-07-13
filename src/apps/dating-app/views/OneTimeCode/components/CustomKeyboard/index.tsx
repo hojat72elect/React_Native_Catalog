@@ -1,6 +1,6 @@
 import React, { useCallback, useContext } from "react";
 import { TouchableOpacityProps } from "react-native";
-import Erase from "~images/Erase.svg";
+import Erase from "../../../../assets/images/Erase.svg";
 import {
   KeyContainer,
   KeyContent,
