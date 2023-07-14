@@ -36,3 +36,9 @@ Apps implemented:
 3. [Step Counter app](https://www.youtube.com/live/VVoXcr18mdo?feature=share)(implemented the UI part).
 4. [Food order and map app](https://youtu.be/v-zxqkz1T8E)(00:00).
 5. [Moti tutorial](https://youtu.be/LwKUjau3Ifw) (It's hard to install Moti, I let it go for now).
+
+<hr/>
+
+https://www.youtube.com/watch?v=qBGnfULn8W4&list=PLnGUkDX-ak1kdA8R8dUrkrqOG33fIrlWb&index=1
+
+03:00
