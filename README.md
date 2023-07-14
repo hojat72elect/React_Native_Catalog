@@ -41,4 +41,4 @@ Apps implemented:
 
 https://www.youtube.com/watch?v=qBGnfULn8W4&list=PLnGUkDX-ak1kdA8R8dUrkrqOG33fIrlWb&index=1
 
-14:57
+19:46
