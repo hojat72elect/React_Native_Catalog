@@ -44,7 +44,7 @@ export class FlappyBirdGameNavigation extends Component {
         // A Matter.Composite instance that holds all the physical entities in our world.
         const world = engine.world;
         const bird = Matter.Bodies.rectangle(Constants.MAX_WIDTH / 4, Constants.MAX_HEIGHT / 2, 50, 50);
-        const floor = Matter.Bodies.rectangle(Constants.MAX_WIDTH / 2, Constants.MAX_HEIGHT - 25, Constants.MAX_WIDTH, 50, {isStatic: true});
+        const floor = Matter.Bodies.rectangle(Constants.MAX_WIDTH / 2, Constants.MAX_HEIGHT - 100, Constants.MAX_WIDTH, 50, {isStatic: true});
         const ceiling = Matter.Bodies.rectangle(Constants.MAX_WIDTH / 2, 25, Constants.MAX_WIDTH, 50, {isStatic: true});
 
 
