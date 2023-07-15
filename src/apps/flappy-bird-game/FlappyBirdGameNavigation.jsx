@@ -7,6 +7,21 @@ import {Bird} from "./Bird";
 import {Physics} from "./Physics";
 import {Wall} from "./Wall";
 
+function randomBetween(min, max) {
+    return Math.floor(Math.random() * (min - max + 1) + min);
+}
+
+function generatePipes() {
+    const topPipeHeight = randomBetween(100, (Constants.MAX_HEIGHT / 2) - 100);
+    const bottomPipeHeight = Constants.MAX_HEIGHT - topPipeHeight - Constants.GAP_SIZE;
+    let sizes = [topPipeHeight, bottomPipeHeight];
+
+    if (Math.random() < 0.5) {
+        sizes = sizes.reverse();
+    }
+    return sizes;
+}
+
 export class FlappyBirdGameNavigation extends Component {
 
     constructor(props) {
@@ -48,9 +63,16 @@ export class FlappyBirdGameNavigation extends Component {
         const ceiling = Matter.Bodies.rectangle(Constants.MAX_WIDTH / 2, 25, Constants.MAX_WIDTH, 50, {isStatic: true});
 
 
-        console.log("type of bird is :", typeof bird);
+        const [pipe1Height, pipe2Height] = generatePipes();
+        const pipe1 = Matter.Bodies.rectangle(Constants.MAX_WIDTH - (Constants.PIPE_WIDTH / 2), pipe1Height / 2, Constants.PIPE_WIDTH, pipe1Height, {isStatic: true});
+        const pipe2 = Matter.Bodies.rectangle(Constants.MAX_WIDTH - (Constants.PIPE_WIDTH / 2), Constants.MAX_HEIGHT-(pipe2Height / 2), Constants.PIPE_WIDTH, pipe2Height, {isStatic: true});
+
+        const [pipe3Height, pipe4Height] = generatePipes();
+        const pipe3 = Matter.Bodies.rectangle(Constants.MAX_WIDTH*2 - (Constants.PIPE_WIDTH / 2), pipe1Height / 2, Constants.PIPE_WIDTH, pipe1Height, {isStatic: true});
+        const pipe4 = Matter.Bodies.rectangle(Constants.MAX_WIDTH - (Constants.PIPE_WIDTH / 2), Constants.MAX_HEIGHT-(pipe2Height / 2), Constants.PIPE_WIDTH, pipe2Height, {isStatic: true});
+
         // Add the bird to our world
-        Matter.Composite.add(world, [bird, floor]);
+        Matter.Composite.add(world, [bird, floor, ceiling]);
 
         return {
             physics: {engine: engine, world: world},
