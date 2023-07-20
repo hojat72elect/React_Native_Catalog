@@ -17,3 +17,4 @@ web-build/
 .metro-health-check*
 #secrets
 /src/apps/movie-app/Secrets.ts
+/package-lock.json
