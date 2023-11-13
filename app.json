@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "react-native-catalog",
-    "slug": "react-native-catalog",
+    "name": "ReactNativeExpoPlayGround",
+    "slug": "ReactNativeExpoPlayGround",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -15,19 +15,17 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true,
-      "bundleIdentifier": "com.hojat72elect.reactnativecatalog"
+      "supportsTablet": true
     },
     "android": {
+      "package": "ca.on.hojat.reactnativeexpoplayground",
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      },
-      "package": "com.hojat72elect.reactnativecatalog"
+      }
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    },
-    "plugins": []
+    }
   }
 }
