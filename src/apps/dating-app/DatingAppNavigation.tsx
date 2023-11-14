@@ -1,6 +1,6 @@
 import React, {useEffect, useMemo} from "react";
 import {useFonts} from "@use-expo/font";
-import {DefaultTheme, Font, LightTheme, DarkTheme} from "./themes";
+import {DarkTheme, DefaultTheme, Font, LightTheme} from "./themes";
 import {ThemeProvider} from "styled-components/native";
 import {NavigationContainer} from "@react-navigation/native";
 import Router from "./views/index.routes";
