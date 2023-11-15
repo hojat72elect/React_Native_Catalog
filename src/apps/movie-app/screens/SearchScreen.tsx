@@ -13,7 +13,7 @@ import {useCallback, useState} from "react";
 import {fallbackMoviePoster, image185, searchMovies} from "../api/MovieDb";
 import {debounce} from 'lodash';
 import {XMarkIcon} from "react-native-heroicons/mini";
-import {Loading} from "../components/Loading";
+import {Loading} from "../ui/Loading";
 import {ApiResponse, ApiResponseResults} from "../api/response/ApiResponse";
 
 const {width, height} = Dimensions.get('window');

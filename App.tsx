@@ -1,8 +1,8 @@
 import React from "react";
-import {CoffeeAppNavigation} from "./src/apps/coffee-app/CoffeeAppNavigation";
+import MovieAppNavigation from "./src/apps/movie-app/MovieAppNavigation";
 
 export default function App() {
     return (
-        <CoffeeAppNavigation/>
+        <MovieAppNavigation/>
     );
 }

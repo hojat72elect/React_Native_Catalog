@@ -1,5 +1,5 @@
 import React from 'react'
-import {Dimensions, Image, ScrollView, Text, TouchableOpacity, TouchableWithoutFeedback, View} from "react-native";
+import {Dimensions, Image, ScrollView, Text, TouchableOpacity, View} from "react-native";
 import {styles} from "../../../common/Theme";
 import {useNavigation} from "@react-navigation/native";
 import {fallbackMoviePoster, image185} from "../api/MovieDb";

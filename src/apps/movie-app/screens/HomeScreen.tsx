@@ -2,12 +2,12 @@ import React, {useEffect, useState} from 'react'
 import {Platform, SafeAreaView, ScrollView, Text, TouchableOpacity, View} from "react-native";
 import {StatusBar} from "expo-status-bar";
 import {Bars3CenterLeftIcon, MagnifyingGlassIcon} from "react-native-heroicons/outline";
-import {TrendingMovies} from "../components/TrendingMovies";
-import {MovieList} from "../components/MovieList";
+import {TrendingMovies} from "../ui/TrendingMovies";
+import {MovieList} from "../ui/MovieList";
 import {styles} from "../../../common/Theme";
 import {useNavigation} from "@react-navigation/native";
 import {fetchTopRatedMovies, fetchTrendingMovies, fetchUpcomingMovies} from "../api/MovieDb";
-import {Loading} from "../components/Loading";
+import {Loading} from "../ui/Loading";
 import {ApiResponse, ApiResponseResults} from "../api/response/ApiResponse";
 
 const isIos = Platform.OS === 'ios';

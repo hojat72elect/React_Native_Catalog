@@ -4,11 +4,11 @@ import {useNavigation, useRoute} from "@react-navigation/native";
 import {ChevronLeftIcon} from "react-native-heroicons/outline";
 import {LinearGradient} from "expo-linear-gradient";
 import {HeartIcon} from "react-native-heroicons/solid";
-import {MovieList} from "../components/MovieList";
-import {Cast} from "../components/Cast";
+import {MovieList} from "../ui/MovieList";
+import {Cast} from "../ui/Cast";
 import {styles} from "../../../common/Theme";
 import {fallbackMoviePoster, fetchMovieCredits, fetchMovieDetails, fetchSimilarMovies, image500} from "../api/MovieDb";
-import {Loading} from "../components/Loading";
+import {Loading} from "../ui/Loading";
 import {theme} from "../MovieAppTheme";
 import {
     ApiMovieCredits,
