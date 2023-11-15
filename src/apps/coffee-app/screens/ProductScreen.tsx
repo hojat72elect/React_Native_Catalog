@@ -4,7 +4,7 @@ import {useNavigation, useRoute} from "@react-navigation/native";
 import {StatusBar} from "expo-status-bar";
 import {ArrowLeftCircleIcon, PlusIcon, MinusIcon, ShoppingBagIcon} from "react-native-heroicons/outline";
 import {HeartIcon, StarIcon} from "react-native-heroicons/solid";
-import {themeColors} from "./CoffeeTheme";
+import {themeColors} from "../theme/CoffeeTheme";
 
 export const ProductScreen = () => {
 
@@ -18,7 +18,7 @@ export const ProductScreen = () => {
         }}>
             <StatusBar style="light"/>
             <Image
-                source={require('../../../assets/images/beansBackground2.png')}
+                source={require('../../../../assets/images/beansBackground2.png')}
                 style={{
                     width: '100%',
                     height: 120,

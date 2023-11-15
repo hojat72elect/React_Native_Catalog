@@ -1,6 +1,6 @@
-import {Text, FlatList, TouchableOpacity} from 'react-native'
+import {ColorValue, FlatList, Text, TouchableOpacity} from 'react-native'
 import React, {useState} from 'react'
-import {themeColors} from "../apps/coffee-app/CoffeeTheme";
+import {themeColors} from "../apps/coffee-app/theme/CoffeeTheme";
 
 type FakeDataItem = {
     id: number;
@@ -9,12 +9,14 @@ type FakeDataItem = {
 
 type Props = {
     data: FakeDataItem[];
+    activeButtonBackgroundColor: ColorValue,
 };
 
 /**
  * @param data is what you are going to show in this chips view. it's just a JS object and "id" field of that object.
+ * @param activeButtonBackgroundColor the color of the chip when it's in active state.
  */
-export const HorizontalChipsView = ({data}: Props) => {
+export const HorizontalChipsView = ({data, activeButtonBackgroundColor}: Props) => {
 
     const [activeCategory, setActiveCategory] = useState(1);
 
@@ -36,7 +38,7 @@ export const HorizontalChipsView = ({data}: Props) => {
                     <TouchableOpacity
                         onPress={() => setActiveCategory(item.id)}
                         style={{
-                            backgroundColor: isActive ? themeColors.bgLight : 'rgba(0,0,0,0.07)',
+                            backgroundColor: isActive ? activeButtonBackgroundColor : 'rgba(0,0,0,0.07)',
                             paddingVertical: 16,
                             paddingHorizontal: 32,
                             marginRight: 6,

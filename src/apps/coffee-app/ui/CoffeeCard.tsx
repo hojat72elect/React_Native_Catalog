@@ -3,8 +3,8 @@ import React from 'react'
 import {StarIcon} from 'react-native-heroicons/solid';
 import {PlusIcon} from 'react-native-heroicons/outline';
 import {useNavigation} from "@react-navigation/native";
-import {themeColors} from "./CoffeeTheme";
-import {Coffee} from "./FakeData";
+import {themeColors} from "../theme/CoffeeTheme";
+import {Coffee} from "../data/FakeData";
 
 const {width, height} = Dimensions.get('window');
 

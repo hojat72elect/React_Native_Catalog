@@ -1,25 +1,18 @@
-import {
-    Dimensions,
-    Image,
-    ScrollView,
-    Text,
-    TextInput,
-    TouchableOpacity,
-    View
-} from 'react-native';
+import {Dimensions, Image, ScrollView, Text, TextInput, TouchableOpacity, View} from 'react-native';
 import React from 'react';
 import {StatusBar} from 'expo-status-bar';
 import Carousel from 'react-native-snap-carousel';
 import {BellIcon, MagnifyingGlassIcon} from 'react-native-heroicons/outline';
 import {MapPinIcon} from 'react-native-heroicons/solid';
-import {mockedCoffeeCategories, mockedCoffeeItems} from "./FakeData";
-import {CoffeeCard} from "./CoffeeCard";
-import {HorizontalChipsView} from "../../common/HorizontalChipsView";
-import {themeColors} from "./CoffeeTheme";
+import {mockedCoffeeCategories, mockedCoffeeItems} from "../data/FakeData";
+import {CoffeeCard} from "../ui/CoffeeCard";
+import {HorizontalChipsView} from "../../../common/HorizontalChipsView";
+import {themeColors} from "../theme/CoffeeTheme";
 
 const {width, height} = Dimensions.get('window');
 
 export const HomeScreen = () => {
+
 
     return (
         <View
@@ -31,7 +24,7 @@ export const HomeScreen = () => {
             <StatusBar/>
 
             <Image
-                source={require('../../../assets/images/beansBackground1.png')}
+                source={require('../../../../assets/images/beansBackground1.png')}
                 style={{
                     height: height * 0.2,
                     width: '100%',
@@ -51,7 +44,7 @@ export const HomeScreen = () => {
                 }}
             >
                 {/*The avatar image*/}
-                <Image source={require('../../../assets/images/avatar.png')}
+                <Image source={require('../../../../assets/images/avatar.png')}
                        style={{
                            height: 35,
                            width: 35,
@@ -108,7 +101,7 @@ export const HomeScreen = () => {
                 </View>
 
                 {/* A chips view, showing categories of coffee served in this shop.*/}
-                <HorizontalChipsView data={mockedCoffeeCategories}/>
+                <HorizontalChipsView data={mockedCoffeeCategories} activeButtonBackgroundColor={themeColors.bgLight}/>
 
                 {/* A horizontal carousel showing coffee cards */}
                 <View

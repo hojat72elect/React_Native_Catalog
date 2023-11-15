@@ -3,29 +3,38 @@ import {NavigationContainer, Route} from "@react-navigation/native";
 import {createNativeStackNavigator} from "@react-navigation/native-stack";
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {View} from "react-native";
-import {HomeScreen} from "./HomeScreen";
+import {HomeScreen} from "./screens/HomeScreen";
 import {
-    HomeIcon as HomeOutline,
     HeartIcon as HeartOutline,
+    HomeIcon as HomeOutline,
     ShoppingBagIcon as ShoppingBagOutline
 } from "react-native-heroicons/outline";
 import {
-    HomeIcon as HomeSolid,
     HeartIcon as HeartSolid,
+    HomeIcon as HomeSolid,
     ShoppingBagIcon as ShoppingBagSolid
 } from "react-native-heroicons/solid";
-import {ProductScreen} from "./ProductScreen";
-import {themeColors} from "./CoffeeTheme";
+import {ProductScreen} from "./screens/ProductScreen";
+import {themeColors} from "./theme/CoffeeTheme";
 
+// The stack navigator (behaves like a stack)
 const Stack = createNativeStackNavigator();
+// The tab navigator (bottom tabs)
 const Tab = createBottomTabNavigator();
 
 /**
- * This is the entry point to the coffee app.
+ * The entry point to the coffee app.
  */
 export const CoffeeAppNavigation = () => {
 
-    const menuIcons = (route: Route<any>, focused: boolean) => {
+    /**
+     * The returned {Element} is  a {View} containing the icon for each tab.
+     *
+     * @param route : any route referred to by any of the bottom tabs.
+     * @param focused : boolean whether that tab is currently chosen or not.
+     */
+    const bottomTabIcons = (route: Route<any>, focused: boolean) => {
+        // the icon of each tab
         let icon;
         if (route.name === 'home') {
             icon = focused ? <HomeSolid size={30} color={themeColors.bgLight}/> :
@@ -37,7 +46,7 @@ export const CoffeeAppNavigation = () => {
             icon = focused ? <ShoppingBagSolid size={30} color={themeColors.bgLight}/> :
                 <ShoppingBagOutline size={30} strokeWidth={2} color="white"/>
         }
-        let buttonClass = focused ? 'white' : undefined;
+        let iconBackground = focused ? 'white' : undefined;
 
         return (
             <View
@@ -45,7 +54,7 @@ export const CoffeeAppNavigation = () => {
                     alignItems: 'center',
                     borderRadius: 100,
                     padding: 8,
-                    backgroundColor: buttonClass,
+                    backgroundColor: iconBackground,
                 }}
             >
                 {icon}
@@ -53,13 +62,16 @@ export const CoffeeAppNavigation = () => {
         )
     }
 
-    const HomeTabs = () => {
+    /**
+     * The TabBar at the bottom of the "coffee app" main page.
+     */
+    const BottomTabBar = () => {
         return (
             <Tab.Navigator
                 screenOptions={({route}) => ({
                     headerShown: false,
                     tabBarShowLabel: false,
-                    tabBarIcon: ({focused}) => menuIcons(route, focused),
+                    tabBarIcon: ({focused}) => bottomTabIcons(route, focused),
                     tabBarStyle: {
                         height: 60,
                         marginVertical: 5,
@@ -82,7 +94,7 @@ export const CoffeeAppNavigation = () => {
             <Stack.Navigator screenOptions={{
                 contentStyle: {backgroundColor: 'white'}
             }}>
-                <Stack.Screen name="Home" options={{headerShown: false}} component={HomeTabs}/>
+                <Stack.Screen name="Home" options={{headerShown: false}} component={BottomTabBar}/>
                 <Stack.Screen name="Product" options={{headerShown: false}} component={ProductScreen}/>
             </Stack.Navigator>
         </NavigationContainer>
