@@ -1,8 +1,8 @@
 import React from "react";
-import MovieAppNavigation from "./src/apps/movie-app/MovieAppNavigation";
+import {SnakeGame} from "./src/apps/snake-game/SnakeGame";
 
 export default function App() {
     return (
-        <MovieAppNavigation/>
+        <SnakeGame/>
     );
 }

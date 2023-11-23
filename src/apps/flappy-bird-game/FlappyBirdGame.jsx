@@ -22,7 +22,7 @@ function generatePipes() {
     return sizes;
 }
 
-export class FlappyBirdGameNavigation extends Component {
+export class FlappyBirdGame extends Component {
 
     constructor(props) {
         super(props);
@@ -65,11 +65,11 @@ export class FlappyBirdGameNavigation extends Component {
 
         const [pipe1Height, pipe2Height] = generatePipes();
         const pipe1 = Matter.Bodies.rectangle(Constants.MAX_WIDTH - (Constants.PIPE_WIDTH / 2), pipe1Height / 2, Constants.PIPE_WIDTH, pipe1Height, {isStatic: true});
-        const pipe2 = Matter.Bodies.rectangle(Constants.MAX_WIDTH - (Constants.PIPE_WIDTH / 2), Constants.MAX_HEIGHT-(pipe2Height / 2), Constants.PIPE_WIDTH, pipe2Height, {isStatic: true});
+        const pipe2 = Matter.Bodies.rectangle(Constants.MAX_WIDTH - (Constants.PIPE_WIDTH / 2), Constants.MAX_HEIGHT - (pipe2Height / 2), Constants.PIPE_WIDTH, pipe2Height, {isStatic: true});
 
         const [pipe3Height, pipe4Height] = generatePipes();
-        const pipe3 = Matter.Bodies.rectangle(Constants.MAX_WIDTH*2 - (Constants.PIPE_WIDTH / 2), pipe1Height / 2, Constants.PIPE_WIDTH, pipe1Height, {isStatic: true});
-        const pipe4 = Matter.Bodies.rectangle(Constants.MAX_WIDTH - (Constants.PIPE_WIDTH / 2), Constants.MAX_HEIGHT-(pipe2Height / 2), Constants.PIPE_WIDTH, pipe2Height, {isStatic: true});
+        const pipe3 = Matter.Bodies.rectangle(Constants.MAX_WIDTH * 2 - (Constants.PIPE_WIDTH / 2), pipe1Height / 2, Constants.PIPE_WIDTH, pipe1Height, {isStatic: true});
+        const pipe4 = Matter.Bodies.rectangle(Constants.MAX_WIDTH - (Constants.PIPE_WIDTH / 2), Constants.MAX_HEIGHT - (pipe2Height / 2), Constants.PIPE_WIDTH, pipe2Height, {isStatic: true});
 
         // Add the bird to our world
         Matter.Composite.add(world, [bird, floor, ceiling]);
