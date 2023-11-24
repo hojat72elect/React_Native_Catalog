@@ -35,7 +35,7 @@ export const CoffeeAppNavigation = () => {
      */
     const bottomTabIcons = (route: Route<any>, focused: boolean) => {
         // the icon of each tab
-        let icon;
+        let icon: React.ReactElement | null = null;
         if (route.name === 'home') {
             icon = focused ? <HomeSolid size={30} color={themeColors.bgLight}/> :
                 <HomeOutline size={30} strokeWidth={2} color="white"/>
